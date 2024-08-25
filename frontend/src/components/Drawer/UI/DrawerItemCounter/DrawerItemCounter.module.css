@@ -1,0 +1,43 @@
+.counterContainer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex: 1;
+	width: auto;
+}
+
+.counterControls {
+	display: flex;
+	align-items: center;
+	gap: 9px;
+}
+
+.counterIcon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: solid 1px var(--accent-regular);
+	color: var(--accent-regular);
+	border-radius: 10px;
+	cursor: pointer;
+	width: 30px;
+	aspect-ratio: 1;
+	outline: none;
+	background-color: transparent;
+	transition: 0.15s;
+
+	&:hover {
+		background-color: #ff938020;
+	}
+
+	&:is(:disabled, :disabled:hover) {
+		background-color: transparent;
+		border-color: var(--light-low);
+		color: var(--light-middle);
+		cursor: default;
+	}
+}
+
+.counterValue {
+	color: var(--light);
+}

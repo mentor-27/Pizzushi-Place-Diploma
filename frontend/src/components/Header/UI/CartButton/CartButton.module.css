@@ -1,0 +1,48 @@
+.cartButton {
+	position: relative;
+	height: 52px;
+
+	& .separator {
+		height: 24px;
+		width: 1px;
+		margin-inline: 3px;
+		background-color: var(--accent-light);
+	}
+
+	& .cartBlock {
+		display: flex;
+		gap: 8px;
+		opacity: 1;
+		transition: 0.3s;
+
+		& .loader {
+			animation: rotate 0.5s linear infinite;
+		}
+	}
+
+	& .arrowRight {
+		opacity: 0;
+		position: absolute;
+		right: 32px;
+		transition: 0.15s;
+	}
+
+	&:hover .arrowRight {
+		opacity: 1;
+		right: 16px;
+	}
+
+	&:hover .cartBlock {
+		opacity: 0;
+	}
+}
+
+@keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}

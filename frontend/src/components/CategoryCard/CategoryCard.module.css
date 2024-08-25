@@ -1,0 +1,65 @@
+.cardContainer {
+	background-color: var(--dark-regular);
+	border-radius: 8px;
+	padding: 8px;
+	transition: 0.2s;
+
+	&:hover {
+		scale: 1.02;
+	}
+
+	& .cardImgContainer {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+		gap: 8px;
+		cursor: pointer;
+		margin-bottom: 8px;
+	}
+
+	& .cardImgBlock {
+		background-color: #0002;
+		border-radius: 4px;
+		height: 108px;
+		width: 108px;
+		padding: 4px;
+		transition: 0.2s;
+	}
+
+	& .cardImgLoaderBlock {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: #0002;
+		height: 108px;
+		width: 108px;
+
+		& .cardImgLoader {
+			animation: rotate 0.5s linear infinite;
+		}
+	}
+
+	&:hover .cardImgBlock {
+		padding: 0;
+	}
+
+	& .cardImgItem {
+		margin: 3% 0 0 3%;
+		height: 100%;
+	}
+
+	& .cardSubTitle {
+		text-align: center;
+		cursor: pointer;
+	}
+}
+
+@keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}

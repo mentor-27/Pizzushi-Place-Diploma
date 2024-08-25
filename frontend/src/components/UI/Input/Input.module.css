@@ -1,0 +1,19 @@
+.input {
+	display: inline-block;
+	width: 100%;
+	border-radius: 16px;
+	border: none;
+	background-color: var(--light-low);
+	font-family: inherit;
+	font-size: 16px;
+	outline: none;
+	color: var(--light);
+}
+
+.input::placeholder {
+	color: var(--light-regular);
+}
+
+/* .input:focus-visible {
+	outline: solid 2px var(--light);
+} */

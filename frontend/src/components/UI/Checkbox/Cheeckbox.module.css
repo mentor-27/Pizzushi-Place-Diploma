@@ -1,0 +1,52 @@
+.checkboxBlock {
+	height: 24px;
+}
+
+.realCheckbox {
+	appearance: none;
+	position: absolute;
+}
+
+.styledCheckbox {
+	display: inline-flex;
+	position: relative;
+	width: 24px;
+	height: 24px;
+	background-color: var(--light-regular);
+	border-radius: 8px;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.realCheckbox:focus-visible + .styledCheckbox {
+	outline: dashed 1px var(--light);
+	outline-offset: 1px;
+}
+
+.realCheckbox:checked + .styledCheckbox {
+	background-color: var(--accent-light);
+}
+
+.styledCheckbox::after {
+	position: absolute;
+	width: 50%;
+	height: 30%;
+	left: 25%;
+	top: 30%;
+	border: solid 3px var(--light);
+	border-top: none;
+	border-right: none;
+	rotate: -45deg;
+}
+
+.realCheckbox:checked + .styledCheckbox::after {
+	content: '';
+}
+
+.realCheckbox:not(:checked) + .styledCheckbox:hover::after {
+	content: '';
+	border: solid 3px var(--accent-light);
+	border-top: none;
+	border-right: none;
+	opacity: 0.25;
+}

@@ -1,0 +1,15 @@
+.filterCheckbox {
+	display: flex;
+	align-items: center;
+}
+
+.filterCheckbox > * + * {
+	margin-left: 8px;
+}
+
+.checkBoxLabel {
+	line-height: 1;
+	cursor: pointer;
+	flex: 1;
+	color: var(--light);
+}

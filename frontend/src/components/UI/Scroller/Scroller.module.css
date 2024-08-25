@@ -1,0 +1,27 @@
+.scroller {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	bottom: -100%;
+	right: 16px;
+	padding: 16px;
+	height: 64px;
+	width: 64px;
+	border-radius: 50%;
+	background-color: var(--light);
+	cursor: pointer;
+	transition: 0.2s;
+
+	&:hover {
+		scale: 1.1;
+	}
+}
+
+.visible {
+	bottom: 16px;
+}
+
+.scrollerIcon {
+	color: var(--accent-regular);
+}

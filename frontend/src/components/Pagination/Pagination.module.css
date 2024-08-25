@@ -1,0 +1,38 @@
+.paginationContainer {
+	margin-inline: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+
+.paginationArrow {
+	padding: 8px;
+
+	&:is(:disabled, :disabled:hover) {
+		background-color: var(--light-regular);
+		border-color: var(--light-regular);
+		color: var(--light-middle);
+		cursor: default;
+	}
+}
+
+.paginationBlock {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.paginationItem {
+	background-color: var(--light);
+	color: var(--accent-regular);
+	font-weight: 700;
+	padding: 8px 16px;
+	border-radius: 8px;
+	cursor: pointer;
+
+	&.active {
+		background-color: var(--accent-regular);
+		color: var(--light);
+	}
+}

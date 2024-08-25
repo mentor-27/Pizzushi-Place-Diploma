@@ -1,0 +1,1207 @@
+{
+	"users": [
+		{
+			"login": "Alex",
+			"password": "adm123",
+			"roleId": "0"
+		},
+		{
+			"login": "James",
+			"password": "mdr123",
+			"roleId": "1"
+		},
+		{
+			"login": "Vivi",
+			"password": "qwe123",
+			"roleId": "2"
+		}
+	],
+	"roles": [
+		{
+			"id": "0",
+			"name": "Администратор"
+		},
+		{
+			"id": "1",
+			"name": "Модератор"
+		},
+		{
+			"id": "2",
+			"name": "Клиент"
+		}
+	],
+	"categories": [
+		{
+			"id": "0",
+			"name": "Пиццы",
+			"slug": "pizza"
+		},
+		{
+			"id": "1",
+			"name": "Закуски",
+			"slug": "snacks"
+		},
+		{
+			"id": "2",
+			"name": "Коктейли",
+			"slug": "cocktails"
+		},
+		{
+			"id": "3",
+			"name": "Кофе",
+			"slug": "coffee"
+		},
+		{
+			"id": "4",
+			"name": "Напитки",
+			"slug": "drinks"
+		},
+		{
+			"id": "5",
+			"name": "Десерты",
+			"slug": "desserts"
+		},
+		{
+			"id": "6",
+			"name": "Соусы",
+			"slug": "sauces"
+		}
+	],
+	"products": [
+		{
+			"id": "0",
+			"name": "Сырная",
+			"categoryId": "0",
+			"description": "Моцарелла, сыры чеддер и пармезан, фирменный соус альфредо",
+			"size": {
+				"s": {
+					"name": "Маленькая",
+					"num": 25,
+					"weight": 310,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D610CF7E265B7C72BE5AE757CA7.avif",
+					"price": 299
+				},
+				"m": {
+					"name": "Средняя",
+					"num": 30,
+					"weight": 470,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D610D2925109AB2E1C92CC5383C.avif",
+					"price": 539
+				},
+				"l": {
+					"name": "Большая",
+					"num": 35,
+					"weight": 640,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D610D91679BB519F38C3F45880F.avif",
+					"price": 649
+				}
+			}
+		},
+		{
+			"id": "1",
+			"name": "Пепперони фреш",
+			"categoryId": "0",
+			"description": "Пикантная пепперони, увеличенная порция моцареллы, томаты, фирменный томатный соус",
+			"size": {
+				"s": {
+					"name": "Маленькая",
+					"num": 25,
+					"weight": 380,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D612F98BC0EA828957CAFF9C8EC.avif",
+					"price": 319
+				},
+				"m": {
+					"name": "Средняя",
+					"num": 30,
+					"weight": 590,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D612FC7B7FCA5BE822752BEE1E5.avif",
+					"price": 559
+				},
+				"l": {
+					"name": "Большая",
+					"num": 35,
+					"weight": 790,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D6130241E75B0AB33725248C0D0.avif",
+					"price": 679
+				}
+			}
+		},
+		{
+			"id": "2",
+			"name": "Двойной цыпленок",
+			"categoryId": "0",
+			"description": "Цыпленок, моцарелла, фирменный соус альфредо",
+			"size": {
+				"s": {
+					"name": "Маленькая",
+					"num": 25,
+					"weight": 360,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D614C92FBA9A7C5F124C809FE88.avif",
+					"price": 439
+				},
+				"m": {
+					"name": "Средняя",
+					"num": 30,
+					"weight": 520,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D614CBE0530B7234B6D7A6E5F8E.avif",
+					"price": 639
+				},
+				"l": {
+					"name": "Большая",
+					"num": 35,
+					"weight": 730,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D614D1BB6CB8DED93790D79E466.avif",
+					"price": 769
+				}
+			}
+		},
+		{
+			"id": "3",
+			"name": "Ветчина и сыр",
+			"categoryId": "0",
+			"description": "Ветчина, моцарелла, фирменный соус альфредо",
+			"size": {
+				"s": {
+					"name": "Маленькая",
+					"num": 25,
+					"weight": 320,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D60FD0C652E824DB2E99C8CA4BD.avif",
+					"price": 439
+				},
+				"m": {
+					"name": "Средняя",
+					"num": 30,
+					"weight": 480,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D60FDA22358AC33C6A44EB093A2.avif",
+					"price": 639
+				},
+				"l": {
+					"name": "Большая",
+					"num": 35,
+					"weight": 630,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D60FDFC92F19D5A6C8DEE6DDB9B.avif",
+					"price": 769
+				}
+			}
+		},
+		{
+			"id": "4",
+			"name": "Чоризо фреш",
+			"categoryId": "0",
+			"description": "Острые колбаски чоризо, сладкий перец, моцарелла, фирменный томатный соус",
+			"size": {
+				"s": {
+					"name": "Маленькая",
+					"num": 25,
+					"weight": 330,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D61703F8B47B1E4933820A7D91F.avif",
+					"price": 299
+				},
+				"m": {
+					"name": "Средняя",
+					"num": 30,
+					"weight": 470,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D61706D472F9A5D71EB94149304.avif",
+					"price": 539
+				},
+				"l": {
+					"name": "Большая",
+					"num": 35,
+					"weight": 630,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D6170D5F99C89E91A2B3B91D16E.avif",
+					"price": 649
+				}
+			}
+		},
+		{
+			"id": "5",
+			"name": "Пицца Жюльен",
+			"categoryId": "0",
+			"description": "Цыпленок, шампиньоны, ароматный грибной соус, красный лук, чеснок, моцарелла, смесь сыров чеддер и пармезан, фирменный соус альфредо",
+			"size": {
+				"s": {
+					"name": "Маленькая",
+					"num": 25,
+					"weight": 430,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D61758C90979BE0F53B4CEEE056.avif",
+					"price": 549
+				},
+				"m": {
+					"name": "Средняя",
+					"num": 30,
+					"weight": 630,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D6175C10773BFE36E56D48DF7E3.avif",
+					"price": 819
+				},
+				"l": {
+					"name": "Большая",
+					"num": 35,
+					"weight": 820,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D61762B28A4ADBCB9A502D3E644.avif",
+					"price": 999
+				}
+			}
+		},
+		{
+			"id": "6",
+			"name": "Мясная",
+			"categoryId": "0",
+			"description": "Цыпленок, ветчина, пикантная пепперони, острые колбаски чоризо, моцарелла, фирменный томатный соус",
+			"size": {
+				"s": {
+					"name": "Маленькая",
+					"num": 25,
+					"weight": 390,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D6108B7B5DDADA9508B8AE5A913.avif",
+					"price": 549
+				},
+				"m": {
+					"name": "Средняя",
+					"num": 30,
+					"weight": 590,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D6108E3A1C9952CD3A7F39A4D02.avif",
+					"price": 819
+				},
+				"l": {
+					"name": "Большая",
+					"num": 35,
+					"weight": 820,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D61095E56E6BBC9D410F89DF983.avif",
+					"price": 999
+				}
+			}
+		},
+		{
+			"id": "7",
+			"name": "Бургер-пицца",
+			"categoryId": "0",
+			"description": "Ветчина, маринованные огурчики, томаты, красный лук, чеснок, соус бургер, моцарелла, фирменный томатный соус",
+			"size": {
+				"s": {
+					"name": "Маленькая",
+					"num": 25,
+					"weight": 420,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D61695B5258971B45B8CA6C4301.avif",
+					"price": 489
+				},
+				"m": {
+					"name": "Средняя",
+					"num": 30,
+					"weight": 630,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D61698827EE9B8DB6D0AEC53410.avif",
+					"price": 729
+				},
+				"l": {
+					"name": "Большая",
+					"num": 35,
+					"weight": 890,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D6169F149548AF85880D7F1E053.avif",
+					"price": 899
+				}
+			}
+		},
+		{
+			"id": "8",
+			"name": "Сырный цыпленок",
+			"categoryId": "0",
+			"description": "Цыпленок, моцарелла, сыры чеддер и пармезан, сырный соус, томаты, фирменный соус альфредо, чеснок",
+			"size": {
+				"s": {
+					"name": "Маленькая",
+					"num": 25,
+					"weight": 410,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D610E569C6A8E886475477F4D4B.avif",
+					"price": 549
+				},
+				"m": {
+					"name": "Средняя",
+					"num": 30,
+					"weight": 620,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D610E8BBB248F31270BE742B4BD.avif",
+					"price": 819
+				},
+				"l": {
+					"name": "Большая",
+					"num": 35,
+					"weight": 860,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D610EF682CB8244F77682B80689.avif",
+					"price": 999
+				}
+			}
+		},
+		{
+			"id": "9",
+			"name": "Пепперони",
+			"categoryId": "0",
+			"description": "Пикантная пепперони, увеличенная порция моцареллы, фирменный томатный соус",
+			"size": {
+				"s": {
+					"name": "Маленькая",
+					"num": 25,
+					"weight": 340,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D610A2E0B10AA10DE302B871250.avif",
+					"price": 489
+				},
+				"m": {
+					"name": "Средняя",
+					"num": 30,
+					"weight": 550,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D610A62D78598406363A9A8AD65.avif",
+					"price": 729
+				},
+				"l": {
+					"name": "Большая",
+					"num": 35,
+					"weight": 760,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D610AC6710C85D092845CE0342E.avif",
+					"price": 899
+				}
+			}
+		},
+		{
+			"id": "10",
+			"name": "Четыре сезона",
+			"categoryId": "0",
+			"description": "Увеличенная порция моцареллы, ветчина, пикантная пепперони, кубики брынзы, томаты, шампиньоны, итальянские травы, фирменный томатный соус",
+			"size": {
+				"s": {
+					"name": "Маленькая",
+					"num": 25,
+					"weight": 380,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D611AAF7F47838D95E0C0004CCC.avif",
+					"price": 489
+				},
+				"m": {
+					"name": "Средняя",
+					"num": 30,
+					"weight": 610,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D611ADF5AAD898B8B651186E023.avif",
+					"price": 729
+				},
+				"l": {
+					"name": "Большая",
+					"num": 35,
+					"weight": 840,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D611B42752E8B4A68B50D980CDE.avif",
+					"price": 899
+				}
+			}
+		},
+		{
+			"id": "11",
+			"name": "Гавайская",
+			"categoryId": "0",
+			"description": "Цыпленок, ананасы, моцарелла, фирменный соус альфредо",
+			"size": {
+				"s": {
+					"name": "Маленькая",
+					"num": 25,
+					"weight": 390,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D617E6556A6BB1C37AA8DE36AE5.avif",
+					"price": 489
+				},
+				"m": {
+					"name": "Средняя",
+					"num": 30,
+					"weight": 590,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D617E9339CFB185921A343AD8FD.avif",
+					"price": 729
+				},
+				"l": {
+					"name": "Большая",
+					"num": 35,
+					"weight": 810,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D617EF504B8B95C614B0EEAAAFB.avif",
+					"price": 899
+				}
+			}
+		},
+		{
+			"id": "12",
+			"name": "Ветчина и грибы",
+			"categoryId": "0",
+			"description": "Ветчина, шампиньоны, увеличенная порция моцареллы, фирменный томатный соус",
+			"size": {
+				"s": {
+					"name": "Маленькая",
+					"num": 25,
+					"weight": 370,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D611F62C45B81E28C4C8B57A356.avif",
+					"price": 489
+				},
+				"m": {
+					"name": "Средняя",
+					"num": 30,
+					"weight": 580,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D611F924987957B7F53424B682F.avif",
+					"price": 729
+				},
+				"l": {
+					"name": "Большая",
+					"num": 35,
+					"weight": 740,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D611FF4E070BC833C66D67F2E44.avif",
+					"price": 899
+				}
+			}
+		},
+		{
+			"id": "13",
+			"name": "Цыпленок барбекю",
+			"categoryId": "0",
+			"description": "Цыпленок, бекон, соус барбекю, красный лук, моцарелла, фирменный томатный соус",
+			"size": {
+				"s": {
+					"name": "Маленькая",
+					"num": 25,
+					"weight": 420,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D610FD1960296609BC2946D660E.avif",
+					"price": 609
+				},
+				"m": {
+					"name": "Средняя",
+					"num": 30,
+					"weight": 640,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D6110059795842D40396BCF1E73.avif",
+					"price": 939
+				},
+				"l": {
+					"name": "Большая",
+					"num": 35,
+					"weight": 900,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D61106C12FF8350C8D5D40E9309.avif",
+					"price": 1039
+				}
+			}
+		},
+		{
+			"id": "14",
+			"name": "Цыпленок ранч",
+			"categoryId": "0",
+			"description": "Цыпленок, ветчина, соус ранч, моцарелла, томаты, чеснок",
+			"size": {
+				"s": {
+					"name": "Маленькая",
+					"num": 25,
+					"weight": 390,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D610B8F040E9814C49EFD7B0EBD.avif",
+					"price": 699
+				},
+				"m": {
+					"name": "Средняя",
+					"num": 30,
+					"weight": 610,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D610BBEB562BD4D48786AD87270.avif",
+					"price": 1009
+				},
+				"l": {
+					"name": "Большая",
+					"num": 35,
+					"weight": 880,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D610C18CB2289A1C4021CDB10E5.avif",
+					"price": 1179
+				}
+			}
+		},
+		{
+			"id": "15",
+			"name": "Маргарита",
+			"categoryId": "0",
+			"description": "Увеличенная порция моцареллы, томаты, итальянские травы, фирменный томатный соус",
+			"size": {
+				"s": {
+					"name": "Маленькая",
+					"num": 25,
+					"weight": 400,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D6105BBFC3AA9734180ABA7F61B.avif",
+					"price": 489
+				},
+				"m": {
+					"name": "Средняя",
+					"num": 30,
+					"weight": 590,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D6105EF6690B86FBDE6150B5B0C.avif",
+					"price": 729
+				},
+				"l": {
+					"name": "Большая",
+					"num": 35,
+					"weight": 830,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D610649F9A898C96EE96FEA37A5.avif",
+					"price": 899
+				}
+			}
+		},
+		{
+			"id": "16",
+			"name": "Диабло",
+			"categoryId": "0",
+			"description": "Острые колбаски чоризо, острый перец халапеньо, соус барбекю, митболы из говядины, томаты, сладкий перец, красный лук, моцарелла, фирменный томатный соус",
+			"size": {
+				"s": {
+					"name": "Маленькая",
+					"num": 25,
+					"weight": 420,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D6149B3D37BBFCC595A0EA60FD1.avif",
+					"price": 609
+				},
+				"m": {
+					"name": "Средняя",
+					"num": 30,
+					"weight": 680,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D6149EB101D8727573088FA2EFF.avif",
+					"price": 939
+				},
+				"l": {
+					"name": "Большая",
+					"num": 35,
+					"weight": 940,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D614A46A625AE3FD9EE995314BD.avif",
+					"price": 1039
+				}
+			}
+		},
+		{
+			"id": "17",
+			"name": "Колбаски барбекю",
+			"categoryId": "0",
+			"description": "Острые колбаски чоризо, соус барбекю, томаты, красный лук, моцарелла, фирменный томатный соус",
+			"size": {
+				"s": {
+					"name": "Маленькая",
+					"num": 25,
+					"weight": 370,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D6150A9426CB905492C1CC3F43D.avif",
+					"price": 489
+				},
+				"m": {
+					"name": "Средняя",
+					"num": 30,
+					"weight": 570,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D6150D498419E133DF19945A00D.avif",
+					"price": 729
+				},
+				"l": {
+					"name": "Большая",
+					"num": 35,
+					"weight": 760,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D61512FA081A7A1F20647232E15.avif",
+					"price": 899
+				}
+			}
+		},
+		{
+			"id": "18",
+			"name": "Овощи и грибы",
+			"categoryId": "0",
+			"description": "Шампиньоны, томаты, сладкий перец, красный лук, кубики брынзы, моцарелла, фирменный томатный соус, итальянские травы",
+			"size": {
+				"s": {
+					"name": "Маленькая",
+					"num": 25,
+					"weight": 420,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D61543CB077931C15B0E271347F.avif",
+					"price": 549
+				},
+				"m": {
+					"name": "Средняя",
+					"num": 30,
+					"weight": 610,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D61546D8483A61A0BBAA7ADCC78.avif",
+					"price": 819
+				},
+				"l": {
+					"name": "Большая",
+					"num": 35,
+					"weight": 870,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D6154C786F2940500127AA6D33E.avif",
+					"price": 999
+				}
+			}
+		},
+		{
+			"id": "19",
+			"name": "Двойная пепперони",
+			"categoryId": "0",
+			"description": "Двойная порция пикантной пепперони, увеличенная порция моцареллы, фирменный томатный соус",
+			"size": {
+				"s": {
+					"name": "Маленькая",
+					"num": 25,
+					"weight": 390,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D612260923296B692C61AB1D24D.avif",
+					"price": 549
+				},
+				"m": {
+					"name": "Средняя",
+					"num": 30,
+					"weight": 620,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D6122BB3424B593BB15EACE3197.avif",
+					"price": 819
+				},
+				"l": {
+					"name": "Большая",
+					"num": 35,
+					"weight": 770,
+					"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D6122EAB69093130B6C6FF49E05.avif",
+					"price": 999
+				}
+			}
+		},
+		{
+			"id": "20",
+			"name": "Дэнвич ветчина и сыр",
+			"categoryId": "1",
+			"description": "Поджаристая чиабатта и знакомое сочетание ветчины, цыпленка, моцареллы со свежими томатами, соусом ранч и чесноком",
+			"num": null,
+			"weight": 210,
+			"imgUrl": "https://media.dodostatic.net/image/r:1875x1875/11EE796FF0059B799A17F57A9E64C725.avif",
+			"price": 269
+		},
+		{
+			"id": "21",
+			"name": "Дэнвич чоризо барбекю",
+			"categoryId": "1",
+			"description": "Насыщенный вкус острых колбасок чоризо и пикантной пепперони с соусами бургер и барбекю, свежими томатами, маринованными огурчиками, моцареллой и луком в румяной чиабатте",
+			"num": null,
+			"weight": 210,
+			"imgUrl": "https://media.dodostatic.net/image/r:1875x1875/11EE796FF041FE1F94C903576DCFD01E.avif",
+			"price": 269
+		},
+		{
+			"id": "22",
+			"name": "Паста Карбонара",
+			"categoryId": "1",
+			"description": "Паста из печи с беконом, сырами чеддер и пармезан, томатами, моцареллой, фирменным соусом альфредо и чесноком",
+			"num": null,
+			"weight": 350,
+			"imgUrl": "https://media.dodostatic.net/image/r:1875x1875/11EE797018746EF899D162D16FA99625.avif",
+			"price": 329
+		},
+		{
+			"id": "23",
+			"name": "Паста Мясная",
+			"categoryId": "1",
+			"description": "Паста из печи с митболами, соусом бургер, моцареллой, фирменным томатным соусом и чесноком",
+			"num": null,
+			"weight": 330,
+			"imgUrl": "https://media.dodostatic.net/image/r:1875x1875/11EE797018D60B9B8D278F668BD4D3C7.avif",
+			"price": 329
+		},
+		{
+			"id": "24",
+			"name": "Паста Песто",
+			"categoryId": "1",
+			"description": "Паста из печи с соусом песто, цыпленком, томатами, моцареллой и фирменным томатным соусом",
+			"num": null,
+			"weight": 330,
+			"imgUrl": "https://media.dodostatic.net/image/r:1875x1875/11EE797019062658A437457F8E1D5887.avif",
+			"price": 329
+		},
+		{
+			"id": "25",
+			"name": "Супермясной Додстер",
+			"categoryId": "1",
+			"description": "Горячая закуска с цыпленком, моцареллой, митболами, острыми колбасками чоризо и соусом бургер в тонкой пшеничной лепешке",
+			"num": null,
+			"weight": 160,
+			"imgUrl": "https://media.dodostatic.net/image/r:1875x1875/11EE797022F9AD72AC34E1B01DC6AEBA.avif",
+			"price": 249
+		},
+		{
+			"id": "26",
+			"name": "Додстер с ветчиной",
+			"categoryId": "1",
+			"description": "Горячий завтрак с ветчиной, томатами, моцареллой, соусом ранч в тонкой пшеничной лепешке",
+			"num": null,
+			"weight": 160,
+			"imgUrl": "https://media.dodostatic.net/image/r:1875x1875/11EE7970259D888E98B6407EE6B994D9.avif",
+			"price": 209
+		},
+		{
+			"id": "27",
+			"name": "Додстер",
+			"categoryId": "1",
+			"description": "Легендарная горячая закуска с цыпленком, томатами, моцареллой, соусом ранч в тонкой пшеничной лепешке",
+			"num": null,
+			"weight": 210,
+			"imgUrl": "https://media.dodostatic.net/image/r:1875x1875/11EE796F96D11392A2F6DD73599921B9.avif",
+			"price": 209
+		},
+		{
+			"id": "28",
+			"name": "Острый Додстер",
+			"categoryId": "1",
+			"description": "Горячая закуска с цыпленком, перчиком халапеньо, маринованными огурчиками, томатами, моцареллой и соусом барбекю в тонкой пшеничной лепешке",
+			"num": null,
+			"weight": 190,
+			"imgUrl": "https://media.dodostatic.net/image/r:1875x1875/11EE796FD3B594068F7A752DF8161D04.avif",
+			"price": 229
+		},
+		{
+			"id": "29",
+			"name": "Куриные наггетсы",
+			"categoryId": "1",
+			"description": "Нежное куриное мясо в хрустящей панировке",
+			"num": 10,
+			"weight": 220,
+			"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EEF45EAE27E22D8E3176ABF5FEFF44.avif",
+			"price": 259
+		},
+		{
+			"id": "30",
+			"name": "Картофель из печи с соусом",
+			"categoryId": "1",
+			"description": "Запеченная в печи картошечка с пряными специями. В комплекте сырный соус",
+			"num": null,
+			"weight": 160,
+			"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EED646A9CD324C962C6BEA78124F19.avif",
+			"price": 280
+		},
+		{
+			"id": "31",
+			"name": "Картофель из печи",
+			"categoryId": "1",
+			"description": "Запеченная в печи картошечка — привычный вкус и мало масла. В составе пряные специи",
+			"num": null,
+			"weight": 160,
+			"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EED646A9CD324C962C6BEA78124F19.avif",
+			"price": 239
+		},
+		{
+			"id": "32",
+			"name": "Куриные кусочки",
+			"categoryId": "1",
+			"description": "Сочные кусочки цельного куриного филе с золотистой корочкой",
+			"num": null,
+			"weight": 260,
+			"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE89332D4EE705914D0484EF352D13.avif",
+			"price": 469
+		},
+		{
+			"id": "33",
+			"name": "Куриные крылья барбекю",
+			"categoryId": "1",
+			"description": "Куриные крылышки со специями и ароматом копчения",
+			"num": 10,
+			"weight": 280,
+			"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE8936F9E2094DBA71933C4A3C28D6.avif",
+			"price": 469
+		},
+		{
+			"id": "34",
+			"name": "Ланчбокс с куриными крыльями",
+			"categoryId": "1",
+			"description": "Горячий сытный обед из куриных крылышек со специями и ароматом копчения, пряного картофеля из печи и соуса барбекю",
+			"num": null,
+			"weight": 220,
+			"imgUrl": "https://media.dodostatic.net/image/r:1875x1875/11EE796FC8BE09CA8AB2DC9E77BDE64A.avif",
+			"price": 375
+		},
+		{
+			"id": "35",
+			"name": "Ланчбокс с куриными кусочками",
+			"categoryId": "1",
+			"description": "Горячий сытный обед из нежных куриных кусочков, пряного картофеля из печи и сырного соуса",
+			"num": null,
+			"weight": 200,
+			"imgUrl": "https://media.dodostatic.net/image/r:1875x1875/11EE796FC8E6C0298C0A9B098DA8AE5D.avif",
+			"price": 375
+		},
+		{
+			"id": "36",
+			"name": "Салат Цезарь",
+			"categoryId": "1",
+			"description": "Цыпленок, свежие листья салата айсберг, томаты черри, сыры чеддер и пармезан, соус цезарь, пшеничные гренки, итальянские травы",
+			"num": null,
+			"weight": 170,
+			"imgUrl": "https://media.dodostatic.net/image/r:1875x1875/11EE796FDD01CFF881F55E7082101AD8.avif",
+			"price": 295
+		},
+		{
+			"id": "37",
+			"name": "Молочный коктейль с печеньем Орео",
+			"categoryId": "2",
+			"description": "Как вкуснее есть печенье? Его лучше пить! Попробуйте молочный коктейль с мороженым и дробленым печеньем «Орео»",
+			"vol": 0.3,
+			"weight": 300,
+			"imgUrl": "https://media.dodostatic.net/image/r:1875x1875/11EE796FA1F50F8F8111A399E4C1A1E3.avif",
+			"price": 220
+		},
+		{
+			"id": "38",
+			"name": "Классический молочный коктейль",
+			"categoryId": "2",
+			"description": "В мире так много коктейлей, но классика — вечна. Попробуйте наш молочный напиток с мороженым",
+			"vol": 0.3,
+			"weight": 300,
+			"imgUrl": "https://media.dodostatic.net/image/r:1875x1875/11EE796F93FB126693F96CB1D3E403FB.avif",
+			"price": 195
+		},
+		{
+			"id": "39",
+			"name": "Клубничный молочный коктейль",
+			"categoryId": "2",
+			"description": "Не важно, какое время года на улице, этот коктейль с клубничным сиропом вернет вас в лето с одного глотка",
+			"vol": 0.3,
+			"weight": 300,
+			"imgUrl": "https://media.dodostatic.net/image/r:1875x1875/11EE796FB231A5BF82B0A99A1B12339C.avif",
+			"price": 220
+		},
+		{
+			"id": "40",
+			"name": "Шоколадный молочный коктейль",
+			"categoryId": "2",
+			"description": "Очаровательная шоколадная нежность. Попробуйте молочный коктейль с какао и мороженым",
+			"vol": 0.3,
+			"weight": 300,
+			"imgUrl": "https://media.dodostatic.net/image/r:1875x1875/11EE796FA24D1E919FA050D8BA21F8E9.avif",
+			"price": 220
+		},
+		{
+			"id": "41",
+			"name": "Карамельный капучино",
+			"categoryId": "3",
+			"description": "Если не шоколад, то карамель! А капучино с карамельным сиропом особенно хорош",
+			"vol": 0.3,
+			"weight": 230,
+			"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D61AED6B6D4BFDAD4E58D76CF56.avif",
+			"price": 159
+		},
+		{
+			"id": "42",
+			"name": "Кокосовый латте",
+			"categoryId": "3",
+			"description": "Горячий напиток на основе эспрессо с увеличенной порцией молока и кокосовым сиропом",
+			"vol": 0.3,
+			"weight": 300,
+			"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D61B19FA07090EE88B0ED347F42.avif",
+			"price": 159
+		},
+		{
+			"id": "43",
+			"name": "Ореховый латте",
+			"categoryId": "3",
+			"description": "Много молока и фундука. Уютный латте на основе эспрессо и орехового сиропа",
+			"vol": 0.3,
+			"weight": 300,
+			"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D61B12220AB911FF4FA42EF585D.avif",
+			"price": 159
+		},
+		{
+			"id": "44",
+			"name": "Айс Капучино",
+			"categoryId": "3",
+			"description": "Освежающий напиток для любителей кофе. В составе эспрессо, пломбир, молоко и бодрость на весь день",
+			"vol": 0.3,
+			"weight": 280,
+			"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EEFB6985E52B9FA2C985EBC42C7E64.avif",
+			"price": 229
+		},
+		{
+			"id": "45",
+			"name": "Капучино",
+			"categoryId": "3",
+			"description": "Король среди кофейных напитков — классический капучино. Для любителей сбалансированного кофейно-молочного вкуса",
+			"vol": 0.4,
+			"weight": 250,
+			"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D61AE1813B4AB42D8927D061035.avif",
+			"price": 159
+		},
+		{
+			"id": "46",
+			"name": "Латте",
+			"categoryId": "3",
+			"description": "Когда хочется нежную молочную пенку, на помощь приходит классический латте",
+			"vol": 0.4,
+			"weight": 330,
+			"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D61B0C26A3F85D97A78FEEE00AD.avif",
+			"price": 159
+		},
+		{
+			"id": "47",
+			"name": "Американо",
+			"categoryId": "3",
+			"description": "Пара глотков горячего Американо, и вы будете готовы покорять этот день",
+			"vol": 0.4,
+			"weight": 380,
+			"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D61B044583596548A59078BBD33.avif",
+			"price": 109
+		},
+		{
+			"id": "48",
+			"name": "Кола",
+			"categoryId": "4",
+			"description": null,
+			"vol": 0.5,
+			"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D61823BE0D3A35B4ABF658FD06B.avif",
+			"price": 135
+		},
+		{
+			"id": "49",
+			"name": "Кола без сахара",
+			"categoryId": "4",
+			"description": null,
+			"vol": 0.5,
+			"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D618298DE6D80D47869D156CC28.avif",
+			"price": 135
+		},
+		{
+			"id": "50",
+			"name": "Апельсин",
+			"categoryId": "4",
+			"description": null,
+			"vol": 0.5,
+			"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D61AAE50A4CB880D842915C82DC.avif",
+			"price": 135
+		},
+		{
+			"id": "51",
+			"name": "Лайм-Лимон",
+			"categoryId": "4",
+			"description": null,
+			"vol": 0.5,
+			"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D61BAB86255A811FEEA677AD674.avif",
+			"price": 135
+		},
+		{
+			"id": "52",
+			"name": "Rich Tea Черный с лимоном",
+			"categoryId": "4",
+			"description": null,
+			"vol": 0.5,
+			"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D61AD5C2FCFBBBB6AA525E38A04.avif",
+			"price": 139
+		},
+		{
+			"id": "53",
+			"name": "Rich Tea Зеленый",
+			"categoryId": "4",
+			"description": null,
+			"vol": 0.5,
+			"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D61AB1F976991362A5A42A2613E.avif",
+			"price": 139
+		},
+		{
+			"id": "54",
+			"name": "Rich Tea Зеленый с манго",
+			"categoryId": "4",
+			"description": null,
+			"vol": 0.5,
+			"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D61AB5E21EFBAD01AF3F44296C3.avif",
+			"price": 139
+		},
+		{
+			"id": "55",
+			"name": "Апельсиновый сок Rich",
+			"categoryId": "4",
+			"description": null,
+			"vol": 1,
+			"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D61B223E75EB71498BCAA0D4A0D.avif",
+			"price": 259
+		},
+		{
+			"id": "56",
+			"name": "Яблочный сок Rich",
+			"categoryId": "4",
+			"description": null,
+			"vol": 1,
+			"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D61B27F1652B9A918BDDD753D8D.avif",
+			"price": 259
+		},
+		{
+			"id": "57",
+			"name": "Вишневый нектар Rich",
+			"categoryId": "4",
+			"description": null,
+			"vol": 1,
+			"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D61B2E1A3F78B935F10D27FE406.avif",
+			"price": 259
+		},
+		{
+			"id": "58",
+			"name": "Вода BonaAqua негазированная",
+			"categoryId": "4",
+			"description": null,
+			"vol": 0.5,
+			"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EEE20B3F64A6B8A0418FF967C69F72.avif",
+			"price": 75
+		},
+		{
+			"id": "59",
+			"name": "Морс Клюква",
+			"categoryId": "4",
+			"description": "Эта ягода хитра! Наш фирменный морс для любителей сладкой кислинки. Дизайн товара может отличаться",
+			"vol": null,
+			"imgUrl": "https://media.dodostatic.net/image/r:1875x1875/11EECF75072BD81390B9C29DD01666C3.avif",
+			"price": 149
+		},
+		{
+			"id": "60",
+			"name": "Морс Черная смородина",
+			"categoryId": "4",
+			"description": "Для усиления ощущений от морса рекомендуем закрыть глаза и представить себя у бабушки в саду. Дизайн товара может отличаться",
+			"vol": null,
+			"imgUrl": "https://media.dodostatic.net/image/r:1875x1875/11EECF750FD6B61AAC7BF1E2A8935DE2.avif",
+			"price": 149
+		},
+		{
+			"id": "61",
+			"name": "Морс Вишня",
+			"categoryId": "4",
+			"description": "Напиток со вкусом ностальгии — летние каникулы, теплые ночи и уютные дачные посиделки. А еще никаких косточек. Дизайн товара может отличаться",
+			"vol": null,
+			"imgUrl": "https://media.dodostatic.net/image/r:1875x1875/11EECF74FAE2444096FB156C2A13D05F.avif",
+			"price": 149
+		},
+		{
+			"id": "62",
+			"name": "Таежный чай, 10 пакетиков",
+			"categoryId": "4",
+			"description": "На случай приятных разговоров и чтобы побыть наедине с собой. Одного саше хватит не только на чашку, но и на целый чайник",
+			"vol": null,
+			"imgUrl": "https://media.dodostatic.net/image/r:1875x1875/11EE797026C5FA9A8298F6EBED364569.avif",
+			"price": 259
+		},
+		{
+			"id": "63",
+			"name": "Слоеные палочки с ананасами и брусникой",
+			"categoryId": "5",
+			"description": "Здесь все сразу — брусника и ананас со сгущенкой на слоеном тесте",
+			"num": null,
+			"weight": 260,
+			"imgUrl": "https://media.dodostatic.net/image/r:1875x1875/11EE796FFF9F5E6EB14E281FC5F491EC.avif",
+			"price": 269
+		},
+		{
+			"id": "64",
+			"name": "Чизкейк Нью-Йорк",
+			"categoryId": "5",
+			"description": "Мы перепробовали тысячу десертов и наконец нашли любимца гостей — нежнейший творожный чизкейк",
+			"num": 1,
+			"weight": 100,
+			"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EEE20B6B6EC471AB74AB8F8885775B.avif",
+			"price": 179
+		},
+		{
+			"id": "65",
+			"name": "Чизкейк Банановый с шоколадным печеньем",
+			"categoryId": "5",
+			"description": "Солнечный снаружи и яркий по вкусу внутри. Летняя новинка — нежный чизкейк с бананом и шоколадным печеньем",
+			"num": null,
+			"weight": 100,
+			"imgUrl": "https://media.dodostatic.net/image/r:1875x1875/11EE797014D8F94683D580455892ABA1.avif",
+			"price": 159
+		},
+		{
+			"id": "66",
+			"name": "Шоколадный кукис",
+			"categoryId": "5",
+			"description": "На вид печенье как планета, а на вкус — шоколадная комета с глазурью",
+			"num": null,
+			"weight": 70,
+			"imgUrl": "https://media.dodostatic.net/image/r:1875x1875/11EE7970210A7A54AFF74B239EA3D66F.avif",
+			"price": 95
+		},
+		{
+			"id": "67",
+			"name": "Фондан",
+			"categoryId": "5",
+			"description": "Четверо из пяти гостей говорят «Oh la la!», когда едят этот французский десерт с хрустящей корочкой и топленой шоколадной начинкой",
+			"num": 2,
+			"weight": 160,
+			"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D61B85ADB349AAD5044EC2803AE.avif",
+			"price": 349
+		},
+		{
+			"id": "68",
+			"name": "Маффин Соленая карамель",
+			"categoryId": "5",
+			"description": "Раз откусить — навсегда полюбить! Оцените яркое сочетание соленой карамели и арахиса",
+			"num": null,
+			"weight": 120,
+			"imgUrl": "https://media.dodostatic.net/image/r:1875x1875/11EE79700C2EA0539D556CCF3DA1FEB7.avif",
+			"price": 99
+		},
+		{
+			"id": "69",
+			"name": "Маффин Три шоколада",
+			"categoryId": "5",
+			"description": "Ну и кекс этот маффин! Он из натурального какао, а внутри — нежная начинка из кубиков белого и молочного шоколада",
+			"num": null,
+			"weight": 120,
+			"imgUrl": "https://media.dodostatic.net/image/r:1875x1875/11EE796FB18AFBBEBF188C25EBD2E581.avif",
+			"price": 99
+		},
+		{
+			"id": "70",
+			"name": "Бруслетики",
+			"categoryId": "5",
+			"description": "Это задорные сладкие рулетики, в которых закрутился микс из натуральной брусники и сгущенного молока",
+			"num": 16,
+			"weight": 260,
+			"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D61B6F12610A5A2856D70128E4D.avif",
+			"price": 250
+		},
+		{
+			"id": "71",
+			"name": "Рулетики с корицей",
+			"categoryId": "5",
+			"description": "Десерт, одобренный нашими бабушками. Горячие сладкие рулетики с пряной корицей и сахаром",
+			"num": 16,
+			"weight": 210,
+			"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D61B679E058AEC6DC063470AFB2.avif",
+			"price": 215
+		},
+		{
+			"id": "72",
+			"name": "Сорбет Турецкий гранат с клубникой",
+			"categoryId": "5",
+			"description": "Горячий восток в прохладном десерте. Оцените дуэт граната и сладкой клубники. Название продукта фантазийное и не означает, что продукт содержит гранаты из Турции",
+			"num": null,
+			"weight": 90,
+			"imgUrl": "https://media.dodostatic.net/image/r:1875x1875/11EE797031AA0F0AB6450C84DE2E8F25.avif",
+			"price": 145
+		},
+		{
+			"id": "73",
+			"name": "Сырники с малиновым вареньем",
+			"categoryId": "5",
+			"description": "Любимый десерт многих наших гостей — румяные сырники из печи. Такие нежные, в меру сладкие и напоминающие детство",
+			"num": 4,
+			"weight": 260,
+			"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE7D61B7DE873C82A72DB3BE601BD4.avif",
+			"price": 260
+		},
+		{
+			"id": "74",
+			"name": "Сырный соус",
+			"categoryId": "6",
+			"description": "Фирменный соус со вкусом расплавленного сыра для бортиков пиццы и горячих закусок",
+			"num": 1,
+			"weight": 25,
+			"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE796F96456CBC97E7E5001BFA66E8.avif",
+			"price": 45
+		},
+		{
+			"id": "75",
+			"name": "Чесночный соус",
+			"categoryId": "6",
+			"description": "Фирменный соус с чесночным вкусом для бортиков пиццы и горячих закусок",
+			"num": 1,
+			"weight": 25,
+			"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE79700EBD09E7A7603B26879BC7B0.avif",
+			"price": 45
+		},
+		{
+			"id": "76",
+			"name": "Малиновое варенье",
+			"categoryId": "6",
+			"description": "Идеально к сырникам",
+			"num": 1,
+			"weight": 25,
+			"imgUrl": "https://media.dodostatic.net/image/r:584x584/11EE796FD1F2D654BBD37B5B9183556D.avif",
+			"price": 45
+		}
+	]
+}

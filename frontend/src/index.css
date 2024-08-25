@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+:root {
+	--accent-light: #ff9380;
+	--accent-regular: #eb6047;
+	--accent-middle: #b8432e;
+	--accent-dark: #6b372e;
+	--dark-regular: #282f32;
+	--dark-middle: #464a4f;
+	--light-low: #7c8189;
+	--light-middle: #a2a7ae;
+	--light-regular: #c8ccd0;
+	--light: #fff;
+}
+
+html {
+	scroll-behavior: smooth;
+
+	&::-webkit-scrollbar {
+		width: 16px;
+		background-color: transparent;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		border-inline: solid 3px var(--dark-regular);
+		border-radius: 8px / 4px;
+		background-color: var(--dark-middle);
+	}
+}
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: 'Nunito', BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+		'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-color: var(--dark-regular);
+	color: var(--light);
+}
+
+a {
+	color: var(--light);
+	text-decoration: none;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}

@@ -1,0 +1,123 @@
+.headerBlock {
+	width: 100%;
+	border-bottom: solid 1px var(--light-low);
+}
+
+.headerContainer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 32px;
+}
+
+.logoBlock {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	border-radius: 8px;
+
+	&:focus-visible {
+		outline: dashed 2px var(--light);
+		outline-offset: 8px;
+	}
+}
+
+.logoHeadingSign {
+	font-size: 24px;
+	white-space: nowrap;
+	color: #fff;
+}
+
+.logoSubSign {
+	font-size: 14px;
+	color: #a0a0a0;
+	line-height: 12px;
+}
+
+.searchOverlay {
+	position: fixed;
+	inset: 0;
+	background-color: #0008;
+	transition: background 0.2s;
+	z-index: 20;
+}
+
+.searchBlock {
+	position: relative;
+	width: 100%;
+	margin-inline: 40px;
+	z-index: 21;
+}
+
+.searchIcon {
+	position: absolute;
+	left: 16px;
+	top: 50%;
+	translate: 0 -50%;
+	color: var(--light-regular);
+}
+
+.searchPopup {
+	position: absolute;
+	width: 100%;
+	min-height: 96 px;
+	max-height: 256px;
+	background-color: var(--light-low);
+	border-radius: 12px;
+	padding-block: 8px;
+	top: 64px;
+	filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07))
+		drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+	transition: 0.2s;
+	visibility: hidden;
+	opacity: 0;
+	z-index: 21;
+	overflow-y: auto;
+	overflow-x: hidden;
+
+	& .searchPopupItem {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 8px 12px;
+		cursor: pointer;
+
+		&:focus-visible {
+			outline: solid 1px var(--light-middle);
+		}
+
+		&:hover {
+			background-color: var(--light-middle);
+		}
+
+		& .searchPopupItemData {
+			display: flex;
+			align-items: center;
+			gap: 16px;
+		}
+	}
+
+	&::-webkit-scrollbar {
+		width: 12px;
+		border-radius: 0 12px 12px 0;
+		background-color: transparent;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		border: solid 4px var(--light-low);
+		border-left: none;
+		border-radius: 0 16px 16px 0;
+		background-color: var(--light-middle);
+	}
+}
+
+.searchPopupVisible {
+	visibility: visible;
+	opacity: 1;
+	top: 56px;
+}
+
+.userBlock {
+	display: flex;
+	gap: 16px;
+}
