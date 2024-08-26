@@ -3,6 +3,7 @@ const {
 	getCart,
 	addProductToCart,
 	removeProductFromCart,
+	clearCart,
 } = require('../controllers/cart');
 
 const router = Router({ mergeParams: true });
@@ -47,6 +48,16 @@ router.delete('/:productId', async (req, res) => {
 		);
 
 		res.json({ data: { products, totalPrice }, error: null });
+	} catch (e) {
+		res.json({ error: e.message });
+	}
+});
+
+router.delete('/', async (req, res) => {
+	try {
+		const data = await clearCart();
+
+		res.json({ data, error: null });
 	} catch (e) {
 		res.json({ error: e.message });
 	}

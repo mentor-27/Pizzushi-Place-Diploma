@@ -2,7 +2,7 @@ import { Navigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector, useStore } from 'react-redux';
 
 import { Container } from '../../components';
-import { Button, Title } from '../../components/UI';
+import { BackArrow, Button, Title } from '../../components/UI';
 import { ProductImageLoader, ProductDescriptionLoader } from './UI';
 import { addCartItemAsync } from '../../redux/actions';
 import { selectProducts } from '../../redux/selector';
@@ -27,6 +27,7 @@ export const Product = () => {
 
 	return (
 		<Container className={styles.productContainer} px="64px" py="40px">
+			<BackArrow />
 			<div className={styles.productBlock}>
 				{loading ? (
 					<ProductImageLoader />

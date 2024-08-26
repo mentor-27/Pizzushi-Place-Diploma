@@ -7,3 +7,4 @@ export * from './setCartAsync';
 export * from './toggleDrawer';
 export * from './setSortOrder';
 export * from './setScroller';
+export * from './setCartEmptyAsync';

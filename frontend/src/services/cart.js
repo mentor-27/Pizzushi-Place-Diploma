@@ -19,3 +19,7 @@ export const add = async (id, quantity) => {
 export const remove = async id => {
 	return (await axiosInstance.delete(`/cart/${id}`)).data;
 };
+
+export const clear = async () => {
+	return (await axiosInstance.delete(`/cart`)).data;
+};

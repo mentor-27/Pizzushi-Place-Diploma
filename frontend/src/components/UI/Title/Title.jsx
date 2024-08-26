@@ -1,8 +1,13 @@
 import React from 'react';
 
-import styles from './Title.module.css';
-
-export const Title = ({ size = 'sm', text, ...props }) => {
+export const Title = ({
+	className,
+	size = 'sm',
+	text,
+	fw = 700,
+	color = '#fff',
+	...props
+}) => {
 	const mapTagBySize = {
 		'2xs': 'h6',
 		xs: 'h5',
@@ -26,9 +31,14 @@ export const Title = ({ size = 'sm', text, ...props }) => {
 	return React.createElement(
 		mapTagBySize[size] || 'h5',
 		{
-			className: styles.title,
+			className,
 			...props,
-			style: { ...(mapStyleBySize[size] || { fontSize: 22 }), ...props.style },
+			style: {
+				...(mapStyleBySize[size] || { fontSize: 22 }),
+				color,
+				fontWeight: fw,
+				...props.style,
+			},
 		},
 		text,
 	);

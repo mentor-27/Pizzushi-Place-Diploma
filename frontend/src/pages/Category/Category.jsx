@@ -1,18 +1,16 @@
 import { useState } from 'react';
-import { useMatch, useNavigate } from 'react-router-dom';
+import { useMatch } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { ArrowLeft } from 'lucide-react';
 
 import { Container, ProductCard } from '../../components';
 import { ProductCardLoader } from '../../components/ProductCard/UI';
-import { Divider, Title } from '../../components/UI';
+import { BackArrow, Divider, Title } from '../../components/UI';
 import { Pagination } from '../../components/';
 import { selectCategories, selectProducts } from '../../redux/selector';
 import { PRODUCTS_PER_CATEGORY_PAGE } from '../../consts';
 import styles from './Category.module.css';
 
 export const Category = () => {
-	const navigate = useNavigate();
 	const [currentPage, setCurrentPage] = useState(1);
 	const { products, loading } = useSelector(selectProducts);
 	const { categories } = useSelector(selectCategories);
@@ -33,9 +31,7 @@ export const Category = () => {
 	return (
 		<Container py="40px">
 			<div className={styles.titleBlock}>
-				<div className={styles.titleBlockArrow} onClick={() => navigate(-1)}>
-					<ArrowLeft size={48} />
-				</div>
+				<BackArrow />
 				<Title size="xl" text={name} />
 			</div>
 			<div className={styles.mainBlock}>

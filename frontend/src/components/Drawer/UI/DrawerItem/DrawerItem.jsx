@@ -1,24 +1,22 @@
-import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { X } from 'lucide-react';
 
 import { Divider, Title } from '../../../UI';
-import { DrawerItemCounter } from '..';
+import { ItemCounter } from '../../../../components';
 import { removeCartItemAsync } from '../../../../redux/actions/removeCartItemAsync';
+import { selectCart } from '../../../../redux/selector';
 import styles from './DrawerItem.module.css';
 
-export const DrawerItem = ({ item, quantity }) => {
+export const DrawerItem = ({ item }) => {
 	const dispatch = useDispatch();
 	const { _id, name, description, imageUrl, price } = item;
-	const [itemQuantity, setItemQuantity] = useState(quantity);
+	const { products } = useSelector(selectCart);
 
 	const removeProduct = () => {
 		dispatch(removeCartItemAsync(_id));
 	};
 
-	useEffect(() => {
-		setItemQuantity(quantity);
-	}, [quantity]);
+	const quantity = products.find(cartItem => cartItem.item._id === _id)?.quantity || 0;
 
 	return (
 		<div className={styles.drawerItemContainer}>
@@ -29,7 +27,7 @@ export const DrawerItem = ({ item, quantity }) => {
 				<Title size="xs" text={name} />
 				<p className={styles.drawerItemDescription}>{description}</p>
 				<Divider axis="x" margin="6px 0" color="var(--light-low)" />
-				<DrawerItemCounter id={_id} price={price} quantity={itemQuantity} />
+				<ItemCounter id={_id} price={price} quantity={quantity} />
 			</div>
 			<div className={styles.drawerItemDeleteButton}>
 				<X size={20} onClick={removeProduct} />

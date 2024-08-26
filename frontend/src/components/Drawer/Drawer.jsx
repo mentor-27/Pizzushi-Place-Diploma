@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { ArrowRight, X } from 'lucide-react';
@@ -6,7 +5,7 @@ import { ArrowRight, X } from 'lucide-react';
 import { Button, Divider } from '../UI';
 import { DrawerItem } from './UI';
 import { selectCart } from '../../redux/selector';
-import { setCartAsync, toggleDrawer } from '../../redux/actions';
+import { toggleDrawer } from '../../redux/actions';
 import styles from './Drawer.module.css';
 
 export const Drawer = () => {
@@ -15,10 +14,6 @@ export const Drawer = () => {
 	const drawerIsOpen = useSelector(store => store.app.drawerIsOpen);
 
 	const itemsQty = cart.products.reduce((acc, item) => acc + item.quantity, 0);
-
-	useEffect(() => {
-		dispatch(setCartAsync());
-	}, [dispatch]);
 
 	return (
 		<>
@@ -33,6 +28,7 @@ export const Drawer = () => {
 			<div open={drawerIsOpen} className={styles.cartDrawerContainer}>
 				<div className={styles.cartDrawerBlock}>
 					<div className={styles.drawerHeader}>
+						{/* TODO decompose */}
 						<span>
 							В корзине <strong>{itemsQty ? `${itemsQty} товара` : `нет товаров`}</strong>
 						</span>
@@ -66,7 +62,7 @@ export const Drawer = () => {
 							<strong>{`${cart.totalPrice || 0} ₽`}</strong>
 						</div>
 						<Link
-							to="/cart"
+							to="/checkout"
 							className={styles.drawerFooterButton}
 							onClick={() => dispatch(toggleDrawer(false))}
 						>

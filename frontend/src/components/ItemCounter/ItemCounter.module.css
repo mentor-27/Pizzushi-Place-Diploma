@@ -21,6 +21,8 @@
 	border-radius: 10px;
 	cursor: pointer;
 	width: 30px;
+	height: 30px;
+	padding: 0;
 	aspect-ratio: 1;
 	outline: none;
 	background-color: transparent;
@@ -28,6 +30,7 @@
 
 	&:hover {
 		background-color: #ff938020;
+		border-color: currentColor;
 	}
 
 	&:is(:disabled, :disabled:hover) {
@@ -35,6 +38,11 @@
 		border-color: var(--light-low);
 		color: var(--light-middle);
 		cursor: default;
+	}
+
+	&:focus-visible {
+		outline: dashed 2px var(--accent-regular);
+		outline-offset: 2px;
 	}
 }
 

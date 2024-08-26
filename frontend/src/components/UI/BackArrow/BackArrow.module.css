@@ -1,0 +1,11 @@
+.backArrow {
+	display: flex;
+	cursor: pointer;
+	transition: 0.2s;
+	width: fit-content;
+
+	&:hover {
+		transform: translateX(-4px);
+		color: var(--accent-regular);
+	}
+}

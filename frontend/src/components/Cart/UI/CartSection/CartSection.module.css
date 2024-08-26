@@ -1,0 +1,16 @@
+.sectionBlock {
+	padding: 32px;
+	border-radius: 32px;
+	background-color: var(--dark-regular);
+}
+
+.sectionHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 32px;
+}
+
+.headerComponent {
+	height: 100%;
+}

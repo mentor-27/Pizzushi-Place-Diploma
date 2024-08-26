@@ -1,7 +1,6 @@
 import { ACTION_TYPE } from '../actions';
 
 const initialAppState = {
-	categoryId: null,
 	sortOrder: 1,
 	drawerIsOpen: false,
 	lastPage: 1,

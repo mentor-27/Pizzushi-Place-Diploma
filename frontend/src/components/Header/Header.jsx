@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { User, Search } from 'lucide-react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import classNames from 'classnames/bind';
 
-import { Container } from '../Container/Container';
+import { Container } from '../UI/Container/Container';
 import { Button, Input } from '../UI';
 import { selectProducts } from '../../redux/selector';
 import { useDebounce } from '../../hooks';
@@ -15,9 +15,9 @@ import logo from './assets/img/logo.png';
 const cls = classNames.bind(styles);
 
 export const Header = () => {
-	const { products } = useSelector(selectProducts);
 	const [searchFocus, setSearchFocus] = useState(false);
 	const [searchQuery, setSearchQuery] = useState('');
+	const { products } = useSelector(selectProducts);
 	const debSearchQuery = useDebounce(searchQuery, 250);
 
 	const regex = new RegExp(debSearchQuery, 'i');
@@ -47,7 +47,7 @@ export const Header = () => {
 							value={searchQuery}
 						/>
 						<div className={cls('searchPopup', { searchPopupVisible: searchFocus })}>
-							{(debSearchQuery &&
+							{(debSearchQuery && // TODO decompose this to component
 								foundProducts.length &&
 								foundProducts.map(product => (
 									<Link

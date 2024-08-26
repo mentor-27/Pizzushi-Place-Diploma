@@ -1,0 +1,42 @@
+.clearCartWrapper {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	cursor: pointer;
+	color: var(--light-middle);
+	transition: 0.2s;
+
+	&:hover {
+		color: var(--accent-regular);
+	}
+}
+
+.cartItemBlock {
+	display: flex;
+	gap: 64px;
+}
+
+.cartItem {
+	flex: 2;
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.cartItemImageBlock {
+	width: 65px;
+	height: 65px;
+}
+
+.cartItemImage {
+	height: 100%;
+}
+
+.cartItemCounterBlock {
+	flex: 1;
+	align-self: center;
+}
+
+.cartItemCounter {
+	flex-direction: row-reverse;
+}

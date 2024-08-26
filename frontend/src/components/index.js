@@ -1,6 +1,6 @@
 export * from './Header/Header';
 export * from './Footer/Footer';
-export * from './Container/Container';
+export * from './UI/Container/Container';
 export * from './TopBar/TopBar';
 export * from './Filters/Filters';
 export * from './ProductCard/ProductCard';
@@ -8,3 +8,5 @@ export * from './ProductGroupList/ProductGroupList';
 export * from './Drawer/Drawer';
 export * from './CategoryCard/CategoryCard';
 export * from './Pagination/Pagination';
+export * from './Cart/Cart';
+export * from './ItemCounter/ItemCounter';

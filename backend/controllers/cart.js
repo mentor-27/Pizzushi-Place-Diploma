@@ -110,9 +110,24 @@ async function removeProductFromCart(token, guestId, productId) {
 	return cart;
 }
 
+async function clearCart(token, guestId) {
+	const userId = token ? verify(token).id : null;
+	const cart = await Cart.findOne({ $or: [{ user: userId }, { guestId }] });
+
+	if (!cart) {
+		throw new Error('Cart not found');
+	}
+
+	return Cart.updateOne(
+		{ $or: [{ user: userId }, { guestId }] },
+		{ products: [], totalPrice: 0 },
+	);
+}
+
 module.exports = {
 	getCart,
 	addProductToCart,
 	mergeCarts,
 	removeProductFromCart,
+	clearCart,
 };

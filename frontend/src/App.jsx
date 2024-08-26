@@ -1,7 +1,7 @@
 import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import { Categories, Category, Main, NotFound, Product } from './pages';
+import { Categories, Category, Checkout, Main, NotFound, Product } from './pages';
 import { Container, Footer, Header } from './components';
 import { Drawer } from './components';
 import { Scroller } from './components/UI';
@@ -34,6 +34,7 @@ export const App = () => {
 					<Route path="/product/:id" element={<Product />} />
 					<Route path="/categories" element={<Categories />} />
 					<Route path="/categories/:slug" element={<Category />} />
+					<Route path="/checkout" element={<Checkout />} />
 					<Route path="/404" element={<NotFound />} />
 					<Route path="*" element={<Navigate to="/404" />} />
 				</Route>

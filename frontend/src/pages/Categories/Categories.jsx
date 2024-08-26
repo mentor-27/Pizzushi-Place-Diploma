@@ -1,14 +1,12 @@
 import { useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
+import { BackArrow, Title } from '../../components/UI';
 import { CategoryCard, Container } from '../../components';
-import { Title } from '../../components/UI';
 import { selectCategories, selectProducts } from '../../redux/selector';
 import styles from './Categories.module.css';
 
 export const Categories = () => {
-	const navigate = useNavigate();
 	const { categories } = useSelector(selectCategories);
 	const { products, loading } = useSelector(selectProducts);
 
@@ -23,9 +21,7 @@ export const Categories = () => {
 	return (
 		<Container py="40px">
 			<div className={styles.titleBlock}>
-				<div className={styles.titleBlockArrow} onClick={() => navigate(-1)}>
-					<ArrowLeft size={48} />
-				</div>
+				<BackArrow />
 				<Title size="xl" text="Все категории" />
 			</div>
 			<div className={styles.cardsContainer}>

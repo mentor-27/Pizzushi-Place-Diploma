@@ -1,0 +1,15 @@
+.container {
+	display: flex;
+	gap: 45px;
+}
+
+.dataBlock {
+	display: flex;
+	flex-direction: column;
+	gap: 45px;
+	flex: 3;
+}
+
+.totalBlock {
+	flex: 2;
+}
