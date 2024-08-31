@@ -5,21 +5,23 @@ const CartSchema = Schema(
 		user: {
 			type: Schema.Types.ObjectId,
 			ref: 'User',
-			required: false,
+			default: null,
 		},
 		guestId: {
 			type: String,
-			required: false,
+			default: null,
 		},
 		products: [
 			{
 				item: {
 					type: Schema.Types.ObjectId,
 					ref: 'Product',
+					required: true,
 				},
 				quantity: {
 					type: Number,
 					default: 1,
+					required: true,
 				},
 			},
 		],

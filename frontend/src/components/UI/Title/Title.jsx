@@ -1,4 +1,4 @@
-import React from 'react';
+import { createElement } from 'react';
 
 export const Title = ({
 	className,
@@ -6,6 +6,10 @@ export const Title = ({
 	text,
 	fw = 700,
 	color = '#fff',
+	lh = 1.2,
+	ws = 'nowrap',
+	shadow = false,
+	tAlign = 'start',
 	...props
 }) => {
 	const mapTagBySize = {
@@ -28,7 +32,7 @@ export const Title = ({
 		'2xl': { fontSize: 48 },
 	};
 
-	return React.createElement(
+	return createElement(
 		mapTagBySize[size] || 'h5',
 		{
 			className,
@@ -37,6 +41,10 @@ export const Title = ({
 				...(mapStyleBySize[size] || { fontSize: 22 }),
 				color,
 				fontWeight: fw,
+				whiteSpace: ws,
+				lineHeight: lh,
+				textAlign: tAlign,
+				filter: shadow && `drop-shadow(0 0 ${shadow}px #0008)`,
 				...props.style,
 			},
 		},

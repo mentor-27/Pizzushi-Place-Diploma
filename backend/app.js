@@ -3,10 +3,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
-const router = require('./routes');
 const { v4: generateId } = require('uuid');
-const { mergeCarts } = require('./controllers/cart');
 const chalk = require('chalk');
+const { mergeCarts } = require('./controllers/cart');
+const router = require('./routes');
 
 const app = express();
 
@@ -16,21 +16,21 @@ const corsConfig = {
 };
 
 app.use(express.json());
-app.use(cors(corsConfig));
 app.use(cookieParser());
+app.use(cors(corsConfig));
 
 app.all('*', async (req, res, next) => {
 	try {
-		if (!req.cookies.token && !req.cookies.guestId) {
+		if (!req.cookies.refreshToken && !req.cookies.guestId) {
 			const guestId = generateId();
 			req.cookies.guestId = guestId;
 			res.cookie('guestId', guestId, { maxAge: 1000 * 60 * 60 * 24 * 7 });
 		}
 
-		if (req.cookies.token && req.cookies.guestId) {
-			await mergeCarts(req.cookies.token, req.cookies.guestId);
-			res.cookie('guestId', '');
-		}
+		// if (req.cookies.refreshToken && req.cookies.guestId) {
+		// 	await mergeCarts(req.cookies.refreshToken, req.cookies.guestId);
+		// 	res.clearCookie('guestId');
+		// }
 
 		next();
 	} catch (error) {

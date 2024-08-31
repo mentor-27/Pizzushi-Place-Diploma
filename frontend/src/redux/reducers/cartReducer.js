@@ -4,7 +4,7 @@ import { ACTION_TYPE } from '../actions';
 const initialCartState = {
 	products: [],
 	totalPrice: 0,
-	...(await Api.cart.get()).data,
+	...(await Api.cart.get()),
 	loading: false,
 };
 
@@ -23,8 +23,12 @@ export const cartReducer = (state = initialCartState, action) => {
 				...state,
 				loading: payload,
 			};
-		case ACTION_TYPE.SET_CART_EMPTY:
-			return initialCartState;
+		case ACTION_TYPE.CLEAR_CART:
+			return {
+				products: [],
+				totalPrice: 0,
+				loading: false,
+			};
 		default:
 			return state;
 	}

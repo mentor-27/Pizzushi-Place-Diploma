@@ -1,24 +1,8 @@
 const Product = require('../models/Product');
 
-async function getItems(page, limit, categoryId, sortBy = 'popularity', sortOrder = -1) {
-	if (!page || !limit) {
-		const products = await Product.find().sort({ [sortBy]: Number(sortOrder) });
-		return {
-			products: await Promise.all(
-				products.map(product => product.populate('categoryId')),
-			),
-		};
-	} else {
-		const [products, count] = await Promise.all([
-			Product.find({ categoryId })
-				.sort({ [sortBy]: Number(sortOrder) })
-				.skip((page - 1) * limit)
-				.limit(limit),
-			Product.countDocuments({ categoryId }),
-		]);
-		await Promise.all(products.map(product => product.populate('categoryId')));
-		return { products, lastPage: Math.ceil(count / limit) };
-	}
+async function getItems(sortBy = 'popularity', sortOrder = -1) {
+	const products = await Product.find().sort({ [sortBy]: Number(sortOrder) });
+	return await Promise.all(products.map(product => product.populate('categoryId')));
 }
 
 async function getItemsByQuery(itemName) {

@@ -21,7 +21,7 @@ export const Main = () => {
 						<ProductGroupList title="Загрузка..." />
 					) : (
 						categories
-							.slice(0, CATEGORIES_PER_PAGE)
+							?.slice(0, CATEGORIES_PER_PAGE)
 							.map(category => (
 								<ProductGroupList
 									key={category.id}

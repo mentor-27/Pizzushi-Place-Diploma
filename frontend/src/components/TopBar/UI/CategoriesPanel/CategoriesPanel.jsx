@@ -19,7 +19,7 @@ export const CategoriesPanel = () => {
 			<div className={styles.categoriesBlock}>
 				{loading
 					? new Array(6).fill(0).map((_, index) => <CategoriesLoader key={index} />)
-					: categories.slice(0, CATEGORIES_PER_PAGE).map(({ id, name, slug }) => (
+					: categories?.slice(0, CATEGORIES_PER_PAGE).map(({ id, name, slug }) => (
 							<a
 								key={id}
 								id={`category_${slug}`}
@@ -32,7 +32,7 @@ export const CategoriesPanel = () => {
 							</a>
 						))}
 			</div>
-			<Link to="/categories">
+			<Link to="/categories" tabIndex={-1}>
 				<Button>Все категории </Button>
 			</Link>
 		</div>

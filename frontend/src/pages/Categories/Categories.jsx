@@ -25,7 +25,7 @@ export const Categories = () => {
 				<Title size="xl" text="Все категории" />
 			</div>
 			<div className={styles.cardsContainer}>
-				{categories.map((category, index) => (
+				{categories?.map((category, index) => (
 					<Link key={index} to={`/categories/${category.slug}`}>
 						<CategoryCard
 							loading={loading}

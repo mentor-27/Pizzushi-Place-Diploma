@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const {
+	getMe,
 	getUsers,
 	getUser,
 	editUser,
@@ -27,6 +28,16 @@ router.get(
 		}
 	},
 );
+
+router.get('/me', authenticated, async (req, res) => {
+	try {
+		const user = await getMe(req.headers.authorization, req.cookies.refreshToken);
+
+		res.json({ data: mapUser(user), error: null });
+	} catch (e) {
+		res.json({ error: e.message });
+	}
+});
 
 router.get(
 	'/roles',

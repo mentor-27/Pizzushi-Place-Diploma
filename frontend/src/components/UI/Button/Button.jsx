@@ -4,9 +4,15 @@ import styles from './Button.module.css';
 
 const cls = classNames.bind(styles);
 
-export const Button = ({ children, outlined = false, className, ...props }) => {
+export const Button = ({
+	children,
+	outlined = false,
+	type = 'button',
+	className,
+	...props
+}) => {
 	return (
-		<button className={cls('button', { outlined }, className)} {...props}>
+		<button type={type} className={cls('button', { outlined }, className)} {...props}>
 			{children}
 		</button>
 	);

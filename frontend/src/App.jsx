@@ -1,19 +1,35 @@
 import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { Toaster } from 'react-hot-toast';
 
-import { Categories, Category, Checkout, Main, NotFound, Product } from './pages';
+import {
+	Authorization,
+	Categories,
+	Category,
+	Checkout,
+	Dashboard,
+	Main,
+	NotFound,
+	Product,
+} from './pages';
 import { Container, Footer, Header } from './components';
 import { Drawer } from './components';
 import { Scroller } from './components/UI';
 import { setScroller } from './redux/actions';
+import { useState } from 'react';
+import styles from './App.module.css';
 
 export const App = () => {
 	const dispatch = useDispatch();
+	const [flag, setFlag] = useState(false);
+
 	document.onscroll = () => {
-		if (window.scrollY > 600) {
+		if (window.scrollY > 600 && !flag) {
 			dispatch(setScroller(true));
-		} else {
+			setFlag(true);
+		} else if (window.scrollY < 600 && flag) {
 			dispatch(setScroller(false));
+			setFlag(false);
 		}
 	};
 
@@ -25,7 +41,7 @@ export const App = () => {
 						<>
 							<Header />
 							<Outlet />
-							<Footer>Footer</Footer>
+							<Footer />
 							<Drawer />
 						</>
 					}
@@ -35,11 +51,17 @@ export const App = () => {
 					<Route path="/categories" element={<Categories />} />
 					<Route path="/categories/:slug" element={<Category />} />
 					<Route path="/checkout" element={<Checkout />} />
+					<Route path="/login" element={<Authorization />} />
 					<Route path="/404" element={<NotFound />} />
 					<Route path="*" element={<Navigate to="/404" />} />
 				</Route>
+				<Route path="/dashboard" element={<Dashboard />}>
+					<Route path="users" element={<div>users</div>} />
+					<Route path="*" element={<div>Not Found</div>} />
+				</Route>
 			</Routes>
 			<Scroller />
+			<Toaster toastOptions={{ className: styles.toaster, position: 'bottom-center' }} />
 		</Container>
 	);
 };

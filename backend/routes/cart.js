@@ -4,6 +4,7 @@ const {
 	addProductToCart,
 	removeProductFromCart,
 	clearCart,
+	cartCheckout,
 } = require('../controllers/cart');
 
 const router = Router({ mergeParams: true });
@@ -11,7 +12,7 @@ const router = Router({ mergeParams: true });
 router.get('/', async (req, res) => {
 	try {
 		const { products, totalPrice } = await getCart(
-			req.cookies.token,
+			req.cookies.refreshToken,
 			req.cookies.guestId,
 		);
 		res.json({ data: { products, totalPrice }, error: null });
@@ -20,17 +21,31 @@ router.get('/', async (req, res) => {
 	}
 });
 
+router.post('/checkout', async (req, res) => {
+	try {
+		const data = await cartCheckout(
+			req.cookies.refreshToken,
+			req.cookies.guestId,
+			req.body,
+		);
+
+		res.json({ data, error: null });
+	} catch (e) {
+		res.json({ error: e.message });
+	}
+});
+
 router.post('/:productId', async (req, res) => {
 	try {
 		const { products, totalPrice } = await addProductToCart(
-			req.cookies.token,
+			req.cookies.refreshToken,
 			req.cookies.guestId,
 			req.params.productId,
 			req.query.qty,
 		);
 
 		if (req.cookies.token && req.cookies.guestId) {
-			res.cookie('guestId', '');
+			res.clearCookie('guestId');
 		}
 
 		res.json({ data: { products, totalPrice }, error: null });
@@ -42,7 +57,7 @@ router.post('/:productId', async (req, res) => {
 router.delete('/:productId', async (req, res) => {
 	try {
 		const { products, totalPrice } = await removeProductFromCart(
-			req.cookies.token,
+			req.cookies.refreshToken,
 			req.cookies.guestId,
 			req.params.productId,
 		);

@@ -55,7 +55,7 @@ export const Drawer = () => {
 								type="dashed"
 								size="auto"
 								color="var(--light)"
-								margin="16px 0 0 0 "
+								my="12px 0"
 								style={{ flex: 1 }}
 							/>
 

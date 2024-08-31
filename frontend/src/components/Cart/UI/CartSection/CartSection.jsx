@@ -1,19 +1,27 @@
 import { Divider, Title } from '../../../UI';
 import styles from './CartSection.module.css';
 
-export const CartSection = ({ children, header = '', ActionComponent }) => {
+export const CartSection = ({
+	children,
+	header = '',
+	ActionComponent,
+	disabled = false,
+}) => {
 	return (
 		<section className={styles.sectionBlock}>
 			{header && (
 				<>
 					<div className={styles.sectionHeader}>
-						<Title size="md" text={header} />
-						<ActionComponent className={styles.headerComponent} />
+						<Title size="md" text={header} ws="normal" />
+						{!disabled && ActionComponent && (
+							<ActionComponent className={styles.headerComponent} />
+						)}
 					</div>
 					<Divider my="24px" color="var(--dark-middle)" />
 				</>
 			)}
-			{children}
+			<div className={styles.sectionContent}>{children}</div>
+			{disabled && <div className={styles.disableOverlay}></div>}
 		</section>
 	);
 };

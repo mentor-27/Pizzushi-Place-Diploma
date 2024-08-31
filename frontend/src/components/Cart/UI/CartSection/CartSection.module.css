@@ -1,7 +1,9 @@
 .sectionBlock {
+	position: relative;
 	padding: 32px;
 	border-radius: 32px;
 	background-color: var(--dark-regular);
+	overflow: hidden;
 }
 
 .sectionHeader {
@@ -13,4 +15,28 @@
 
 .headerComponent {
 	height: 100%;
+}
+
+.sectionContent {
+	max-height: 450px;
+	overflow-y: auto;
+	padding-right: 12px;
+
+	&::-webkit-scrollbar {
+		width: 12px;
+		background-color: transparent;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		border-inline: solid 3px var(--dark-regular);
+		border-radius: 8px / 4px;
+		background-color: var(--light-low);
+	}
+}
+
+.disableOverlay {
+	position: absolute;
+	background-color: #0128;
+	inset: 0;
+	filter: brightness(0.75) contrast(0.5);
 }

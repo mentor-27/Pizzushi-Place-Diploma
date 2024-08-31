@@ -1,27 +1,36 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { User, Search } from 'lucide-react';
-import { useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { Search, LogOut, LogIn, MonitorCog } from 'lucide-react';
+import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames/bind';
 
 import { Container } from '../UI/Container/Container';
-import { Button, Input } from '../UI';
-import { selectProducts } from '../../redux/selector';
+import { Button, Input, Title } from '../UI';
+import { selectToken, selectProducts, selectRoleId } from '../../redux/selector';
+import { logoutAsync } from '../../redux/actions';
 import { useDebounce } from '../../hooks';
 import { CartButton } from './UI';
 import styles from './Header.module.css';
-import logo from './assets/img/logo.png';
+import logo from '../../assets/img/logo.png';
 
 const cls = classNames.bind(styles);
 
 export const Header = () => {
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	const [searchFocus, setSearchFocus] = useState(false);
 	const [searchQuery, setSearchQuery] = useState('');
 	const { products } = useSelector(selectProducts);
+	const token = useSelector(selectToken);
+	const roleId = useSelector(selectRoleId);
 	const debSearchQuery = useDebounce(searchQuery, 250);
 
 	const regex = new RegExp(debSearchQuery, 'i');
 	const foundProducts = products.filter(product => product.name.match(regex, 'i'));
+
+	const logout = () => {
+		dispatch(logoutAsync(navigate));
+	};
 
 	return (
 		<header className={styles.headerBlock}>
@@ -29,8 +38,14 @@ export const Header = () => {
 				<Link to="/" className={styles.logoBlock}>
 					<img src={logo} alt="logo" height={32} width={32} />
 					<div>
-						<h1 className={styles.logoHeadingSign}>PIZZUSHI PLACE</h1>
-						<p className={styles.logoSubSign}>апогея вкусноты</p>
+						<Title size="md" text="PIZZUSHI PLACE" lh={1} />
+						<Title
+							size="xs"
+							fw={400}
+							color="var(--light-middle)"
+							text="апогея вкусноты"
+							lh={1}
+						/>
 					</div>
 				</Link>
 
@@ -40,7 +55,8 @@ export const Header = () => {
 						<Search className={styles.searchIcon} size={20} />
 						<Input
 							placeholder="Поиск пиццы..."
-							padding="14px 24px 14px 48px"
+							px="24px"
+							py="14px"
 							onFocus={() => setSearchFocus(true)}
 							onBlur={() => setSearchFocus(false)}
 							onChange={({ target }) => setSearchQuery(target.value)}
@@ -70,11 +86,27 @@ export const Header = () => {
 				</>
 
 				<div className={styles.userBlock}>
-					<Button outlined>
-						<User size={20} />
-						Войти
-					</Button>
-
+					{[0, 1].includes(roleId) && (
+						<Link to="/dashboard" tabIndex={-1}>
+							<Button outlined>
+								<MonitorCog />
+								CMS
+							</Button>
+						</Link>
+					)}
+					{token ? (
+						<Button onClick={logout} outlined>
+							<LogOut size={20} />
+							Выйти
+						</Button>
+					) : (
+						<Link to="/login" tabIndex={-1}>
+							<Button outlined>
+								<LogIn size={20} />
+								Войти
+							</Button>
+						</Link>
+					)}
 					<CartButton />
 				</div>
 			</Container>

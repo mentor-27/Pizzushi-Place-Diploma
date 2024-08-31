@@ -1,13 +1,42 @@
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
+const Token = require('../models/Token');
 
-const sign = process.env.JWT_SECRET;
+const accessSign = process.env.JWT_ACCESS_SECRET;
+const refreshSign = process.env.JWT_REFRESH_SECRET;
 
 module.exports = {
-	generate(data) {
-		return jwt.sign(data, sign, { expiresIn: '7d' });
+	generateToken(data) {
+		const accessToken = jwt.sign(data, accessSign, { expiresIn: '12h' });
+		const refreshToken = jwt.sign(data, refreshSign, { expiresIn: '30d' });
+		return { accessToken, refreshToken };
 	},
-	verify(token) {
-		return jwt.verify(token, sign);
+	validateAccessToken(token) {
+		try {
+			return jwt.verify(token, accessSign);
+		} catch (e) {
+			return null;
+		}
+	},
+	validateRefreshToken(token) {
+		try {
+			return jwt.verify(token, refreshSign);
+		} catch (e) {
+			return null;
+		}
+	},
+	async saveToken(userId, refreshToken) {
+		const tokenData = await Token.findOne({ user: userId });
+		if (tokenData) {
+			tokenData.refreshToken = refreshToken;
+			return tokenData.save();
+		}
+		return await Token.create({ user: userId, refreshToken });
+	},
+	async removeToken(refreshToken) {
+		return await Token.deleteOne({ refreshToken });
+	},
+	async findToken(refreshToken) {
+		return await Token.findOne({ refreshToken });
 	},
 };

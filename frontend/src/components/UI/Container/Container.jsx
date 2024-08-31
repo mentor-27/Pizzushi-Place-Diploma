@@ -11,6 +11,7 @@ export const Container = ({
 	my = '0',
 	roundedTop = false,
 	roundedBottom = false,
+	hiddenOverflow = false,
 	...props
 }) => {
 	const cls = classNames.bind(styles, className);
@@ -33,6 +34,7 @@ export const Container = ({
 				paddingInline: px,
 				marginBlock: my,
 				marginInline: mx,
+				overflow: hiddenOverflow ? 'hidden' : 'unset',
 				...props.style,
 			}}
 		>

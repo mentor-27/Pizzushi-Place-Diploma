@@ -1,9 +1,11 @@
 const Product = require('../models/Product');
 const Cart = require('../models/Cart');
-const { verify } = require('../helpers/token');
+const Order = require('../models/Order');
+const User = require('../models/User');
+const { validateRefreshToken } = require('../helpers/token');
 
-async function getCart(token, guestId) {
-	const userId = token ? verify(token).id : null;
+async function getCart(refreshToken, guestId = '') {
+	const userId = refreshToken ? validateRefreshToken(refreshToken).id : null;
 
 	const cart = await Cart.findOne({
 		$or: [{ user: userId }, { guestId }],
@@ -12,7 +14,7 @@ async function getCart(token, guestId) {
 	return cart || {};
 }
 
-async function addProductToCart(token, guestId, productId, quantity) {
+async function addProductToCart(refreshToken, guestId = '', productId, quantity) {
 	const product = await Product.findById(productId);
 
 	if (!product) {
@@ -21,7 +23,7 @@ async function addProductToCart(token, guestId, productId, quantity) {
 
 	let cart = null;
 
-	const userId = token ? verify(token).id : null;
+	const userId = refreshToken ? validateRefreshToken(refreshToken).id : null;
 	let userCart = userId ? await Cart.findOne({ user: userId }) : null;
 	let guestCart = await Cart.findOne({ guestId });
 
@@ -55,8 +57,8 @@ async function addProductToCart(token, guestId, productId, quantity) {
 	return cart;
 }
 
-async function mergeCarts(token, guestId) {
-	const userId = token ? verify(token).id : null;
+async function mergeCarts(refreshToken, guestId) {
+	const userId = refreshToken ? validateRefreshToken(refreshToken).id : null;
 	if (!userId) {
 		throw new Error('Unknown user');
 	}
@@ -90,8 +92,8 @@ async function mergeCarts(token, guestId) {
 	await Cart.deleteOne({ guestId });
 }
 
-async function removeProductFromCart(token, guestId, productId) {
-	const userId = token ? verify(token).id : null;
+async function removeProductFromCart(refreshToken, guestId, productId) {
+	const userId = refreshToken ? validateRefreshToken(refreshToken).id : null;
 
 	let cart = await Cart.findOne({ $or: [{ user: userId }, { guestId }] });
 
@@ -110,8 +112,8 @@ async function removeProductFromCart(token, guestId, productId) {
 	return cart;
 }
 
-async function clearCart(token, guestId) {
-	const userId = token ? verify(token).id : null;
+async function clearCart(refreshToken, guestId) {
+	const userId = refreshToken ? validateRefreshToken(refreshToken).id : null;
 	const cart = await Cart.findOne({ $or: [{ user: userId }, { guestId }] });
 
 	if (!cart) {
@@ -124,10 +126,50 @@ async function clearCart(token, guestId) {
 	);
 }
 
+async function cartCheckout(refreshToken, guestId, data) {
+	const userId = refreshToken ? validateRefreshToken(refreshToken).id : null;
+
+	let cart = await Cart.findOne({ $or: [{ user: userId }, { guestId }] });
+
+	if (!cart) {
+		throw new Error('Cart not found');
+	}
+
+	cart.products.forEach(async ({ item, quantity }) => {
+		await Product.findOneAndUpdate({ _id: item }, { $inc: { popularity: quantity } });
+	});
+
+	await cart.populate(
+		'products.item',
+		'name description categoryId imageUrl price popularity',
+	);
+
+	const newOrder = new Order({
+		user: userId || null,
+		guestId: userId ? null : guestId,
+		cart: {
+			products: cart.products,
+			totalPrice: cart.totalPrice,
+		},
+		reciever: { ...data },
+	});
+
+	await newOrder.save();
+
+	if (userId) {
+		await User.findOneAndUpdate({ _id: userId }, { $push: { orders: newOrder._id } });
+	}
+
+	await Cart.deleteOne({ $or: [{ user: userId }, { guestId }] });
+
+	return newOrder;
+}
+
 module.exports = {
 	getCart,
 	addProductToCart,
 	mergeCarts,
 	removeProductFromCart,
 	clearCart,
+	cartCheckout,
 };

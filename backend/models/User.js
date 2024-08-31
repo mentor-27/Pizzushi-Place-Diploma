@@ -6,7 +6,6 @@ const UserSchema = Schema(
 	{
 		login: {
 			type: String,
-			required: true,
 			unique: true,
 		},
 		email: {
@@ -18,6 +17,18 @@ const UserSchema = Schema(
 				message: 'Invalid email',
 			},
 		},
+		name: String,
+		surname: String,
+		phone: {
+			type: String,
+			validate: {
+				validator: str => {
+					return validator.isMobilePhone(str);
+				},
+				message: 'Invalid phone number',
+			},
+		},
+		// avatar: String,
 		password: {
 			type: String,
 			required: true,
@@ -28,59 +39,16 @@ const UserSchema = Schema(
 		},
 		orders: [
 			{
-				products: [
-					{
-						item: {
-							type: Schema.Types.ObjectId,
-							ref: 'Product',
-						},
-						quantity: {
-							type: Number,
-							default: 1,
-						},
-					},
-				],
-				totalPrice: {
-					type: Number,
-					default: 0,
-				},
-				status: {
-					type: Number,
-					default: 0,
-				},
-				reciever: {
-					fullName: {
-						type: String,
-						required: true,
-					},
-					email: {
-						type: String,
-						validate: {
-							validator: validator.isEmail,
-							message: 'Invalid email',
-						},
-					},
-					phone: {
-						type: String,
-						required: true,
-						validate: {
-							validator: validator.isMobilePhone,
-							message: 'Invalid phone number',
-						},
-					},
-					address: {
-						type: String,
-						required: true,
-					},
-					comment: String,
-					preferDeliveryTime: Date,
-				},
-				date: {
-					type: Date,
-					default: Date.now,
-				},
+				type: Schema.Types.ObjectId,
+				ref: 'Order',
 			},
 		],
+		// TODO develop
+		// isActivated: {
+		// 	type: Boolean,
+		// 	default: false,
+		// },
+		// activationLink: String,
 	},
 	{ timestamps: true },
 );

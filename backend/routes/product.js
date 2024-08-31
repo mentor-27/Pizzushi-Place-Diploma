@@ -18,17 +18,11 @@ const router = Router({ mergeParams: true });
 
 router.get('/', async (req, res) => {
 	try {
-		const { page, limit, categoryId, sortBy, sortOrder } = req.query;
+		const { sortBy, sortOrder } = req.query;
 
-		const { products, lastPage } = await getItems(
-			page,
-			limit,
-			categoryId,
-			sortBy,
-			sortOrder,
-		);
+		const products = await getItems(sortBy, sortOrder);
 
-		res.json({ data: { products: products.map(mapProduct), lastPage }, error: null });
+		res.json({ data: { products: products.map(mapProduct) }, error: null });
 	} catch (e) {
 		res.json({ error: e.message });
 	}

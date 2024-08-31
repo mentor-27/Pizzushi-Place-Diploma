@@ -24,8 +24,16 @@
 	height: 85%;
 	width: 85%;
 
+	&:focus-visible {
+		outline: dashed 2px var(--light);
+		outline-offset: 2px;
+
+		&:hover {
+			outline-color: var(--accent-regular);
+		}
+	}
+
 	&:hover {
-		/* padding-block: 128px; */
 		height: 100%;
 		width: 100%;
 	}

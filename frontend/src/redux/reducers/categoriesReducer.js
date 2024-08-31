@@ -2,7 +2,7 @@ import { Api } from '../../services/apiClient';
 import { ACTION_TYPE } from '../actions/actionTypes';
 
 const initialCategoriesState = {
-	categories: (await Api.categories.get()).data,
+	categories: (await Api.categories.get()) || [],
 	loading: false,
 };
 

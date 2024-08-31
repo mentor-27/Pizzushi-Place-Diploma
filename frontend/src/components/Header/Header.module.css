@@ -22,18 +22,6 @@
 	}
 }
 
-.logoHeadingSign {
-	font-size: 24px;
-	white-space: nowrap;
-	color: #fff;
-}
-
-.logoSubSign {
-	font-size: 14px;
-	color: #a0a0a0;
-	line-height: 12px;
-}
-
 .searchOverlay {
 	position: fixed;
 	inset: 0;

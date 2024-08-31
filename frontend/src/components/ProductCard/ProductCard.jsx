@@ -27,6 +27,7 @@ export const ProductCard = ({ id, imageUrl, name, price, description, variants }
 					size="sm"
 					text={name}
 					className={styles.productCardTitle}
+					ws="normal"
 					style={{ marginTop: 16, marginBottom: 4 }}
 				/>
 				<p className={styles.productCardDescription}>{description}</p>

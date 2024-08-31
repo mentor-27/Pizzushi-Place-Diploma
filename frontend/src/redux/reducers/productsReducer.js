@@ -2,7 +2,8 @@ import { Api } from '../../services/apiClient';
 import { ACTION_TYPE } from '../actions';
 
 const initialProductsState = {
-	products: (await Api.products.get()).data.products,
+	products: [],
+	...(await Api.products.get()),
 	loading: false,
 };
 

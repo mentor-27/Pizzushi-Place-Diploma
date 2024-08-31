@@ -9,7 +9,15 @@ export const search = async query => {
 };
 
 export const get = async () => {
-	return (await axiosInstance.get('/products')).data;
+	try {
+		const resp = (await axiosInstance.get('/products')).data;
+		if (resp.error) {
+			throw new Error(resp.error);
+		}
+		return resp.data;
+	} catch (e) {
+		console.log(e);
+	}
 };
 
 export const getPaginated = async (page, limit, categoryId, sortBy, sortOrder) => {

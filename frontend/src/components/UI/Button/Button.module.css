@@ -17,20 +17,9 @@
 	width: fit-content;
 }
 
-.outlined {
-	border: solid 1px var(--light);
-	background-color: transparent;
-	color: var(--light);
-}
-
 .button:focus-visible {
 	outline: dashed 2px var(--light);
 	outline-offset: 2px;
-}
-
-.outlined:focus-visible {
-	outline: solid 2px var(--light);
-	outline-offset: 0;
 }
 
 .button:hover {
@@ -38,7 +27,32 @@
 	background-color: var(--light-regular);
 }
 
+.button:disabled {
+	background-color: var(--light-low);
+	border-color: var(--light-low);
+	color: var(--light-middle);
+	cursor: not-allowed;
+}
+
+.outlined {
+	border: solid 1px var(--light);
+	background-color: transparent;
+	color: var(--light);
+}
+
+.outlined:focus-visible {
+	outline: solid 2px var(--light);
+	outline-offset: 0;
+}
+
 .outlined:hover {
 	border-color: #fff8;
 	background-color: #fff8;
+}
+
+.outlined:disabled {
+	background-color: transparent;
+	border-color: var(--light-low);
+	color: var(--light-middle);
+	cursor: not-allowed;
 }

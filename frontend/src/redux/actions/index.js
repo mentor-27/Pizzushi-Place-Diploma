@@ -7,4 +7,7 @@ export * from './setCartAsync';
 export * from './toggleDrawer';
 export * from './setSortOrder';
 export * from './setScroller';
-export * from './setCartEmptyAsync';
+export * from './clearCartAsync';
+export * from './checkoutAsync';
+export * from './logoutAsync';
+export * from './loginAsync';

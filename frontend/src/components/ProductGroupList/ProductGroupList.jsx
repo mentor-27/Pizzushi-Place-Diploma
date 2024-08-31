@@ -48,6 +48,7 @@ export const ProductGroupList = ({ title, category }) => {
 							size="sm"
 							text="Все товары категории..."
 							className={styles.productGroupItemCardCaption}
+							ws="normal"
 						/>
 						<div className={styles.productGroupItemCardArrowBlock}>
 							Перейти <CircleArrowRight />

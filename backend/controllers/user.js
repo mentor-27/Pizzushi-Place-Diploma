@@ -1,11 +1,20 @@
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
-const { generate } = require('../helpers/token');
+const Token = require('../models/Token');
+const {
+	generateToken,
+	validateAccessToken,
+	validateRefreshToken,
+	saveToken,
+	removeToken,
+	findToken,
+} = require('../helpers/token');
+const { mergeCarts, getCart } = require('./cart');
 const ROLES = require('../constants/roles');
 
-async function register(login, email, password) {
-	if (!login) {
-		throw new Error('Login is empty');
+async function register(email, password) {
+	if (!email) {
+		throw new Error('Email is empty');
 	}
 
 	if (!password) {
@@ -14,15 +23,17 @@ async function register(login, email, password) {
 
 	const passwordHash = await bcrypt.hash(password, 10);
 
-	const user = await User.create({ login, email, password: passwordHash });
+	const user = await User.create({ email, password: passwordHash });
 
-	const token = generate({ id: user.id });
+	const tokens = generateToken({ id: user.id });
 
-	return { user, token };
+	await saveToken(user.id, tokens.refreshToken);
+
+	return { user, ...tokens };
 }
 
-async function login(login, password) {
-	if (!login) {
+async function login(authId, password, guestId = '') {
+	if (!authId) {
 		throw new Error('Login is empty');
 	}
 
@@ -30,7 +41,7 @@ async function login(login, password) {
 		throw new Error('Password is empty');
 	}
 
-	const user = await User.findOne({ login });
+	const user = await User.findOne({ $or: [{ login: authId }, { email: authId }] });
 
 	if (!user) {
 		throw new Error('User not found');
@@ -42,9 +53,63 @@ async function login(login, password) {
 		throw new Error('Wrong password');
 	}
 
-	const token = generate({ id: user._id });
+	const tokens = generateToken({ id: user._id });
+	await saveToken(user._id, tokens.refreshToken);
 
-	return { user, token };
+	await mergeCarts(tokens.refreshToken, guestId);
+
+	const cart = await getCart(tokens.refreshToken);
+
+	return { user, ...tokens, cart };
+}
+
+async function refresh(refreshToken) {
+	if (!refreshToken) {
+		throw new Error('Unauthorized');
+	}
+
+	const userData = validateRefreshToken(refreshToken);
+	const dbToken = findToken(refreshToken);
+
+	if (!userData || !dbToken) {
+		throw new Error('Unauthorized');
+	}
+
+	const user = await User.findById(userData.id);
+	const tokens = generateToken({ id: user._id });
+	await saveToken(user._id, tokens.refreshToken);
+
+	return { user, ...tokens };
+}
+
+async function logout(refreshToken) {
+	if (!refreshToken) {
+		throw new Error('Unauthorized');
+	}
+
+	const tokenData = await Token.findOne({ refreshToken });
+	if (!tokenData) {
+		throw new Error('Unauthorized');
+	}
+
+	return removeToken(refreshToken);
+}
+
+function getMe(accessToken, refreshToken) {
+	const acsToken = accessToken?.split(' ')[1];
+
+	if (!acsToken || !refreshToken) {
+		throw new Error('Unauthorized');
+	}
+
+	const acsTokenData = validateAccessToken(acsToken);
+	const refTokData = validateRefreshToken(refreshToken);
+
+	if (!acsTokenData || !refTokData) {
+		throw new Error('Unauthorized');
+	}
+
+	return User.findById(refTokData.id);
 }
 
 function getUsers() {
@@ -87,6 +152,9 @@ function getRoles() {
 module.exports = {
 	register,
 	login,
+	refresh,
+	logout,
+	getMe,
 	getUsers,
 	getUser,
 	editUser,

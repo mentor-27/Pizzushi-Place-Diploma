@@ -3,7 +3,6 @@ import { ACTION_TYPE } from '../actions';
 const initialAppState = {
 	sortOrder: 1,
 	drawerIsOpen: false,
-	lastPage: 1,
 	scroller: false,
 };
 
@@ -20,11 +19,6 @@ export const appReducer = (state = initialAppState, action) => {
 			return {
 				...state,
 				drawerIsOpen: payload,
-			};
-		case ACTION_TYPE.SET_LAST_PAGE:
-			return {
-				...state,
-				lastPage: payload,
 			};
 		case ACTION_TYPE.SET_SORT_ORDER: {
 			return {

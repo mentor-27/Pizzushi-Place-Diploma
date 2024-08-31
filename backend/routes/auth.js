@@ -1,20 +1,25 @@
 const { Router } = require('express');
-const { register, login } = require('../controllers/user');
+const { register, login, logout, refresh } = require('../controllers/user');
 const mapUser = require('../helpers/mapUser');
 
 const router = Router({ mergeParams: true });
 
 router.post('/register', async (req, res) => {
 	try {
-		const { user, token } = await register(
-			req.body.login,
+		const { user, accessToken, refreshToken } = await register(
 			req.body.email,
 			req.body.password,
 		);
-
 		res
-			.cookie('token', token, { httpOnly: true })
-			.json({ data: mapUser(user), error: null });
+			.cookie('refreshToken', refreshToken, {
+				httpOnly: true,
+				maxAge: 30 * 24 * 60 * 60 * 1000,
+				// secure: true
+			})
+			.json({
+				data: { ...mapUser(user), accessToken, roleId: user.roleId },
+				error: null,
+			});
 	} catch (e) {
 		res.json({ error: e.message });
 	}
@@ -22,18 +27,50 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => {
 	try {
-		const { user, token } = await login(req.body.login, req.body.password);
-
+		const { user, accessToken, refreshToken, cart } = await login(
+			req.body.authId,
+			req.body.password,
+			req.cookies.guestId,
+		);
 		res
-			.cookie('token', token, { httpOnly: true })
-			.json({ data: mapUser(user), error: null });
+			.clearCookie('guestId')
+			.cookie('refreshToken', refreshToken, {
+				httpOnly: true,
+				maxAge: 30 * 24 * 60 * 60 * 1000,
+				// secure: true
+			})
+			.json({
+				data: { ...mapUser(user), accessToken },
+				...(cart ? { cart } : null),
+				error: null,
+			});
+	} catch (e) {
+		res.json({ error: e.message });
+	}
+});
+
+router.get('/refresh', async (req, res) => {
+	try {
+		const { user, accessToken, refreshToken } = await refresh(req.cookies.refreshToken);
+		res
+			.cookie('refreshToken', refreshToken, {
+				httpOnly: true,
+				maxAge: 30 * 24 * 60 * 60 * 1000,
+				// secure: true
+			})
+			.json({ data: { ...mapUser(user), accessToken }, error: null });
 	} catch (e) {
 		res.json({ error: e.message });
 	}
 });
 
 router.post('/logout', async (req, res) => {
-	res.cookie('token', '', { httpOnly: true }).json({ data: 'success', error: null });
+	try {
+		await logout(req.cookies.refreshToken);
+		res.clearCookie('refreshToken').json({ data: 'success', error: null });
+	} catch (e) {
+		res.json({ error: e.message });
+	}
 });
 
 module.exports = router;

@@ -1,0 +1,39 @@
+.authBlock {
+	position: relative;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	gap: 16px;
+	width: 400px;
+	margin-inline: auto;
+	background-color: var(--light-low);
+	border-radius: 32px 32px 64px 64px;
+	padding: 32px;
+	z-index: 1;
+}
+
+.loginButton {
+	width: 80%;
+}
+
+.regLink {
+	position: relative;
+	display: block;
+	margin-inline: auto;
+	padding: 4px 12px;
+	width: fit-content;
+	background-color: var(--dark-regular);
+	color: var(--light-middle);
+	border-top: none;
+	border-radius: 0 0 16px 16px;
+	transition: 0.2s;
+
+	&:focus-visible {
+		outline: dashed 2px var(--accent-regular);
+		outline-offset: 2px;
+	}
+
+	&:where(:hover, :focus) {
+		color: var(--accent-regular);
+	}
+}
