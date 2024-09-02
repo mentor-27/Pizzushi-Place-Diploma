@@ -6,6 +6,7 @@ function mapUser(user) {
 		surname: user.surname,
 		phone: user.phone,
 		email: user.email,
+		avatar: user.avatar,
 		roleId: user.roleId,
 	};
 }

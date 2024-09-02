@@ -28,7 +28,7 @@ const UserSchema = Schema(
 				message: 'Invalid phone number',
 			},
 		},
-		// avatar: String,
+		avatar: String,
 		password: {
 			type: String,
 			required: true,

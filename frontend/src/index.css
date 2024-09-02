@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 :root {
-	--accent-light: #ff9380;
-	--accent-regular: #eb6047;
-	--accent-middle: #b8432e;
-	--accent-dark: #6b372e;
+	--accent-light: #f7a96e;
+	--accent-regular: #eb8f47;
+	--accent-middle: #cc7533;
+	--accent-dark: #946038;
 	--dark-regular: #282f32;
 	--dark-middle: #464a4f;
 	--light-low: #7c8189;
@@ -26,6 +26,12 @@ html {
 		border-radius: 8px / 4px;
 		background-color: var(--dark-middle);
 	}
+}
+
+#root {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 *,

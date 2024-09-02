@@ -1,6 +1,6 @@
 import { ROLES_AUTH_NUMBERS } from '../../consts';
-import { Api } from '../../services/apiClient';
 import { ACTION_TYPE } from '../actions';
+import { Api } from '../../services/apiClient';
 
 const initialUsersState = {
 	roles:
@@ -13,12 +13,17 @@ const initialUsersState = {
 
 export const usersReducer = (state = initialUsersState, action) => {
 	const { type, payload } = action;
-	console.log(state);
+
 	switch (type) {
 		case ACTION_TYPE.SET_USERS:
 			return {
 				...state,
 				users: payload,
+			};
+		case ACTION_TYPE.SET_ROLES:
+			return {
+				...state,
+				roles: payload,
 			};
 		case ACTION_TYPE.CLEAR_USERS:
 			return {

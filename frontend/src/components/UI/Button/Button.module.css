@@ -3,7 +3,6 @@
 	align-items: center;
 	justify-content: center;
 	gap: 8px;
-	padding: 14px 18px;
 	border: solid 1px var(--light);
 	border-radius: 16px;
 	background-color: var(--light);

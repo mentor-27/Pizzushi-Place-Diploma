@@ -1,16 +1,20 @@
 import { Fragment } from 'react';
 import { useDispatch } from 'react-redux';
-import { PackageOpen, Trash2 } from 'lucide-react';
+import { PackageOpen, Trash2, X } from 'lucide-react';
 import classNames from 'classnames';
 
 import { CartSection } from '../CartSection/CartSection';
 import { ItemCounter } from '../../../../components';
 import { Divider, Title } from '../../../UI';
-import { clearCartAsync } from '../../../../redux/actions';
+import { clearCartAsync, removeCartItemAsync } from '../../../../redux/actions';
 import styles from './CartItems.module.css';
 
 export const CartItems = ({ cart, disabled }) => {
 	const dispatch = useDispatch();
+
+	const removeProduct = ({ _id }) => {
+		dispatch(removeCartItemAsync(_id));
+	};
 
 	const clearCartFunc = () => {
 		dispatch(clearCartAsync());
@@ -40,6 +44,12 @@ export const CartItems = ({ cart, disabled }) => {
 					<Fragment key={item._id}>
 						<div className={styles.cartItemBlock}>
 							<div className={styles.cartItem}>
+								<div
+									className={styles.cartItemDeleteButton}
+									onClick={() => removeProduct(item)}
+								>
+									<X size={20} />
+								</div>
 								<div className={styles.cartItemImageBlock}>
 									<img
 										src={item.imageUrl}

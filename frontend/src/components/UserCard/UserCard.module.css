@@ -1,0 +1,55 @@
+.userCardContainer {
+	position: relative;
+	display: flex;
+	align-items: stretch;
+	gap: 32px;
+	padding: 12px;
+	width: clamp(20rem, 100% / 3 - 11px, 100%);
+	background-color: var(--light-low);
+	border: solid 1px var(--light-low);
+	border-radius: 8px;
+	box-shadow: 2px 4px 8px #0004;
+}
+
+.userCardPersonalInfo {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+
+	& .userCardImgBlock {
+		border-radius: 50%;
+		overflow: hidden;
+		box-shadow: 0 0 4px #0008;
+		width: 48px;
+		height: 48px;
+
+		& .userCardImg {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	& .userCardName {
+		display: flex;
+		gap: 8px;
+	}
+}
+
+.userCardImgBlock {
+	display: flex;
+	align-items: center;
+}
+
+.userCardRoleSelect {
+	padding: 4px;
+	width: fit-content;
+	border-radius: 6px;
+}
+
+/* @media (max-width: 60rem) {
+	.userCardContainer {
+		flex: 1;
+	}
+} */

@@ -12,12 +12,12 @@ import styles from './Authorization.module.css';
 const authSchema = yup
 	.object()
 	.shape({
-		authId: yup.string().required('Email не указан'),
+		authId: yup.string().required('Логин или Email не указан'),
 		password: yup.string().required('Пароль не указан'),
 	})
 	.required();
 
-export function Authorization() {
+export function Authentication() {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const {

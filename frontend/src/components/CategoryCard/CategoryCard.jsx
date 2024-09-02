@@ -19,7 +19,7 @@ export const CategoryCard = ({ loading, name, images }) => {
 							</div>
 						))}
 			</div>
-			<Title text={name} className={styles.cardSubTitle} />
+			<Title text={name} tAlign="center" className={styles.cardSubTitle} />
 		</div>
 	);
 };

@@ -33,7 +33,7 @@
 .searchBlock {
 	position: relative;
 	width: 100%;
-	margin-inline: 40px;
+	margin-inline: 16px;
 	z-index: 21;
 }
 
@@ -107,5 +107,6 @@
 
 .userBlock {
 	display: flex;
+	align-items: center;
 	gap: 16px;
 }

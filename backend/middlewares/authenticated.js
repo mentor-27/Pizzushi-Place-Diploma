@@ -1,21 +1,19 @@
 const User = require('../models/User');
 const { validateAccessToken } = require('../helpers/token');
 
-module.exports = async function (req, res, next) {
+module.exports = async function (err, req, res, next) {
 	if (!req.headers.authorization) {
 		res.json({ error: "User isn't authenticated" });
-
 		return;
 	}
 
 	const token = req.headers.authorization.split(' ')[1];
 	const tokenData = validateAccessToken(token);
 
-	const user = await User.findById(tokenData.id);
+	const user = await User.findById(tokenData?.id);
 
 	if (!user) {
-		res.clearCookie('token').json({ error: 'Unknown user' });
-
+		res.clearCookie('refreshToken').json({ error: 'Unknown user' });
 		return;
 	}
 

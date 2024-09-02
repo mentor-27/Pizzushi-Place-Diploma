@@ -30,6 +30,17 @@
 	gap: 20px;
 }
 
+.cartItemDeleteButton {
+	width: 16px;
+	cursor: pointer;
+	color: var(--light-middle);
+	transition: color 0.15s;
+
+	&:hover {
+		color: var(--accent-middle);
+	}
+}
+
 .cartItemImageBlock {
 	width: 70px;
 	height: 70px;

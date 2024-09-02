@@ -28,7 +28,7 @@ export const Drawer = () => {
 			<div open={drawerIsOpen} className={styles.cartDrawerContainer}>
 				<div className={styles.cartDrawerBlock}>
 					<div className={styles.drawerHeader}>
-						{/* TODO decompose */}
+						{/* TODO decomposition needed */}
 						<span>
 							В корзине <strong>{itemsQty ? `${itemsQty} товара` : `нет товаров`}</strong>
 						</span>
@@ -66,7 +66,11 @@ export const Drawer = () => {
 							className={styles.drawerFooterButton}
 							onClick={() => dispatch(toggleDrawer(false))}
 						>
-							<Button style={{ width: '100%' }} tabIndex={-1}>
+							<Button
+								style={{ width: '100%' }}
+								tabIndex={-1}
+								disabled={cart.products.length === 0}
+							>
 								Оформить заказ
 								<ArrowRight style={{ width: 20, marginLeft: 8 }} />
 							</Button>

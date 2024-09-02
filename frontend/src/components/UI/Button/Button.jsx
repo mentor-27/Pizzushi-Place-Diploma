@@ -9,10 +9,20 @@ export const Button = ({
 	outlined = false,
 	type = 'button',
 	className,
+	px = 18,
+	py = 14,
 	...props
 }) => {
 	return (
-		<button type={type} className={cls('button', { outlined }, className)} {...props}>
+		<button
+			type={type}
+			className={cls('button', { outlined }, className)}
+			{...props}
+			style={{
+				paddingInline: px,
+				paddingBlock: py,
+			}}
+		>
 			{children}
 		</button>
 	);

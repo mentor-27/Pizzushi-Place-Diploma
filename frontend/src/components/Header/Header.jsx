@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames/bind';
 
 import { Container } from '../UI/Container/Container';
-import { Button, Input, Title } from '../UI';
-import { selectToken, selectProducts, selectRoleId } from '../../redux/selector';
+import { Button, Divider, Input, Title } from '../UI';
+import { selectToken, selectProducts, selectCurrentUser } from '../../redux/selector';
 import { logoutAsync } from '../../redux/actions';
 import { useDebounce } from '../../hooks';
 import { CartButton } from './UI';
@@ -22,7 +22,7 @@ export const Header = () => {
 	const [searchQuery, setSearchQuery] = useState('');
 	const { products } = useSelector(selectProducts);
 	const token = useSelector(selectToken);
-	const roleId = useSelector(selectRoleId);
+	const user = useSelector(selectCurrentUser);
 	const debSearchQuery = useDebounce(searchQuery, 250);
 
 	const regex = new RegExp(debSearchQuery, 'i');
@@ -68,7 +68,7 @@ export const Header = () => {
 								foundProducts.map(product => (
 									<Link
 										key={product.id}
-										to={`/products/${product.id}`}
+										to={`/product/${product.id}`}
 										className={styles.searchPopupItem}
 										onClick={() => setSearchQuery('')}
 									>
@@ -86,7 +86,13 @@ export const Header = () => {
 				</>
 
 				<div className={styles.userBlock}>
-					{[0, 1].includes(roleId) && (
+					{user.name && (
+						<>
+							<Title text={`Привет, ${user.name}`} ws="normal" tAlign="end" />
+							<Divider axis="y" color="var(--light-low)" size="36px" />
+						</>
+					)}
+					{[0, 1].includes(user.roleId) && (
 						<Link to="/dashboard" tabIndex={-1}>
 							<Button outlined>
 								<MonitorCog />

@@ -12,7 +12,7 @@ const {
 const { mergeCarts, getCart } = require('./cart');
 const ROLES = require('../constants/roles');
 
-async function register(email, password) {
+async function register(email, password, guestId = '') {
 	if (!email) {
 		throw new Error('Email is empty');
 	}
@@ -26,10 +26,13 @@ async function register(email, password) {
 	const user = await User.create({ email, password: passwordHash });
 
 	const tokens = generateToken({ id: user.id });
-
 	await saveToken(user.id, tokens.refreshToken);
 
-	return { user, ...tokens };
+	await mergeCarts(tokens.refreshToken, guestId);
+
+	const cart = await getCart(tokens.refreshToken);
+
+	return { user, ...tokens, cart };
 }
 
 async function login(authId, password, guestId = '') {
@@ -60,7 +63,13 @@ async function login(authId, password, guestId = '') {
 
 	const cart = await getCart(tokens.refreshToken);
 
-	return { user, ...tokens, cart };
+	let roles, users;
+	if ([0, 1].includes(user.roleId)) {
+		roles = getRoles();
+		users = await getUsers();
+	}
+
+	return { user, ...tokens, cart, roles, users };
 }
 
 async function refresh(refreshToken) {
@@ -91,8 +100,7 @@ async function logout(refreshToken) {
 	if (!tokenData) {
 		throw new Error('Unauthorized');
 	}
-
-	return removeToken(refreshToken);
+	return await removeToken(refreshToken);
 }
 
 function getMe(accessToken, refreshToken) {

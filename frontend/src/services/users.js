@@ -5,11 +5,11 @@ export const getMe = async () => {
 };
 
 export const getRoles = async () => {
-	return (await axiosInstance.get('/users/roles')).data;
+	return (await axiosInstance.get('/users/roles')).data.data;
 };
 
 export const getUsers = async () => {
-	return (await axiosInstance.get('/users')).data;
+	return (await axiosInstance.get('/users')).data.data;
 };
 
 export const deleteUser = async id => {

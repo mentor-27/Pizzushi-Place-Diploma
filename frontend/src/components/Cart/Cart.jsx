@@ -19,7 +19,10 @@ const personSchema = yup
 		name: yup.string().required('Введите имя получателя').min(2, 'Слишком короткое имя'),
 		surname: yup.string().optional(),
 		email: yup.string().optional().email('Некорректная почта'),
-		phone: yup.string().matches(phoneRegExp, 'Некорректный номер телефона'),
+		phone: yup
+			.string()
+			.required('Введите номер телефона')
+			.matches(phoneRegExp, 'Некорректный номер телефона'),
 		address: yup.string().required('Введите адрес').min(5, 'Слишком короткий адрес'),
 		comment: yup.string().optional(),
 	})

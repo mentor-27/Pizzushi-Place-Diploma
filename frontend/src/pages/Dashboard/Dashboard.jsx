@@ -1,15 +1,21 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { CircleUserRound } from 'lucide-react';
+import classNames from 'classnames/bind';
 
 import { Container } from '../../components';
 import { Title } from '../../components/UI';
-import { selectCurrentUser } from '../../redux/selector';
+import { selectCurrentUser, selectRoles } from '../../redux/selector';
 import styles from './Dashboard.module.css';
 import logo from '../../assets/img/logo.png';
 
+const cls = classNames.bind(styles);
+
 export const Dashboard = () => {
 	const currentUser = useSelector(selectCurrentUser);
+	const roles = useSelector(selectRoles);
+
+	const roleName = roles.find(({ roleId }) => roleId === currentUser.roleId)?.name;
 
 	return (
 		<Container
@@ -34,21 +40,30 @@ export const Dashboard = () => {
 					</div>
 				</Link>
 				<div className={styles.dashboardMenu}>
-					<Link to="users" className={styles.dashboardMenuItem}>
-						<Title size="xs" fw={400} text="Пользователи" />
-					</Link>
-					<Link to="categories" className={styles.dashboardMenuItem}>
-						<Title size="xs" fw={400} text="Категории" />
-					</Link>
-					<Link to="products" className={styles.dashboardMenuItem}>
-						<Title size="xs" fw={400} text="Товары" />
-					</Link>
+					<NavLink
+						to="users"
+						className={({ isActive }) => cls('dashboardMenuItem', { active: isActive })}
+					>
+						Пользователи
+					</NavLink>
+					<NavLink
+						to="categories"
+						className={({ isActive }) => cls('dashboardMenuItem', { active: isActive })}
+					>
+						Категории
+					</NavLink>
+					<NavLink
+						to="products"
+						className={({ isActive }) => cls('dashboardMenuItem', { active: isActive })}
+					>
+						Товары
+					</NavLink>
 				</div>
 			</Container>
 			<Container px="0" py="0" mx="0" className={styles.dashboardContent}>
 				<Container px="16px 0" mx="0" className={styles.dashboardHeader}>
 					<div className={styles.dashboardHeaderTitle}>
-						<Title text="Панель управления" />
+						<Title text="Панель управления" tAlign="center" />
 					</div>
 					<div className={styles.dashboardUserBlock}>
 						<div className={styles.dashboardUserAvatarBlock}>
@@ -60,11 +75,11 @@ export const Dashboard = () => {
 						</div>
 						<div>
 							<Title text={currentUser.name} />
-							<Title size="xs" text={'Some role'}></Title>
+							<Title size="xs" text={roleName}></Title>
 						</div>
 					</div>
 				</Container>
-				<Container px="16px" py="16px">
+				<Container px="32px" py="32px" className={styles.dashboardContentBody}>
 					<Outlet />
 				</Container>
 			</Container>

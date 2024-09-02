@@ -14,7 +14,7 @@ export const SortBlock = () => {
 
 	const changeSorting = index => {
 		setActiveIdx(index);
-		dispatch(setProductsAsync(null, null, null, SORT_TYPES[index].slug, sortOrder * -1));
+		dispatch(setProductsAsync(SORT_TYPES[index].slug, sortOrder * -1));
 		dispatch(setSortOrder(sortOrder * -1));
 	};
 

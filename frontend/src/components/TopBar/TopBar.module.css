@@ -8,5 +8,6 @@
 	padding: 16px 64px 16px;
 	background-color: transparent;
 	backdrop-filter: blur(10px);
+	width: 100%;
 	z-index: 10;
 }

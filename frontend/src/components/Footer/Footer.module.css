@@ -3,3 +3,9 @@
 	min-height: 40px;
 	border-top: solid 1px var(--light-low);
 }
+
+.footerContainer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}

@@ -6,7 +6,7 @@ import { Button, Title } from '../UI';
 import { addCartItemAsync } from '../../redux/actions';
 import styles from './ProductCard.module.css';
 
-export const ProductCard = ({ id, imageUrl, name, price, description, variants }) => {
+export const ProductCard = ({ id, imageUrl, name, price, description }) => {
 	const dispatch = useDispatch();
 	const store = useStore();
 
@@ -14,7 +14,7 @@ export const ProductCard = ({ id, imageUrl, name, price, description, variants }
 		const quantity = store
 			.getState()
 			.cart.products.find(({ item }) => item._id === id)?.quantity;
-		dispatch(addCartItemAsync(id, quantity ? quantity + 1 : 1));
+		dispatch(addCartItemAsync(id, quantity ? quantity + 1 : 1, name));
 	};
 
 	return (
@@ -25,16 +25,16 @@ export const ProductCard = ({ id, imageUrl, name, price, description, variants }
 				</div>
 				<Title
 					size="sm"
+					my="16px 4px"
 					text={name}
 					className={styles.productCardTitle}
 					ws="normal"
-					style={{ marginTop: 16, marginBottom: 4 }}
 				/>
 				<p className={styles.productCardDescription}>{description}</p>
 			</Link>
 			<div className={styles.productCardPriceBlock}>
 				<span className={styles.productCardPrice}>
-					{variants && 'от'} <strong>{price} ₽</strong>
+					<strong>{price} ₽</strong>
 				</span>
 				<Button onClick={addToCart}>
 					<Plus size={20} style={{ marginRight: 4 }} />

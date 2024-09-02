@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const { register, login, logout, refresh } = require('../controllers/user');
 const mapUser = require('../helpers/mapUser');
+const authenticated = require('../middlewares/authenticated');
 
 const router = Router({ mergeParams: true });
 
@@ -17,7 +18,7 @@ router.post('/register', async (req, res) => {
 				// secure: true
 			})
 			.json({
-				data: { ...mapUser(user), accessToken, roleId: user.roleId },
+				data: { ...mapUser(user), accessToken },
 				error: null,
 			});
 	} catch (e) {
@@ -27,7 +28,7 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => {
 	try {
-		const { user, accessToken, refreshToken, cart } = await login(
+		const { user, accessToken, refreshToken, cart, roles, users } = await login(
 			req.body.authId,
 			req.body.password,
 			req.cookies.guestId,
@@ -42,6 +43,8 @@ router.post('/login', async (req, res) => {
 			.json({
 				data: { ...mapUser(user), accessToken },
 				...(cart ? { cart } : null),
+				...(roles ? { roles } : null),
+				...(users ? { users: users.map(mapUser) } : null),
 				error: null,
 			});
 	} catch (e) {
@@ -49,7 +52,7 @@ router.post('/login', async (req, res) => {
 	}
 });
 
-router.get('/refresh', async (req, res) => {
+router.get('/refresh', authenticated, async (req, res) => {
 	try {
 		const { user, accessToken, refreshToken } = await refresh(req.cookies.refreshToken);
 		res
@@ -64,7 +67,7 @@ router.get('/refresh', async (req, res) => {
 	}
 });
 
-router.post('/logout', async (req, res) => {
+router.post('/logout', authenticated, async (req, res) => {
 	try {
 		await logout(req.cookies.refreshToken);
 		res.clearCookie('refreshToken').json({ data: 'success', error: null });

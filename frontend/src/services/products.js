@@ -20,10 +20,10 @@ export const get = async () => {
 	}
 };
 
-export const getPaginated = async (page, limit, categoryId, sortBy, sortOrder) => {
+export const getPaginated = async (sortBy, sortOrder) => {
 	return (
 		await axiosInstance.get('/products', {
-			params: { page, limit, categoryId, sortBy, sortOrder },
+			params: { sortBy, sortOrder },
 		})
 	).data;
 };

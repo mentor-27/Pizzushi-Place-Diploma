@@ -40,6 +40,12 @@
 }
 
 .productCardDescription {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+	white-space: normal;
+	text-overflow: ellipsis;
 	text-align: left;
 	color: var(--light-regular);
 }
