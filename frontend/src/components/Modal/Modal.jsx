@@ -6,10 +6,8 @@ const cls = classNames.bind(styles);
 
 export const Modal = ({ open = false, close, children }) => {
 	return (
-		open && (
-			<div className={cls({ modalOverlay: open })} onClick={close}>
-				{open && children}
-			</div>
-		)
+		<div className={cls('modalOverlay', { visible: open })} onClick={close}>
+			{children}
+		</div>
 	);
 };

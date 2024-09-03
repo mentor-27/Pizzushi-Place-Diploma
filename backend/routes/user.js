@@ -24,7 +24,7 @@ router.get(
 
 			res.json({ data: users.map(mapUser), error: null });
 		} catch (e) {
-			res.json({ error: e.message });
+			res.status(401).json({ error: e.message });
 		}
 	},
 );
@@ -35,7 +35,7 @@ router.get('/me', authenticated, async (req, res) => {
 
 		res.json({ data: mapUser(user), error: null });
 	} catch (e) {
-		res.json({ error: e.message });
+		res.status(401).json({ error: e.message });
 	}
 });
 
@@ -49,7 +49,7 @@ router.get(
 
 			res.json({ data: roles, error: null });
 		} catch (e) {
-			res.json({ error: e.message });
+			res.status(401).json({ error: e.message });
 		}
 	},
 );
@@ -64,18 +64,18 @@ router.get(
 
 			res.json({ data: mapUser(user), error: null });
 		} catch (e) {
-			res.json({ error: e.message });
+			res.status(401).json({ error: e.message });
 		}
 	},
 );
 
-router.patch('/:id', authenticated, authorized([ROLES.ADMIN]), async (req, res) => {
+router.put('/:id', authenticated, authorized([ROLES.ADMIN]), async (req, res) => {
 	try {
 		const user = await editUser(req.params.id, req.body);
 
 		res.json({ data: mapUser(user), error: null });
 	} catch (e) {
-		res.json({ error: e.message });
+		res.status(401).json({ error: e.message });
 	}
 });
 
@@ -85,7 +85,7 @@ router.delete('/:id', authenticated, authorized([ROLES.ADMIN]), async (req, res)
 
 		res.json({ data: result, error: null });
 	} catch (e) {
-		res.json({ error: e.message });
+		res.status(401).json({ error: e.message });
 	}
 });
 

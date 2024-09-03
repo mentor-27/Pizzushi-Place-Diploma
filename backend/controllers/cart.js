@@ -5,7 +5,7 @@ const User = require('../models/User');
 const { validateRefreshToken } = require('../helpers/token');
 
 async function getCart(refreshToken, guestId = '') {
-	const userId = refreshToken ? validateRefreshToken(refreshToken).id : null;
+	const userId = refreshToken ? validateRefreshToken(refreshToken)?.id : null;
 
 	const cart = await Cart.findOne({
 		$or: [{ user: userId }, { guestId }],

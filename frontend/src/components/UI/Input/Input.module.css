@@ -1,6 +1,6 @@
 .inputBlock {
-	width: 100%;
 	position: relative;
+	width: 100%;
 }
 
 .input {
@@ -19,6 +19,10 @@
 
 	&:invalid {
 		border-color: var(--accent-regular);
+	}
+
+	&:disabled {
+		color: var(--light-middle);
 	}
 }
 

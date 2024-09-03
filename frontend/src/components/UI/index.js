@@ -7,3 +7,4 @@ export * from './Divider/Divider';
 export * from './Scroller/Scroller';
 export * from './BackArrow/BackArrow';
 export * from './TextArea/TextArea';
+export * from './Select/Select';

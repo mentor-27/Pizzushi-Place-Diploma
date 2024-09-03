@@ -1,9 +1,23 @@
 import { forwardRef } from 'react';
+import classNames from 'classnames/bind';
+
 import styles from './Input.module.css';
+
+const cls = classNames.bind(styles);
 
 export const Input = forwardRef(
 	(
-		{ mx = 0, my = 0, px = 16, py = 16, label, err, bg = 'var(--light-low)', ...props },
+		{
+			className,
+			mx = 0,
+			my = 0,
+			px = 16,
+			py = 16,
+			label,
+			err,
+			bg = 'var(--light-low)',
+			...props
+		},
 		ref,
 	) => {
 		return (
@@ -14,7 +28,7 @@ export const Input = forwardRef(
 					</label>
 				)}
 				<input
-					className={styles.input}
+					className={cls('input', className)}
 					style={{ paddingInline: px, paddingBlock: py, backgroundColor: bg }}
 					{...props}
 					ref={ref}

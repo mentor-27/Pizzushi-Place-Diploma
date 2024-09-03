@@ -1,4 +1,5 @@
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 import { API_URL } from '../consts';
 
@@ -19,13 +20,13 @@ axiosInstance.interceptors.response.use(
 		if (error.response.status === 401 && error.config && !error.config._retry) {
 			originalRequest._retry = true;
 			try {
-				const resp = await axios.get(`${API_URL}/refresh`, { withCredentials: true });
-				localStorage.setItem('accesToken', resp.data.accessToken);
+				const { data } = await axios.get(`${API_URL}/refresh`, { withCredentials: true });
+				localStorage.setItem('accessToken', data.data.accessToken);
 				return axiosInstance.request(originalRequest);
 			} catch (e) {
 				console.log('Unauthorized');
 			}
 		}
-		throw error;
+		toast.error(error.response.data.error);
 	},
 );

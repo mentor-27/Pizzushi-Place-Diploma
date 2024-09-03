@@ -1,0 +1,81 @@
+.container {
+	position: relative;
+	display: flex;
+	align-items: center;
+	padding: 16px;
+	min-width: 260px;
+	border-radius: 16px;
+	background-color: var(--light-low);
+
+	&:focus-visible {
+		outline: dashed 2px var(--light);
+		outline-offset: 2px;
+	}
+}
+
+.selectLabel {
+	position: absolute;
+	top: 0;
+	left: 0;
+	translate: 0 calc(-100% - 4px);
+	font-weight: 600;
+}
+
+.value {
+	flex-grow: 1;
+	cursor: default;
+
+	&.disabled {
+		color: var(--light-middle);
+	}
+}
+
+.caret {
+	translate: 0 25%;
+	border: solid 5px transparent;
+	border-top-color: var(--light-regular);
+	transition: 0.2s;
+
+	&.flipped {
+		translate: 0 -25%;
+		rotate: 180deg;
+	}
+}
+
+.options {
+	position: absolute;
+	top: calc(100% + 4px);
+	margin: 0;
+	padding: 8px 0;
+	list-style: none;
+	display: none;
+	max-height: 160px;
+	background-color: var(--light-low);
+	border: solid 2px var(--light-low);
+	border-radius: 16px;
+	width: 100%;
+	left: 0;
+	overflow: hidden;
+	z-index: 10;
+
+	&.show {
+		display: block;
+	}
+}
+
+.option {
+	padding: 8px 16px;
+	cursor: pointer;
+	transition: 0.15s;
+
+	&.selected {
+		background-color: var(--accent-regular);
+		color: var(--dark-regular);
+		font-weight: 600;
+	}
+
+	&:hover {
+		background-color: var(--dark-middle);
+		color: var(--light);
+	}
+}

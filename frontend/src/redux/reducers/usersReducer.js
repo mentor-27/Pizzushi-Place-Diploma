@@ -9,6 +9,7 @@ const initialUsersState = {
 		(ROLES_AUTH_NUMBERS.includes(JSON.parse(localStorage.getItem('roleId'))) &&
 			(await Api.users.getUsers())) ||
 		[],
+	loading: false,
 };
 
 export const usersReducer = (state = initialUsersState, action) => {
@@ -19,16 +20,28 @@ export const usersReducer = (state = initialUsersState, action) => {
 			return {
 				...state,
 				users: payload,
+				loading: false,
 			};
+		case ACTION_TYPE.SET_USERS_LOADING:
+			return {
+				...state,
+				loading: payload,
+			};
+		case ACTION_TYPE.EDIT_USER: {
+			const idx = state.users.findIndex(user => user.id === payload.id);
+			return { ...state, users: state.users.with(idx, payload), loading: false };
+		}
 		case ACTION_TYPE.SET_ROLES:
 			return {
 				...state,
 				roles: payload,
+				loading: false,
 			};
 		case ACTION_TYPE.CLEAR_USERS:
 			return {
 				roles: [],
 				users: [],
+				loading: false,
 			};
 		default:
 			return state;

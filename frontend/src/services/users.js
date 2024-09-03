@@ -1,7 +1,7 @@
 import { axiosInstance } from './instance';
 
 export const getMe = async () => {
-	return (await axiosInstance.get('/users/me')).data.data;
+	return (await axiosInstance.get('/users/me'))?.data?.data;
 };
 
 export const getRoles = async () => {
@@ -10,6 +10,10 @@ export const getRoles = async () => {
 
 export const getUsers = async () => {
 	return (await axiosInstance.get('/users')).data.data;
+};
+
+export const editUser = async (id, data) => {
+	return (await axiosInstance.put(`/users/${id}`, data)).data;
 };
 
 export const deleteUser = async id => {

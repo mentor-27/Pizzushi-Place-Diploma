@@ -1,14 +1,13 @@
 .modalOverlay {
 	display: none;
 	position: fixed;
-	display: flex;
 	align-items: center;
 	justify-content: center;
 	inset: 0;
-	background-color: #0004;
+	background-color: #0008;
 	z-index: 25;
 }
 
 .visible {
-	display: block;
+	display: flex;
 }

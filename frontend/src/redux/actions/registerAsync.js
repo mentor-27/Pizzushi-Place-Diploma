@@ -8,6 +8,7 @@ export const registerAsync = (regData, navigate) => async dispatch => {
 	const { data, cart, error } = await Api.auth.register(regData);
 
 	if (error) {
+		localStorage.clear();
 		return toast.error(error);
 	}
 

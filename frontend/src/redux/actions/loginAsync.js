@@ -8,6 +8,9 @@ export const loginAsync = (authData, navigate) => async dispatch => {
 	const { data, cart, roles, users, error } = await Api.auth.login(authData);
 
 	if (error) {
+		localStorage.clear();
+		dispatch({ type: ACTION_TYPE.CLEAR_USERS });
+		dispatch({ type: ACTION_TYPE.CLEAR_CART });
 		return toast.error(error);
 	}
 

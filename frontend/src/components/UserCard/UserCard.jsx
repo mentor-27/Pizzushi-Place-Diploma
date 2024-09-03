@@ -5,12 +5,15 @@ import { CircleUserRound, Pencil } from 'lucide-react';
 import { Modal } from '../Modal/Modal';
 import { Button, Title } from '../UI';
 import { UserCardEdit } from './UI/UserCardEdit/UserCardEdit';
-import { selectRoles } from '../../redux/selector';
+import { selectRoleId, selectRoles } from '../../redux/selector';
 import styles from './UserCard.module.css';
 
 export const UserCard = user => {
 	const [isEditing, setIsEditing] = useState(false);
 	const roles = useSelector(selectRoles);
+	const roleId = useSelector(selectRoleId);
+
+	const disabled = roleId === 1 && user.roleId === 0;
 
 	return (
 		<div className={styles.userCardContainer}>
@@ -32,26 +35,11 @@ export const UserCard = user => {
 					/>
 				</div>
 			</div>
-
-			{/* <div>
-					<Title fw={400} text={user.login} />
-					<select
-						defaultValue={user.roleId}
-						disabled={roleId > user.roleId}
-						className={styles.userCardRoleSelect}
-					>
-						{roles.map(role => (
-							<option key={role.roleId} value={role.roleId}>
-								{role.name}
-							</option>
-						))}
-					</select>
-				</div> */}
-			<Button px={12} py={12} onClick={() => setIsEditing(true)}>
+			<Button disabled={disabled} px={12} py={12} onClick={() => setIsEditing(true)}>
 				<Pencil size={20} />
 			</Button>
 			<Modal open={isEditing} close={() => setIsEditing(false)}>
-				<UserCardEdit {...user} />
+				<UserCardEdit {...user} close={() => setIsEditing(false)} />
 			</Modal>
 		</div>
 	);

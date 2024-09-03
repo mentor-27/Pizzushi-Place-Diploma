@@ -13,3 +13,4 @@ export * from './checkoutAsync';
 export * from './logoutAsync';
 export * from './loginAsync';
 export * from './registerAsync';
+export * from './editUserAsync';
