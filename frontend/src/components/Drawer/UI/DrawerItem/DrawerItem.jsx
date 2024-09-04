@@ -26,7 +26,7 @@ export const DrawerItem = ({ item }) => {
 			<div className={styles.drawerItemInfoBlock}>
 				<Title size="xs" text={name} />
 				<p className={styles.drawerItemDescription}>{description}</p>
-				<Divider axis="x" margin="6px 0" color="var(--light-low)" />
+				<Divider axis="x" margin="6px 0" color="var(--light0)" />
 				<ItemCounter id={_id} price={price} quantity={quantity} />
 			</div>
 			<div className={styles.drawerItemDeleteButton} onClick={removeProduct}>

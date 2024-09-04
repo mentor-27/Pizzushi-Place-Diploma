@@ -24,8 +24,8 @@ export const Select = ({ value, onChange, options, label, disabled }) => {
 					<ul className={cls('options', { show: isOpen })}>
 						{options.map(option => (
 							<li
-								className={cls('option', { selected: option.roleId === value.roleId })}
 								key={option.roleId}
+								className={cls('option', { selected: option.roleId === value.roleId })}
 								onClick={() => {
 									onChange(option);
 								}}

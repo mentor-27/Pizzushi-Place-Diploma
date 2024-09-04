@@ -1,16 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 :root {
-	--accent-light: #f7a96e;
-	--accent-regular: #eb8f47;
-	--accent-middle: #cc7533;
-	--accent-dark: #946038;
-	--dark-regular: #282f32;
-	--dark-middle: #464a4f;
-	--light-low: #7c8189;
-	--light-middle: #a2a7ae;
-	--light-regular: #c8ccd0;
-	--light: #fff;
+	--accent10: #af5f1a;
+	--accent25: #e57e23;
+	--accent50: #eb984e;
+	--accent75: #f0b27a;
+	--dark0: #222120;
+	--dark50: #2f2e2d;
+	--dark100: #3f3e3b;
+	--light0: #626567;
+	--light25: #909497;
+	--light50: #bdc3c7;
+	--light90: #d7dbdd;
+	--light100: #fff;
 }
 
 html {
@@ -22,9 +24,9 @@ html {
 	}
 
 	&::-webkit-scrollbar-thumb {
-		border-inline: solid 3px var(--dark-regular);
+		border-inline: solid 3px var(--dark0);
 		border-radius: 8px / 4px;
-		background-color: var(--dark-middle);
+		background-color: var(--dark50);
 	}
 }
 
@@ -35,8 +37,8 @@ html {
 }
 
 *,
-*::before,
-*::after {
+::before,
+::after {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -48,12 +50,12 @@ body {
 		'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	background-color: var(--dark-regular);
-	color: var(--light);
+	background-color: var(--dark0);
+	color: var(--light100);
 }
 
 a {
-	color: var(--light);
+	color: var(--light100);
 	text-decoration: none;
 }
 

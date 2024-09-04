@@ -6,7 +6,7 @@ import { Button } from '../UI';
 import { addCartItemAsync } from '../../redux/actions';
 import styles from './ItemCounter.module.css';
 
-export const ItemCounter = ({ className, id, quantity, price }) => {
+export const ItemCounter = ({ className, id, quantity, price, manual, setQuantity }) => {
 	const dispatch = useDispatch();
 
 	const decQty = () => {
@@ -20,15 +20,26 @@ export const ItemCounter = ({ className, id, quantity, price }) => {
 	return (
 		<div className={classNames(styles.counterContainer, className)}>
 			<div className={styles.counterControls}>
-				<Button className={styles.counterIcon} onClick={decQty} disabled={quantity === 1}>
+				<Button
+					px={0}
+					py={0}
+					className={styles.counterIcon}
+					onClick={manual ? () => setQuantity(quantity - 1) : decQty}
+					disabled={quantity === 1}
+				>
 					<Minus size={12} color="currentColor" />
 				</Button>
 				<span className={styles.counterValue}>{quantity}</span>
-				<Button className={styles.counterIcon} onClick={incQty}>
+				<Button
+					px={0}
+					py={0}
+					className={styles.counterIcon}
+					onClick={manual ? () => setQuantity(quantity + 1) : incQty}
+				>
 					<Plus size={12} color="currentColor" />
 				</Button>
 			</div>
-			<strong>{price * quantity} ₽</strong>
+			{price && <strong>{price * quantity} ₽</strong>}
 		</div>
 	);
 };

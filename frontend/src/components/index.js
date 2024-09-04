@@ -10,5 +10,4 @@ export * from './CategoryCard/CategoryCard';
 export * from './Pagination/Pagination';
 export * from './Cart/Cart';
 export * from './ItemCounter/ItemCounter';
-export * from './UserCard/UserCard';
 export * from './Modal/Modal';

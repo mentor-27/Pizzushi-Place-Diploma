@@ -6,8 +6,8 @@ export const ProductDescriptionLoader = ({ animate = true }) => {
 			animate={animate}
 			width="100%"
 			height="100%"
-			backgroundColor="var(--light-low)"
-			foregroundColor="var(--light)"
+			backgroundColor="var(--light0)"
+			foregroundColor="var(--light100)"
 			speed={0.5}
 		>
 			<rect x="0" y="4" rx="8" ry="8" width="40%" height="32" />

@@ -40,10 +40,10 @@ export function Authentication() {
 		<Container py="60px">
 			<form className={styles.authBlock} onSubmit={handleSubmit(onSubmit)}>
 				<Title size="2xl" text="Авторизация" />
-				<Divider my="0 8px" color="var(--accent-light)" />
+				<Divider my="0 8px" color="var(--accent75)" />
 				<Input
 					my="0 8px"
-					bg="var(--dark-middle)"
+					bg="var(--dark50)"
 					label="Логин или Email"
 					err={errors.authId?.message}
 					type="text"
@@ -51,7 +51,7 @@ export function Authentication() {
 				/>
 				<Input
 					my="0 16px"
-					bg="var(--dark-middle)"
+					bg="var(--dark50)"
 					label="Пароль"
 					err={errors.password?.message}
 					type="password"

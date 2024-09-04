@@ -20,6 +20,26 @@ export const categoriesReducer = (state = initialCategoriesState, action) => {
 				...state,
 				loading: payload,
 			};
+		case ACTION_TYPE.EDIT_CATEGORY: {
+			const idx = state.categories.findIndex(category => category.id === payload.id);
+			return {
+				...state,
+				categories: state.categories.with(idx, payload),
+				loading: false,
+			};
+		}
+		case ACTION_TYPE.ADD_CATEGORY:
+			return {
+				...state,
+				categories: [...state.categories, payload],
+				loading: false,
+			};
+		case ACTION_TYPE.DELETE_CATEGORY:
+			return {
+				...state,
+				categories: state.categories.filter(({ id }) => id !== payload),
+				loading: false,
+			};
 		default:
 			return state;
 	}

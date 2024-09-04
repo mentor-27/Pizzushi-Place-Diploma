@@ -10,9 +10,9 @@
 	padding: 8px;
 
 	&:is(:disabled, :disabled:hover) {
-		background-color: var(--light-regular);
-		border-color: var(--light-regular);
-		color: var(--light-middle);
+		background-color: var(--light50);
+		border-color: var(--light50);
+		color: var(--light25);
 		cursor: default;
 	}
 }
@@ -24,15 +24,15 @@
 }
 
 .paginationItem {
-	background-color: var(--light);
-	color: var(--accent-regular);
+	background-color: var(--light100);
+	color: var(--accent50);
 	font-weight: 700;
 	padding: 8px 16px;
 	border-radius: 8px;
 	cursor: pointer;
 
 	&.active {
-		background-color: var(--accent-regular);
-		color: var(--light);
+		background-color: var(--accent50);
+		color: var(--light100);
 	}
 }

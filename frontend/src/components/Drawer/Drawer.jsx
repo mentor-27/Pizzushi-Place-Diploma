@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { ArrowRight, X } from 'lucide-react';
+import { ArrowLeft, ArrowRight, X } from 'lucide-react';
 
-import { Button, Divider } from '../UI';
+import { Button, Divider, Title } from '../UI';
 import { DrawerItem } from './UI';
 import { selectCart } from '../../redux/selector';
 import { toggleDrawer } from '../../redux/actions';
+import emptyCartImg from '../../assets/img/empty_box.webp';
 import styles from './Drawer.module.css';
 
 export const Drawer = () => {
@@ -24,11 +25,10 @@ export const Drawer = () => {
 					dispatch(toggleDrawer(false));
 				}}
 				className={styles.cartDrawerOverlay}
-			></div>
+			/>
 			<div open={drawerIsOpen} className={styles.cartDrawerContainer}>
 				<div className={styles.cartDrawerBlock}>
 					<div className={styles.drawerHeader}>
-						{/* TODO decomposition needed */}
 						<span>
 							В корзине <strong>{itemsQty ? `${itemsQty} товара` : `нет товаров`}</strong>
 						</span>
@@ -39,13 +39,28 @@ export const Drawer = () => {
 							<X />
 						</div>
 					</div>
-
-					<div className={styles.drawerContent}>
-						{cart.products?.map(product => (
-							<DrawerItem key={product._id} {...product} />
-						))}
-					</div>
-
+					{cart.totalPrice ? (
+						<div className={styles.drawerContent}>
+							{cart.products.map(product => (
+								<DrawerItem key={product._id} {...product} />
+							))}
+						</div>
+					) : (
+						<div className={styles.drawerEmpty}>
+							<img src={emptyCartImg} alt="empty cart" />
+							<Title size="md" text="Корзина пуста" />
+							<Link to="/">
+								<Button
+									my="32px 0"
+									tabIndex={-1}
+									onClick={() => dispatch(toggleDrawer(false))}
+								>
+									<ArrowLeft />
+									За покупками
+								</Button>
+							</Link>
+						</div>
+					)}
 					<div className={styles.drawerFooter}>
 						<div className={styles.drawerFooterTotal}>
 							<span>Итого:</span>
@@ -54,7 +69,7 @@ export const Drawer = () => {
 								axis="x"
 								type="dashed"
 								size="auto"
-								color="var(--light)"
+								color="var(--light100)"
 								my="12px 0"
 								style={{ flex: 1 }}
 							/>
@@ -72,7 +87,7 @@ export const Drawer = () => {
 								disabled={cart.products.length === 0}
 							>
 								Оформить заказ
-								<ArrowRight style={{ width: 20, marginLeft: 8 }} />
+								<ArrowRight size={20} style={{ marginLeft: 8 }} />
 							</Button>
 						</Link>
 					</div>

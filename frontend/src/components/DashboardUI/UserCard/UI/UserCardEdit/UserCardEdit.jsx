@@ -1,12 +1,12 @@
 import { useForm, Controller } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { X } from 'lucide-react';
+import { LoaderCircle, Trash2, X } from 'lucide-react';
 import * as yup from 'yup';
 
-import { Button, Container, Input, Select, Title } from '../../../UI';
-import { selectRoleId, selectRoles } from '../../../../redux/selector';
-import { editUserAsync } from '../../../../redux/actions';
+import { Button, Container, Input, Select, Title } from '../../../../UI';
+import { selectRoleId, selectRoles, selectUsers } from '../../../../../redux/selector';
+import { deleteUserAsync, editUserAsync } from '../../../../../redux/actions';
 import styles from './UserCardEdit.module.css';
 
 const editSchema = yup.object().shape({
@@ -23,6 +23,7 @@ export const UserCardEdit = ({ close, ...userData }) => {
 	const dispatch = useDispatch();
 	const roles = useSelector(selectRoles);
 	const roleId = useSelector(selectRoleId);
+	const { loading } = useSelector(selectUsers);
 
 	const {
 		register,
@@ -49,9 +50,11 @@ export const UserCardEdit = ({ close, ...userData }) => {
 	};
 
 	const onSubmit = data => {
-		dispatch(
-			editUserAsync(userData.id, { ...data, roleId: data.roleId.roleId }, formClose),
-		);
+		dispatch(editUserAsync(userData.id, { ...data, roleId: data.roleId.roleId }, close));
+	};
+
+	const deleteUser = () => {
+		dispatch(deleteUserAsync(userData.id, close));
 	};
 
 	const disabled = roleId === 1 && userData.roleId === 0;
@@ -146,12 +149,25 @@ export const UserCardEdit = ({ close, ...userData }) => {
 							/>
 						)}
 					/>
+					{roleId === 0 && (
+						<Button
+							outlined
+							my="26px 0"
+							className={styles.userCardEditDeleteButton}
+							onClick={deleteUser}
+							disabled={loading}
+						>
+							<Trash2 />
+							Удалить пользователя
+						</Button>
+					)}
 				</div>
 				<Button
 					type="submit"
 					className={styles.userCardEditSubmitButton}
-					disabled={disabled}
+					disabled={disabled || loading}
 				>
+					{loading && <LoaderCircle className={styles.loader} />}
 					Сохранить
 				</Button>
 			</form>

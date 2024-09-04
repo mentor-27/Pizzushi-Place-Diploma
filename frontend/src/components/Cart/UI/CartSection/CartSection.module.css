@@ -2,7 +2,7 @@
 	position: relative;
 	padding: 32px;
 	border-radius: 32px;
-	background-color: var(--dark-regular);
+	background-color: var(--dark0);
 	overflow: hidden;
 }
 
@@ -28,15 +28,14 @@
 	}
 
 	&::-webkit-scrollbar-thumb {
-		border-inline: solid 3px var(--dark-regular);
+		border-inline: solid 3px var(--dark0);
 		border-radius: 8px / 4px;
-		background-color: var(--light-low);
+		background-color: var(--light0);
 	}
 }
 
 .disableOverlay {
 	position: absolute;
-	background-color: #0128;
+	background-color: #222120dd;
 	inset: 0;
-	filter: brightness(0.75) contrast(0.5);
 }

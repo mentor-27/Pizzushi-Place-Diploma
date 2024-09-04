@@ -1,0 +1,78 @@
+.categoryCardEdit {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-height: 35%;
+	min-width: 65%;
+	width: fit-content;
+	box-shadow: 2px 4px 8px #0004;
+}
+
+.categoryCardEditCloseButton {
+	position: absolute;
+	display: flex;
+	right: 16px;
+	top: 16px;
+	padding: 8px;
+	cursor: pointer;
+	transition: 0.2s;
+
+	&:hover {
+		color: var(--accent50);
+	}
+}
+
+.categoryCardEditForm {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.categoryCardEditInputsBlock {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	margin-bottom: 16px;
+	width: 100%;
+}
+
+.categoryCardRoleSelect {
+	background-color: var(--light0);
+	padding: 4px;
+	width: fit-content;
+	border-radius: 6px;
+}
+
+.categoryCardEditSubmitButton {
+	width: 50%;
+}
+
+.loader {
+	animation: rotate 0.5s linear infinite;
+}
+
+.categoryCardEditDeleteButton {
+	border-color: var(--accent50);
+	color: var(--accent50);
+
+	&:hover {
+		background-color: var(--accent75);
+		border-color: var(--accent75);
+		color: var(--dark0);
+	}
+}
+
+@keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}

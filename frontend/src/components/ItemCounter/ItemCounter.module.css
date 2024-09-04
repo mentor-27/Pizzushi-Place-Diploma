@@ -3,7 +3,6 @@
 	align-items: center;
 	justify-content: space-between;
 	flex: 1;
-	width: auto;
 }
 
 .counterControls {
@@ -16,14 +15,13 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border: solid 1px var(--accent-regular);
-	color: var(--accent-regular);
+	border: solid 1px var(--accent50);
+	color: var(--accent50);
 	border-radius: 10px;
 	cursor: pointer;
-	width: 30px;
-	height: 30px;
+	height: 32px;
+	width: 32px;
 	padding: 0;
-	aspect-ratio: 1;
 	outline: none;
 	background-color: transparent;
 	transition: 0.15s;
@@ -35,17 +33,17 @@
 
 	&:is(:disabled, :disabled:hover) {
 		background-color: transparent;
-		border-color: var(--light-low);
-		color: var(--light-middle);
+		border-color: var(--light0);
+		color: var(--light25);
 		cursor: default;
 	}
 
 	&:focus-visible {
-		outline: dashed 2px var(--accent-regular);
+		outline: dashed 2px var(--accent50);
 		outline-offset: 2px;
 	}
 }
 
 .counterValue {
-	color: var(--light);
+	color: var(--light100);
 }

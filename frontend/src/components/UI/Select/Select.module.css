@@ -5,10 +5,10 @@
 	padding: 16px;
 	min-width: 260px;
 	border-radius: 16px;
-	background-color: var(--light-low);
+	background-color: var(--light0);
 
 	&:focus-visible {
-		outline: dashed 2px var(--light);
+		outline: dashed 2px var(--light100);
 		outline-offset: 2px;
 	}
 }
@@ -26,14 +26,14 @@
 	cursor: default;
 
 	&.disabled {
-		color: var(--light-middle);
+		color: var(--light25);
 	}
 }
 
 .caret {
 	translate: 0 25%;
 	border: solid 5px transparent;
-	border-top-color: var(--light-regular);
+	border-top-color: var(--light50);
 	transition: 0.2s;
 
 	&.flipped {
@@ -50,8 +50,8 @@
 	list-style: none;
 	display: none;
 	max-height: 160px;
-	background-color: var(--light-low);
-	border: solid 2px var(--light-low);
+	background-color: var(--light0);
+	border: solid 2px var(--light0);
 	border-radius: 16px;
 	width: 100%;
 	left: 0;
@@ -69,13 +69,13 @@
 	transition: 0.15s;
 
 	&.selected {
-		background-color: var(--accent-regular);
-		color: var(--dark-regular);
+		background-color: var(--accent50);
+		color: var(--dark0);
 		font-weight: 600;
 	}
 
 	&:hover {
-		background-color: var(--dark-middle);
-		color: var(--light);
+		background-color: var(--dark50);
+		color: var(--light100);
 	}
 }

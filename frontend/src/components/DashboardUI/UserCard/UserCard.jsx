@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { CircleUserRound, Pencil } from 'lucide-react';
 
-import { Modal } from '../Modal/Modal';
-import { Button, Title } from '../UI';
+import { Modal } from '../../../components';
+import { Button, Title } from '../../UI';
 import { UserCardEdit } from './UI/UserCardEdit/UserCardEdit';
-import { selectRoleId, selectRoles } from '../../redux/selector';
+import { selectRoleId, selectRoles } from '../../../redux/selector';
 import styles from './UserCard.module.css';
 
 export const UserCard = user => {
@@ -14,23 +14,27 @@ export const UserCard = user => {
 	const roleId = useSelector(selectRoleId);
 
 	const disabled = roleId === 1 && user.roleId === 0;
+	const showingId =
+		((user.name || user.surname) && `${user.name} ${user.surname}`.trim()) ||
+		user.login ||
+		user.email;
 
 	return (
 		<div className={styles.userCardContainer}>
 			<div className={styles.userCardPersonalInfo}>
 				<div className={styles.userCardImgBlock}>
 					{user.avatar ? (
-						<img className={styles.userCardImg} src={user.avatar} alt="" />
+						<img className={styles.userCardImg} src={user.avatar} alt="user avatar" />
 					) : (
 						<CircleUserRound strokeWidth={1} size={48} />
 					)}
 				</div>
 				<div>
-					<Title fw={600} text={`${user.name} ${user.surname}`} />
+					<Title fw={600} text={showingId} />
 					<Title
 						size="xs"
 						fw={400}
-						color="var(--light-regular)"
+						color="var(--light50)"
 						text={roles.find(role => role.roleId === user.roleId)?.name}
 					/>
 				</div>

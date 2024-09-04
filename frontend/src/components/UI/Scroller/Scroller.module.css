@@ -9,7 +9,7 @@
 	height: 64px;
 	width: 64px;
 	border-radius: 50%;
-	background-color: var(--light);
+	background-color: var(--light100);
 	cursor: pointer;
 	transition: 0.2s;
 
@@ -23,5 +23,5 @@
 }
 
 .scrollerIcon {
-	color: var(--accent-regular);
+	color: var(--accent25);
 }

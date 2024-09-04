@@ -6,6 +6,6 @@
 
 	&:hover {
 		transform: translateX(-4px);
-		color: var(--accent-regular);
+		color: var(--accent50);
 	}
 }

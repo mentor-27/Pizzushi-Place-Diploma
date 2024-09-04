@@ -19,15 +19,7 @@ const UserSchema = Schema(
 		},
 		name: String,
 		surname: String,
-		phone: {
-			type: String,
-			validate: {
-				validator: str => {
-					return validator.isMobilePhone(str);
-				},
-				message: 'Invalid phone number',
-			},
-		},
+		phone: String,
 		avatar: String,
 		password: {
 			type: String,

@@ -15,7 +15,7 @@ export const Input = forwardRef(
 			py = 16,
 			label,
 			err,
-			bg = 'var(--light-low)',
+			bg = 'var(--light0)',
 			...props
 		},
 		ref,

@@ -15,18 +15,17 @@ export const Category = () => {
 	const { products, loading } = useSelector(selectProducts);
 	const { categories } = useSelector(selectCategories);
 	const {
-		params: { slug },
-	} = useMatch('/categories/:slug');
+		params: { categorySlug },
+	} = useMatch('/categories/:categorySlug');
 
-	const categoryId = categories.find(category => category.slug === slug)?.id;
+	const categoryId = categories.find(({ slug }) => slug === categorySlug)?.id;
 	const categorizedProducts = products.filter(
 		product => product.category.id === categoryId,
 	);
 	const offset = (currentPage - 1) * PRODUCTS_PER_CATEGORY_PAGE;
 	const lastPage = Math.ceil(categorizedProducts.length / PRODUCTS_PER_CATEGORY_PAGE);
 	const name =
-		products.filter(product => product.category.slug === slug)[0]?.category.name ||
-		'Загрузка...';
+		categories.find(({ slug }) => slug === categorySlug)?.name || 'Загрузка...';
 
 	return (
 		<Container py="40px">
@@ -43,7 +42,7 @@ export const Category = () => {
 			</div>
 			{lastPage > 1 && (
 				<>
-					<Divider size="80%" mx="auto" my="32px" color="var(--light-middle)" />
+					<Divider size="80%" mx="auto" my="32px" color="var(--light25)" />
 					<Pagination
 						currentPage={currentPage}
 						setCurrentPage={setCurrentPage}

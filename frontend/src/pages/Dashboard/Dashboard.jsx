@@ -33,7 +33,7 @@ export const Dashboard = () => {
 						<Title
 							size="2xs"
 							fw={400}
-							color="var(--light-regular)"
+							color="var(--light50)"
 							text="апогея вкусноты"
 							lh={1}
 						/>
@@ -67,10 +67,10 @@ export const Dashboard = () => {
 					</div>
 					<div className={styles.dashboardUserBlock}>
 						<div className={styles.dashboardUserAvatarBlock}>
-							{true ? (
-								<CircleUserRound size={64} />
+							{currentUser.avatar ? (
+								<img src={currentUser.avatar} alt={'User avatar'} />
 							) : (
-								<img src={''} alt={'User avatar'} />
+								<CircleUserRound size={64} />
 							)}
 						</div>
 						<div>

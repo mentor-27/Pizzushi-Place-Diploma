@@ -9,6 +9,8 @@ export const Button = ({
 	outlined = false,
 	type = 'button',
 	className,
+	mx = 0,
+	my = 0,
 	px = 18,
 	py = 14,
 	...props
@@ -19,8 +21,11 @@ export const Button = ({
 			className={cls('button', { outlined }, className)}
 			{...props}
 			style={{
+				marginInline: mx,
+				marginBlock: my,
 				paddingInline: px,
 				paddingBlock: py,
+				...props.style,
 			}}
 		>
 			{children}

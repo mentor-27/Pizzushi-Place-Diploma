@@ -1,15 +1,17 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector, useStore } from 'react-redux';
 
-import { Container } from '../../components';
+import { Container, ItemCounter } from '../../components';
 import { BackArrow, Button, Title } from '../../components/UI';
 import { ProductImageLoader, ProductDescriptionLoader } from './UI';
 import { addCartItemAsync } from '../../redux/actions';
 import { selectProducts } from '../../redux/selector';
 import styles from './Product.module.css';
+import { useState } from 'react';
 
 export const Product = () => {
 	const dispatch = useDispatch();
+	const [initQuantity, setInitQuantity] = useState(1);
 	const { products, loading } = useSelector(selectProducts);
 	const params = useParams();
 	const store = useStore();
@@ -18,7 +20,9 @@ export const Product = () => {
 		const quantity = store
 			.getState()
 			.cart.products.find(({ item }) => item._id === params.id)?.quantity;
-		dispatch(addCartItemAsync(params.id, quantity ? quantity + 1 : 1));
+		dispatch(
+			addCartItemAsync(params.id, quantity ? quantity + initQuantity : initQuantity),
+		);
 	};
 
 	const product = products.find(product => product.id === params.id);
@@ -46,12 +50,25 @@ export const Product = () => {
 					) : (
 						<>
 							<div>
-								<Title size="md" text={product.name} />
+								<div className={styles.productTitle}>
+									<Title size="md" text={product.name} />
+									<Title size="md" text={product.price + ' ₽'} />
+								</div>
 								<p className={styles.productDescription}>{product.description}</p>
 							</div>
-							<Button style={{ alignSelf: 'flex-end' }} onClick={addToCart}>
-								В корзину
-							</Button>
+							<div className={styles.productControls}>
+								<ItemCounter
+									id={product.id}
+									className={styles.productCounter}
+									quantity={initQuantity}
+									setQuantity={setInitQuantity}
+									price={product.price}
+									manual
+								/>
+								<Button style={{ alignSelf: 'flex-end' }} onClick={addToCart}>
+									В корзину
+								</Button>
+							</div>
 						</>
 					)}
 				</div>

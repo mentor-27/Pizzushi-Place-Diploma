@@ -1,6 +1,6 @@
 .headerBlock {
 	width: 100%;
-	border-bottom: solid 1px var(--light-low);
+	border-bottom: solid 1px var(--light0);
 }
 
 .headerContainer {
@@ -17,7 +17,7 @@
 	border-radius: 8px;
 
 	&:focus-visible {
-		outline: dashed 2px var(--light);
+		outline: dashed 2px var(--light100);
 		outline-offset: 8px;
 	}
 }
@@ -42,7 +42,7 @@
 	left: 16px;
 	top: 50%;
 	translate: 0 -50%;
-	color: var(--light-regular);
+	color: var(--light50);
 }
 
 .searchPopup {
@@ -50,7 +50,7 @@
 	width: 100%;
 	min-height: 96 px;
 	max-height: 256px;
-	background-color: var(--light-low);
+	background-color: var(--light0);
 	border-radius: 12px;
 	padding-block: 8px;
 	top: 64px;
@@ -71,11 +71,11 @@
 		cursor: pointer;
 
 		&:focus-visible {
-			outline: solid 1px var(--light-middle);
+			outline: solid 1px var(--light25);
 		}
 
 		&:hover {
-			background-color: var(--light-middle);
+			background-color: var(--light25);
 		}
 
 		& .searchPopupItemData {
@@ -92,10 +92,10 @@
 	}
 
 	&::-webkit-scrollbar-thumb {
-		border: solid 4px var(--light-low);
+		border: solid 4px var(--light0);
 		border-left: none;
 		border-radius: 0 16px 16px 0;
-		background-color: var(--light-middle);
+		background-color: var(--light25);
 	}
 }
 

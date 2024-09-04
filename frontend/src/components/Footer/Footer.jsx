@@ -9,13 +9,13 @@ export const Footer = () => {
 				<Title
 					size="xs"
 					tAlign="start"
-					color="var(--light-low)"
+					color="var(--light0)"
 					text="This site has been developed for educational purposes only."
 				/>
 				<Title
 					size="xs"
 					tAlign="end"
-					color="var(--light-low)"
+					color="var(--light0)"
 					text="© 2024 Pizzushi. All rights reserved."
 				/>
 			</Container>

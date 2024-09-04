@@ -1,12 +1,12 @@
 import { axiosInstance } from './instance';
 
-export const search = async query => {
-	return (
-		await axiosInstance.get('/products/search', {
-			params: { query },
-		})
-	).data;
-};
+// export const search = async query => {
+// 	return (
+// 		await axiosInstance.get('/products/search', {
+// 			params: { query },
+// 		})
+// 	).data;
+// };
 
 export const get = async () => {
 	try {
@@ -28,6 +28,6 @@ export const getPaginated = async (sortBy, sortOrder) => {
 	).data;
 };
 
-export const getById = async id => {
-	return (await axiosInstance.get(`/products/${id}`)).data;
-};
+// export const getById = async id => {
+// 	return (await axiosInstance.get(`/products/${id}`)).data;
+// };

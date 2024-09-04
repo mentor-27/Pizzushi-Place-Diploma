@@ -23,15 +23,15 @@ router.get('/', async (req, res) => {
 	}
 });
 
-router.get('/:id', async (req, res) => {
-	try {
-		const category = await getCategory(req.params.id);
+// router.get('/:id', async (req, res) => {
+// 	try {
+// 		const category = await getCategory(req.params.id);
 
-		res.json({ data: mapCategory(category), error: null });
-	} catch (e) {
-		res.json({ error: e.message });
-	}
-});
+// 		res.json({ data: mapCategory(category), error: null });
+// 	} catch (e) {
+// 		res.json({ error: e.message });
+// 	}
+// });
 
 router.post(
 	'/',

@@ -45,10 +45,10 @@ export function Registration() {
 		<Container py="60px">
 			<form className={styles.authBlock} onSubmit={handleSubmit(onSubmit)}>
 				<Title size="2xl" text="Регистрация" />
-				<Divider my="0 8px" color="var(--accent-light)" />
+				<Divider my="0 8px" color="var(--accent75)" />
 				<Input
 					my="0 8px"
-					bg="var(--dark-middle)"
+					bg="var(--dark50)"
 					label="Email"
 					err={errors.email?.message}
 					type="text"
@@ -56,7 +56,7 @@ export function Registration() {
 				/>
 				<Input
 					my="0 16px"
-					bg="var(--dark-middle)"
+					bg="var(--dark50)"
 					label="Пароль"
 					err={errors.password?.message}
 					type="password"
@@ -64,7 +64,7 @@ export function Registration() {
 				/>
 				<Input
 					my="0 16px"
-					bg="var(--dark-middle)"
+					bg="var(--dark50)"
 					label="Повторите пароль"
 					err={errors.pwdConfirm?.message}
 					type="password"

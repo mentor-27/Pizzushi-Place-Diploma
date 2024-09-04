@@ -13,34 +13,34 @@ export const CartTotal = ({ total, disabled }) => {
 				fw={800}
 				text={`${total ? total + DELIVERY_PRICE + ' ₽' : '---'}`}
 			/>
-			<Divider my="24px" color="var(--dark-middle)" />
+			<Divider my="24px" color="var(--dark50)" />
 			<div className={styles.pricingBlock}>
-				<Package color="var(--accent-regular)" />
+				<Package color="var(--accent50)" />
 				<Title size="xs" fw={400} text="Стоимость товаров:" />
 				<Divider
 					axis="x"
 					type="dashed"
 					size="auto"
-					color="var(--light-middle)"
+					color="var(--light25)"
 					my="12px 0"
 					style={{ flex: 1 }}
 				/>
 				<Title size="xs" text={`${total} ₽`} />
 			</div>
 			<div className={styles.pricingBlock}>
-				<Truck color="var(--accent-regular)" />
+				<Truck color="var(--accent50)" />
 				<Title size="xs" fw={400} text="Доставка:" />
 				<Divider
 					axis="x"
 					type="dashed"
 					size="auto"
-					color="var(--light-middle)"
+					color="var(--light25)"
 					my="12px 0"
 					style={{ flex: 1 }}
 				/>
 				<Title size="xs" text={`${DELIVERY_PRICE} ₽`} />
 			</div>
-			<Divider my="24px" color="var(--dark-middle)" />
+			<Divider my="24px" color="var(--dark50)" />
 			<Button type="submit" disabled={disabled}>
 				Оплатить
 			</Button>

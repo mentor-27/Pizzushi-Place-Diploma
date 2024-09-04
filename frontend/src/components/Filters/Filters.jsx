@@ -15,7 +15,7 @@ export const Filters = () => {
 			<div className={styles.filtersBlock}>
 				<FilterCheckbox text="Можно собирать" value="1" margin="0 0 16px" />
 				<FilterCheckbox text="Новинки" value="2" />
-				<Divider axis="h" thickness="2px" color="var(--light-low)" margin="24px 0 28px" />
+				<Divider axis="h" thickness="2px" color="var(--light0)" margin="24px 0 28px" />
 				<div>
 					<p style={{ marginBottom: 16 }}>Ценовой диапазон</p>
 					<div

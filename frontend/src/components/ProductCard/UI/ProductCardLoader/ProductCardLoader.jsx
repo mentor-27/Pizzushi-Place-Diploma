@@ -6,8 +6,8 @@ export const ProductCardLoader = ({ animate = true }) => {
 			animate={animate}
 			width={'100%'}
 			height={444}
-			backgroundColor="var(--dark-regular)"
-			foregroundColor="var(--light-low)"
+			backgroundColor="var(--dark0)"
+			foregroundColor="var(--light0)"
 			speed={0.5}
 		>
 			<rect x="0" y="0" rx="8" ry="8" width="100%" height="260" />

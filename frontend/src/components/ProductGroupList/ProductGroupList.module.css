@@ -18,18 +18,18 @@
 	align-items: center;
 	justify-content: space-between;
 	border-radius: 8px;
-	background-color: var(--dark-regular);
+	background-color: var(--dark0);
 	padding-block: 96px;
 	transition: 0.2s;
 	height: 85%;
 	width: 85%;
 
 	&:focus-visible {
-		outline: dashed 2px var(--light);
+		outline: dashed 2px var(--light100);
 		outline-offset: 2px;
 
 		&:hover {
-			outline-color: var(--accent-regular);
+			outline-color: var(--accent50);
 		}
 	}
 
@@ -39,7 +39,7 @@
 	}
 
 	&:hover .productGroupItemCardArrowBlock {
-		color: var(--accent-regular);
+		color: var(--accent50);
 		scale: 1.2;
 	}
 

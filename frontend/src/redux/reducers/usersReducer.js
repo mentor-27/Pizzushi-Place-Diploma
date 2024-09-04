@@ -31,6 +31,8 @@ export const usersReducer = (state = initialUsersState, action) => {
 			const idx = state.users.findIndex(user => user.id === payload.id);
 			return { ...state, users: state.users.with(idx, payload), loading: false };
 		}
+		case ACTION_TYPE.DELETE_USER:
+			return { ...state, users: state.users.filter(({ id }) => id !== payload) };
 		case ACTION_TYPE.SET_ROLES:
 			return {
 				...state,

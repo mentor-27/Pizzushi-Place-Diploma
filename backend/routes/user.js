@@ -75,7 +75,7 @@ router.put('/:id', authenticated, authorized([ROLES.ADMIN]), async (req, res) =>
 
 		res.json({ data: mapUser(user), error: null });
 	} catch (e) {
-		res.status(401).json({ error: e.message });
+		res.json({ error: e.message });
 	}
 });
 

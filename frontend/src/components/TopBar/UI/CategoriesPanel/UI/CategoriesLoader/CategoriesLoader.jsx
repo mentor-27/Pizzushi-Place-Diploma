@@ -5,7 +5,7 @@ export const CategoriesLoader = () => {
 		<ContentLoader
 			width={96}
 			height={44}
-			backgroundColor="var(--light-middle)"
+			backgroundColor="var(--light25)"
 			style={{ padding: '14px 18px 10px' }}
 			speed={0.25}
 		>

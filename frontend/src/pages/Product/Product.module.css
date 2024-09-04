@@ -10,7 +10,7 @@
 
 	&:hover {
 		transform: translateX(-4px);
-		color: var(--accent-regular);
+		color: var(--accent50);
 	}
 }
 
@@ -29,6 +29,41 @@
 	border-radius: 32px;
 	justify-content: center;
 	aspect-ratio: 1;
+	animation: rotateAndScale 3s linear infinite;
+}
+
+@keyframes rotateAndScale {
+	0% {
+		transform: rotate(0deg) scale(1);
+	}
+	25% {
+		transform: rotate(30deg) scale(1.1);
+	}
+	50% {
+		transform: rotate(0deg) scale(1);
+	}
+	75% {
+		transform: rotate(-30deg) scale(1.2);
+	}
+	100% {
+		transform: rotate(0deg) scale(1);
+	}
+}
+
+.productTitle,
+.productControls {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.productControls {
+	padding-left: 32px;
+}
+
+.productCounter {
+	flex-direction: row-reverse;
+	flex: 0.65;
 }
 
 .productImage {
@@ -45,10 +80,10 @@
 	max-height: 600px;
 	padding: 28px;
 	border-radius: 32px;
-	background-color: var(--dark-regular);
+	background-color: var(--dark0);
 }
 
 .productDescription {
 	margin-block: 16px 24px;
-	color: var(--light-middle);
+	color: var(--light25);
 }

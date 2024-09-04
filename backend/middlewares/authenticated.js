@@ -3,7 +3,7 @@ const { validateAccessToken } = require('../helpers/token');
 
 module.exports = async function (err, req, res, next) {
 	if (!req.headers.authorization) {
-		res.json({ error: "User isn't authenticated" });
+		res.status(401).json({ error: "User isn't authenticated" });
 		return;
 	}
 

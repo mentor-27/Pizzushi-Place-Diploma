@@ -3,11 +3,11 @@
 	align-items: center;
 	gap: 8px;
 	cursor: pointer;
-	color: var(--light-middle);
+	color: var(--light25);
 	transition: 0.2s;
 
 	&:hover {
-		color: var(--accent-regular);
+		color: var(--accent50);
 	}
 }
 
@@ -33,7 +33,7 @@
 .cartItemDeleteButton {
 	width: 16px;
 	cursor: pointer;
-	color: var(--light-middle);
+	color: var(--light25);
 	transition: color 0.15s;
 
 	&:hover {

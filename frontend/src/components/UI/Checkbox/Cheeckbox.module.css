@@ -12,19 +12,19 @@
 	position: relative;
 	width: 24px;
 	height: 24px;
-	background-color: var(--light-regular);
+	background-color: var(--light50);
 	border-radius: 8px;
 	overflow: hidden;
 	cursor: pointer;
 }
 
 .realCheckbox:focus-visible + .styledCheckbox {
-	outline: dashed 1px var(--light);
+	outline: dashed 1px var(--light100);
 	outline-offset: 1px;
 }
 
 .realCheckbox:checked + .styledCheckbox {
-	background-color: var(--accent-light);
+	background-color: var(--accent75);
 }
 
 .styledCheckbox::after {
@@ -33,7 +33,7 @@
 	height: 30%;
 	left: 25%;
 	top: 30%;
-	border: solid 3px var(--light);
+	border: solid 3px var(--light100);
 	border-top: none;
 	border-right: none;
 	rotate: -45deg;
@@ -45,7 +45,7 @@
 
 .realCheckbox:not(:checked) + .styledCheckbox:hover::after {
 	content: '';
-	border: solid 3px var(--accent-light);
+	border: solid 3px var(--accent75);
 	border-top: none;
 	border-right: none;
 	opacity: 0.25;

@@ -28,15 +28,15 @@ router.get('/', async (req, res) => {
 	}
 });
 
-router.get('/search', async (req, res) => {
-	try {
-		const items = await getItemsByQuery(req.query.query);
+// router.get('/search', async (req, res) => {
+// 	try {
+// 		const items = await getItemsByQuery(req.query.query);
 
-		res.json({ data: items.map(mapProduct), error: null });
-	} catch (e) {
-		res.json({ error: e.message });
-	}
-});
+// 		res.json({ data: items.map(mapProduct), error: null });
+// 	} catch (e) {
+// 		res.json({ error: e.message });
+// 	}
+// });
 
 router.get('/:id', async (req, res) => {
 	try {

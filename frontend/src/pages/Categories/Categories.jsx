@@ -18,6 +18,12 @@ export const Categories = () => {
 		return obj;
 	}, {});
 
+	const emptySlug = categories
+		.filter(({ slug }) => !Object.keys(mappedProducts).includes(slug))
+		.map(({ slug }) => slug);
+
+	const mappedCategories = categories.filter(({ slug }) => !emptySlug.includes(slug));
+
 	return (
 		<Container py="40px">
 			<div className={styles.titleBlock}>
@@ -25,8 +31,8 @@ export const Categories = () => {
 				<Title size="xl" text="Все категории" />
 			</div>
 			<div className={styles.cardsContainer}>
-				{categories?.map((category, index) => (
-					<Link key={index} to={`/categories/${category.slug}`}>
+				{mappedCategories.map(category => (
+					<Link key={category.id} to={`/categories/${category.slug}`}>
 						<CategoryCard
 							loading={loading}
 							name={category.name}

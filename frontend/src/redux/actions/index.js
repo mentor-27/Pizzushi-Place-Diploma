@@ -14,3 +14,7 @@ export * from './logoutAsync';
 export * from './loginAsync';
 export * from './registerAsync';
 export * from './editUserAsync';
+export * from './deleteUserAsync';
+export * from './editCategoryAsync';
+export * from './deleteCategoryAsync';
+export * from './addCategoryAsync';

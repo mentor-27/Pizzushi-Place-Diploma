@@ -11,18 +11,18 @@
 	font-family: inherit;
 	font-size: 16px;
 	outline: none;
-	color: var(--light);
+	color: var(--light100);
 
 	&::placeholder {
-		color: var(--light-regular);
+		color: var(--light50);
 	}
 
 	&:invalid {
-		border-color: var(--accent-regular);
+		border-color: var(--accent50);
 	}
 
 	&:disabled {
-		color: var(--light-middle);
+		color: var(--light25);
 	}
 }
 
@@ -36,5 +36,5 @@
 	display: block;
 	font-weight: 600;
 	margin-top: 4px;
-	color: var(--accent-regular);
+	color: var(--accent50);
 }

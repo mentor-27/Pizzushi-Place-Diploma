@@ -1,7 +1,7 @@
 .footerBlock {
 	width: 100%;
 	min-height: 40px;
-	border-top: solid 1px var(--light-low);
+	border-top: solid 1px var(--light0);
 }
 
 .footerContainer {

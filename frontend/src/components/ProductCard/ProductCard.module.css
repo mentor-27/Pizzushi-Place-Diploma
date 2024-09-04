@@ -9,7 +9,7 @@
 }
 
 .productCardLink:focus-visible {
-	outline: dashed 2px var(--light);
+	outline: dashed 2px var(--light100);
 	outline-offset: 8px;
 	border-radius: 8px;
 }
@@ -18,7 +18,7 @@
 	display: flex;
 	justify-content: center;
 	padding: 24px;
-	background: var(--dark-regular);
+	background: var(--dark0);
 	border-radius: 8px;
 	height: 260px;
 }
@@ -47,7 +47,7 @@
 	white-space: normal;
 	text-overflow: ellipsis;
 	text-align: left;
-	color: var(--light-regular);
+	color: var(--light50);
 }
 
 .productCardPriceBlock {

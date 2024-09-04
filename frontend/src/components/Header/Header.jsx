@@ -42,7 +42,7 @@ export const Header = () => {
 						<Title
 							size="xs"
 							fw={400}
-							color="var(--light-middle)"
+							color="var(--light25)"
 							text="апогея вкусноты"
 							lh={1}
 						/>
@@ -89,7 +89,7 @@ export const Header = () => {
 					{user.name && (
 						<>
 							<Title text={`Привет, ${user.name}`} ws="normal" tAlign="end" />
-							<Divider axis="y" color="var(--light-low)" size="36px" />
+							<Divider axis="y" color="var(--light0)" size="36px" />
 						</>
 					)}
 					{[0, 1].includes(user.roleId) && (

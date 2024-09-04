@@ -3,7 +3,7 @@
 	gap: 24px;
 	position: relative;
 	padding: 20px;
-	background-color: var(--dark-regular);
+	background-color: var(--dark0);
 }
 
 .drawerItemImageBlock {
@@ -28,7 +28,7 @@
 }
 
 .drawerItemDescription {
-	color: var(--light-regular);
+	color: var(--light50);
 }
 
 .drawerItemDeleteButton {
@@ -40,7 +40,7 @@
 	right: 0;
 	top: 0;
 	cursor: pointer;
-	color: var(--light-middle);
+	color: var(--light25);
 	transition: color 0.15s;
 
 	&:hover {

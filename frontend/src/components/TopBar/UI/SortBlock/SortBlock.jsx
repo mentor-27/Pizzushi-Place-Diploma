@@ -24,9 +24,9 @@ export const SortBlock = () => {
 			Сортировка по:
 			<span className={styles.popupSwitch}>{SORT_TYPES[activeIdx].title}</span>
 			<div className={styles.sortPopupBlock}>
-				{SORT_TYPES.map(({ title }, index) => (
+				{SORT_TYPES.map(({ title, slug }, index) => (
 					<button
-						key={index}
+						key={slug}
 						className={`${styles.popupItem} ${activeIdx === index && styles.popupActiveItem}`}
 						onClick={() => changeSorting(index)}
 					>

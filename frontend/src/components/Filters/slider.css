@@ -6,22 +6,22 @@
 .sliderTrack {
 	height: 8px;
 	top: 4px;
-	background-color: var(--light-middle);
+	background-color: var(--light25);
 	border-radius: 4px;
 }
 
 .sliderTrack.sliderTrack-1 {
 	height: 8px;
 	top: 4px;
-	background-color: var(--light-regular);
+	background-color: var(--light50);
 	border-radius: 4px;
 }
 
 .sliderThumb {
 	height: 16px;
 	width: 16px;
-	background-color: var(--light-regular);
-	border: solid 2px var(--light-low);
+	background-color: var(--light50);
+	border: solid 2px var(--light0);
 	border-radius: 8px;
 	cursor: pointer;
 	outline: none;
@@ -31,13 +31,13 @@
 	display: inline-block;
 	margin-top: 20px;
 	padding: 4px 8px;
-	background-color: var(--dark-regular);
+	background-color: var(--dark0);
 	border-radius: 8px;
-	color: var(--light);
+	color: var(--light100);
 	font-size: 12px;
 	translate: -25% 0;
 }
 
 .sliderActiveThumb {
-	border: solid 2px var(--light);
+	border: solid 2px var(--light100);
 }

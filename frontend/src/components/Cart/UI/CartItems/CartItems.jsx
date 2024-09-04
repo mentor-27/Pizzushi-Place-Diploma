@@ -64,7 +64,7 @@ export const CartItems = ({ cart, disabled }) => {
 										text={item.description}
 										ws="normal"
 										fw={400}
-										color="var(--light-middle)"
+										color="var(--light25)"
 									/>
 								</div>
 							</div>
@@ -78,7 +78,7 @@ export const CartItems = ({ cart, disabled }) => {
 							</div>
 						</div>
 						{index !== cart.products.length - 1 && (
-							<Divider my="20px 30px" color="var(--dark-middle)" />
+							<Divider my="20px 30px" color="var(--dark50)" />
 						)}
 					</Fragment>
 				))

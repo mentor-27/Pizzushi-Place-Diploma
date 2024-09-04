@@ -19,13 +19,13 @@ export const Pagination = ({ currentPage, setCurrentPage, lastPage }) => {
 				</Button>
 				{Array(lastPage)
 					.fill()
-					.map((_, i) => (
+					.map((_, index) => (
 						<div
-							key={i}
-							className={cls('paginationItem', currentPage === i + 1 && 'active')}
-							onClick={() => setCurrentPage(i + 1)}
+							key={index}
+							className={cls('paginationItem', currentPage === index + 1 && 'active')}
+							onClick={() => setCurrentPage(index + 1)}
 						>
-							{i + 1}
+							{index + 1}
 						</div>
 					))}
 				<Button

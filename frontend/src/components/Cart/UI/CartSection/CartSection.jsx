@@ -17,7 +17,7 @@ export const CartSection = ({
 							<ActionComponent className={styles.headerComponent} />
 						)}
 					</div>
-					<Divider my="24px" color="var(--dark-middle)" />
+					<Divider my="24px" color="var(--dark50)" />
 				</>
 			)}
 			<div className={styles.sectionContent}>{children}</div>

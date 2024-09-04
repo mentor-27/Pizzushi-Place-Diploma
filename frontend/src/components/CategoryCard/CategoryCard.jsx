@@ -13,8 +13,8 @@ export const CategoryCard = ({ loading, name, images }) => {
 								<LoaderCircle size={48} className={styles.cardImgLoader} />
 							</div>
 						))
-					: images?.slice(0, 4).map((image, index) => (
-							<div key={index} className={styles.cardImgBlock}>
+					: images?.slice(0, 4).map(image => (
+							<div key={image} className={styles.cardImgBlock}>
 								<img className={styles.cardImgItem} src={image} alt={name} />
 							</div>
 						))}

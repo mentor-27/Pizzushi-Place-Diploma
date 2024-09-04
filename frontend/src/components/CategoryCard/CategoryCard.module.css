@@ -1,5 +1,5 @@
 .cardContainer {
-	background-color: var(--dark-regular);
+	background-color: var(--dark0);
 	border-radius: 8px;
 	padding: 8px;
 	transition: 0.2s;
