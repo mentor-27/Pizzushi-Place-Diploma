@@ -44,10 +44,11 @@ export const App = () => {
 			className={styles.app}
 			roundedTop
 			roundedBottom
-			px="0"
-			py="0"
-			mx="16px"
-			my="16px"
+			px={0}
+			py={0}
+			mx={16}
+			my={16}
+			width="calc(100% - 32px)"
 		>
 			<Routes>
 				<Route

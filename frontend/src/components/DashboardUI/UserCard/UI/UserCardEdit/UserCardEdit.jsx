@@ -7,6 +7,7 @@ import * as yup from 'yup';
 import { Button, Container, Input, Select, Title } from '../../../../UI';
 import { selectRoleId, selectRoles, selectUsers } from '../../../../../redux/selector';
 import { deleteUserAsync, editUserAsync } from '../../../../../redux/actions';
+import { mapUserRole } from '../../../../../helpers';
 import styles from './UserCardEdit.module.css';
 
 const editSchema = yup.object().shape({
@@ -25,6 +26,8 @@ export const UserCardEdit = ({ close, ...userData }) => {
 	const roleId = useSelector(selectRoleId);
 	const { loading } = useSelector(selectUsers);
 
+	const mappedRoles = roles.map(mapUserRole);
+
 	const {
 		register,
 		handleSubmit,
@@ -39,7 +42,7 @@ export const UserCardEdit = ({ close, ...userData }) => {
 			phone: userData.phone,
 			login: userData.login,
 			avatar: userData.avatar,
-			roleId: roles.find(role => role.roleId === userData.roleId),
+			roleId: mapUserRole(roles.find(role => role.roleId === userData.roleId)),
 		},
 		resolver: yupResolver(editSchema),
 	});
@@ -67,6 +70,7 @@ export const UserCardEdit = ({ close, ...userData }) => {
 			roundedTop
 			roundedBottom
 			onClick={e => e.stopPropagation()}
+			overflow="visible"
 		>
 			<Title
 				size="lg"
@@ -143,8 +147,8 @@ export const UserCardEdit = ({ close, ...userData }) => {
 							<Select
 								label="Роль"
 								onChange={onChange}
-								value={value}
-								options={roles}
+								current={value}
+								options={mappedRoles}
 								disabled={disabled}
 							/>
 						)}

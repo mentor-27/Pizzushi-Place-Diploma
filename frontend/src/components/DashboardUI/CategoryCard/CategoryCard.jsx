@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Pencil } from 'lucide-react';
 
 import { Modal } from '../../Modal/Modal';
-import { Button, Title } from '../../UI';
+import { Button, Container, Title } from '../../UI';
 import { CategoryCardManage } from './UI/CategoryCardEdit/CategoryCardManage';
 import { selectProducts } from '../../../redux/selector';
 import styles from './CategoryCard.module.css';
@@ -15,7 +15,7 @@ export const CategoryCard = ({ ...category }) => {
 	const prodsNum = products.filter(product => product.category.id === category.id).length;
 
 	return (
-		<div className={styles.categoryCardContainer}>
+		<Container px={12} py={12} mx={0} className={styles.categoryCardContainer}>
 			<div>
 				<Title fw={600} text={category.name} />
 				<Title size="xs" fw={400} color="var(--light50)" text={category.slug} />
@@ -34,6 +34,6 @@ export const CategoryCard = ({ ...category }) => {
 					newCategory={false}
 				/>
 			</Modal>
-		</div>
+		</Container>
 	);
 };

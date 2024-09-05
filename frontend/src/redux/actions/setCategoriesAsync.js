@@ -5,11 +5,18 @@ import { ACTION_TYPE } from './actionTypes';
 
 export const setCategoriesAsync = () => async dispatch => {
 	dispatch({ type: ACTION_TYPE.SET_CATEGORIES_LOADING, payload: true });
-	const { data, error } = await Api.categories.get();
-	if (error) {
-		toast.error(error);
+	try {
+		const { data, error } = await Api.categories.get();
+
+		if (error) {
+			toast.error(error);
+			dispatch({ type: ACTION_TYPE.SET_CATEGORIES_LOADING, payload: false });
+			return;
+		}
+
+		dispatch({ type: ACTION_TYPE.SET_CATEGORIES, payload: data });
+	} catch (e) {
 		dispatch({ type: ACTION_TYPE.SET_CATEGORIES_LOADING, payload: false });
-		return;
+		toast.error(e.message);
 	}
-	dispatch({ type: ACTION_TYPE.SET_CATEGORIES, payload: data });
 };

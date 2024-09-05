@@ -5,11 +5,11 @@ async function getItems(sortBy = 'popularity', sortOrder = -1) {
 	return await Promise.all(products.map(product => product.populate('categoryId')));
 }
 
-async function getItemsByQuery(itemName) {
-	const items = await Product.find({ name: { $regex: itemName, $options: 'i' } });
+// async function getItemsByQuery(itemName) {
+// 	const items = await Product.find({ name: { $regex: itemName, $options: 'i' } });
 
-	return Promise.all(items.map(item => item.populate('categoryId')));
-}
+// 	return Promise.all(items.map(item => item.populate('categoryId')));
+// }
 
 async function getItem(itemId) {
 	if (!itemId) {
@@ -64,7 +64,7 @@ function removeItem(itemId) {
 
 module.exports = {
 	getItems,
-	getItemsByQuery,
+	// getItemsByQuery,
 	getItem,
 	addItem,
 	editItem,

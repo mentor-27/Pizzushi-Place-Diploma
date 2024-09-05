@@ -37,3 +37,17 @@
 		color: var(--accent50);
 	}
 }
+
+& .loader {
+	animation: rotate 0.5s linear infinite;
+}
+
+@keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}

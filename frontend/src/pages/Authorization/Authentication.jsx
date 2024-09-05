@@ -1,12 +1,14 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { LoaderCircle } from 'lucide-react';
 import * as yup from 'yup';
 
 import { Container } from '../../components';
 import { Button, Divider, Input, Title } from '../../components/UI';
 import { loginAsync } from '../../redux/actions';
+import { selectAppLoading } from '../../redux/selector';
 import styles from './Authorization.module.css';
 
 const authSchema = yup
@@ -20,6 +22,7 @@ const authSchema = yup
 export function Authentication() {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
+	const loading = useSelector(selectAppLoading);
 	const {
 		register,
 		handleSubmit,
@@ -57,7 +60,8 @@ export function Authentication() {
 					type="password"
 					{...register('password')}
 				/>
-				<Button type="submit" className={styles.loginButton}>
+				<Button type="submit" className={styles.loginButton} disabled={loading}>
+					{loading && <LoaderCircle className={styles.loader} />}
 					Войти
 				</Button>
 			</form>

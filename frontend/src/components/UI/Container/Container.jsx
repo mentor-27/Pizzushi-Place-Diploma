@@ -14,30 +14,27 @@ import styles from './Container.module.css';
  * @param {string} my - The vertical margin of the container (default: '0').
  * @param {boolean} roundedTop - Whether to apply a rounded top corner to the container (default: false).
  * @param {boolean} roundedBottom - Whether to apply a rounded bottom corner to the container (default: false).
- * @param {boolean} hiddenOverflow - Whether to hide the overflow of the container (default: false).
+ * @param {boolean} overflow - Whether to hide the overflow of the container (default: false).
  */
 export const Container = ({
 	className,
 	children,
-	px = '64px',
-	py = '0',
+	px = 64,
+	py = 0,
 	mx = 'auto',
-	my = '0',
+	my = 0,
+	width = 'unset',
 	roundedTop = false,
 	roundedBottom = false,
-	hiddenOverflow = false,
+	overflow = 'hidden',
 	...props
 }) => {
-	const cls = classNames.bind(styles, className);
+	const cls = classNames.bind(styles);
 
-	const classes = cls(
-		'container',
-		{ className },
-		{
-			roundedTop,
-			roundedBottom,
-		},
-	);
+	const classes = cls('container', [className], {
+		roundedTop,
+		roundedBottom,
+	});
 
 	return (
 		<div
@@ -48,7 +45,8 @@ export const Container = ({
 				paddingInline: px,
 				marginBlock: my,
 				marginInline: mx,
-				overflow: hiddenOverflow ? 'hidden' : 'unset',
+				overflow,
+				width,
 				...props.style,
 			}}
 		>

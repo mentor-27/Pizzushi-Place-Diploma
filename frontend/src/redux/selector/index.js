@@ -10,3 +10,4 @@ export * from './selectLastPage';
 export * from './selectSortOrder';
 export * from './selectScroller';
 export * from './selectCurrentUser';
+export * from './selectAppLoading';

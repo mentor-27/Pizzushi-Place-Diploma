@@ -1,0 +1,49 @@
+.serviceSign {
+	color: var(--light50);
+}
+
+.productCardContainer {
+	display: flex;
+	align-items: flex-start;
+	min-height: 200px;
+	height: 200px;
+	gap: 16px;
+	border-radius: 16px;
+	background-color: var(--light0);
+	box-shadow: 2px 4px 8px #0004;
+}
+
+.productCardImgBlock {
+	height: 100%;
+	background-color: var(--dark100);
+	border-radius: 8px;
+
+	& img {
+		height: 100%;
+		margin: 2.5% 0 0 2.5%;
+	}
+}
+
+.productCardInfoBlock {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+}
+
+.productCardDescriptionBlock,
+.productCardCategoryBlock,
+.productCardPriceBlock,
+.productCardPopularityBlock {
+	display: flex;
+	align-items: flex-start;
+	gap: 8px;
+}
+
+.productCardEditBlock {
+	height: 0;
+
+	& .open {
+		height: fit-content;
+	}
+}

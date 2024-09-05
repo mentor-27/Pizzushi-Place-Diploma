@@ -10,7 +10,7 @@ export const DUsers = () => {
 
 	return (
 		<>
-			<Title text={'Список пользователей'} my="0 16px" />
+			<Title text="Список пользователей" my="0 16px" />
 			<div className={styles.dUsersContainer}>
 				{users.map(user => (
 					<UserCard key={user.id} {...user} />

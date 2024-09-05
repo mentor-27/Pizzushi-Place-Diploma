@@ -5,7 +5,6 @@
 	align-items: stretch;
 	justify-content: space-between;
 	gap: 32px;
-	padding: 12px;
 	background-color: var(--light0);
 	border: solid 1px var(--light0);
 	border-radius: 8px;

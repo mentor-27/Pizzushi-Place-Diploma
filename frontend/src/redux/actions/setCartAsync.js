@@ -5,11 +5,16 @@ import { ACTION_TYPE } from './actionTypes';
 
 export const setCartAsync = () => async dispatch => {
 	dispatch({ type: ACTION_TYPE.SET_CART_LOADING, payload: true });
-	const { data, error } = await Api.cart.get();
-	if (error) {
-		toast.error(error);
+	try {
+		const { data, error } = await Api.cart.get();
+		if (error) {
+			toast.error(error);
+			dispatch({ type: ACTION_TYPE.SET_CART_LOADING, payload: false });
+			return;
+		}
+		dispatch({ type: ACTION_TYPE.SET_CART, payload: data });
+	} catch (e) {
 		dispatch({ type: ACTION_TYPE.SET_CART_LOADING, payload: false });
-		return;
+		toast.error(e.message);
 	}
-	dispatch({ type: ACTION_TYPE.SET_CART, payload: data });
 };

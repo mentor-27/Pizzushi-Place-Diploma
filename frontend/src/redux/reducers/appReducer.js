@@ -4,6 +4,7 @@ const initialAppState = {
 	sortOrder: 1,
 	drawerIsOpen: false,
 	scroller: false,
+	loading: false,
 };
 
 export const appReducer = (state = initialAppState, action) => {
@@ -30,6 +31,12 @@ export const appReducer = (state = initialAppState, action) => {
 			return {
 				...state,
 				scroller: payload,
+			};
+
+		case ACTION_TYPE.SET_APP_LOADING:
+			return {
+				...state,
+				loading: payload,
 			};
 		default:
 			return state;

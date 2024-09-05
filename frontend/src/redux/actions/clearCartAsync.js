@@ -4,11 +4,16 @@ import toast from 'react-hot-toast';
 
 export const clearCartAsync = () => async dispatch => {
 	dispatch({ type: ACTION_TYPE.SET_CART_LOADING, payload: true });
-	const { error } = await Api.cart.clear();
-	if (error) {
-		toast.error(error);
+	try {
+		const { error } = await Api.cart.clear();
+		if (error) {
+			toast.error(error);
+			dispatch({ type: ACTION_TYPE.SET_CART_LOADING, payload: false });
+			return;
+		}
+		dispatch({ type: ACTION_TYPE.CLEAR_CART });
+	} catch (e) {
 		dispatch({ type: ACTION_TYPE.SET_CART_LOADING, payload: false });
-		return;
+		toast.error(e.message);
 	}
-	dispatch({ type: ACTION_TYPE.CLEAR_CART });
 };

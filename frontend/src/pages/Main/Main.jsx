@@ -11,7 +11,7 @@ export const Main = () => {
 
 	return (
 		<>
-			<Container px="64px" py="40px 0">
+			<Container px={64} py="40px 0" width="100%">
 				<Title size="xl" text="Все товары" />
 			</Container>
 			<TopBar />

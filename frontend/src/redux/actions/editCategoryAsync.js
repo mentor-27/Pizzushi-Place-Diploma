@@ -4,13 +4,18 @@ import toast from 'react-hot-toast';
 
 export const editCategoryAsync = (id, categoryData, close) => async dispatch => {
 	dispatch({ type: ACTION_TYPE.SET_CATEGORIES_LOADING, payload: true });
-	const { data, error } = await Api.categories.editCategory(id, categoryData);
-	if (error) {
-		toast.error(error);
+	try {
+		const { data, error } = await Api.categories.editCategory(id, categoryData);
+		if (error) {
+			toast.error(error);
+			dispatch({ type: ACTION_TYPE.SET_CATEGORIES_LOADING, payload: false });
+			return;
+		}
+		dispatch({ type: ACTION_TYPE.EDIT_CATEGORY, payload: data });
+		toast.success('Изменения сохранены');
+		close();
+	} catch (e) {
 		dispatch({ type: ACTION_TYPE.SET_CATEGORIES_LOADING, payload: false });
-		return;
+		toast.error(e.message);
 	}
-	dispatch({ type: ACTION_TYPE.EDIT_CATEGORY, payload: data });
-	toast.success('Изменения сохранены');
-	close();
 };

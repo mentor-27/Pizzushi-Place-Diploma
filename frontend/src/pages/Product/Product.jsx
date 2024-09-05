@@ -51,7 +51,7 @@ export const Product = () => {
 						<>
 							<div>
 								<div className={styles.productTitle}>
-									<Title size="md" text={product.name} />
+									<Title size="md" ws="normal" text={product.name} />
 									<Title size="md" text={product.price + ' ₽'} />
 								</div>
 								<p className={styles.productDescription}>{product.description}</p>

@@ -7,7 +7,7 @@
 }
 
 .paginationArrow {
-	padding: 8px;
+	border-radius: 8px;
 
 	&:is(:disabled, :disabled:hover) {
 		background-color: var(--light50);

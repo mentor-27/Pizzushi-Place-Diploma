@@ -11,15 +11,17 @@ import styles from './DCategories.module.css';
 
 export const DCategories = () => {
 	const [isCreating, setIsCreating] = useState();
-	const { categories } = useSelector(selectCategories);
+	const { categories, loading } = useSelector(selectCategories);
 
 	return (
 		<>
-			<Title text={'Список категорий'} my="0 16px" />
+			<Title text="Список категорий" my="0 16px" />
 			<div className={styles.dCategoriesContainer}>
-				{categories.map(category => (
-					<CategoryCard key={category.id} {...category} />
-				))}
+				{loading ? (
+					<Title text={'Загрузка...'} />
+				) : (
+					categories.map(category => <CategoryCard key={category.id} {...category} />)
+				)}
 				<Button px={12} py={12} onClick={() => setIsCreating(true)}>
 					<Plus size={20} strokeWidth={3} />
 				</Button>

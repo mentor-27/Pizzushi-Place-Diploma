@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -7,7 +7,9 @@ import * as yup from 'yup';
 import { Container } from '../../components';
 import { Button, Divider, Input, Title } from '../../components/UI';
 import { registerAsync } from '../../redux/actions';
+import { selectAppLoading } from '../../redux/selector';
 import styles from './Authorization.module.css';
+import { LoaderCircle } from 'lucide-react';
 
 const regSchema = yup
 	.object()
@@ -23,6 +25,7 @@ const regSchema = yup
 
 export function Registration() {
 	const navigate = useNavigate();
+	const loading = useSelector(selectAppLoading);
 	const dispatch = useDispatch();
 	const {
 		register,
@@ -70,7 +73,8 @@ export function Registration() {
 					type="password"
 					{...register('pwdConfirm')}
 				/>
-				<Button type="submit" className={styles.loginButton}>
+				<Button type="submit" className={styles.loginButton} disabled={loading}>
+					{loading && <LoaderCircle className={styles.loader} />}
 					Регистрация
 				</Button>
 			</form>

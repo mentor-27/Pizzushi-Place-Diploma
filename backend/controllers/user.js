@@ -100,6 +100,7 @@ async function logout(refreshToken) {
 	if (!tokenData) {
 		throw new Error('Unauthorized');
 	}
+
 	return await removeToken(refreshToken);
 }
 

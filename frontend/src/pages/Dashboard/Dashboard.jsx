@@ -19,13 +19,18 @@ export const Dashboard = () => {
 
 	return (
 		<Container
-			px="0"
-			roundedTop
-			roundedBottom
-			hiddenOverflow
+			px={0}
+			width="100%"
+			overflow="hidden"
 			className={styles.dashboardContainer}
 		>
-			<Container px="0" mx="0" py="16px 24px" className={styles.dashboardSidebar}>
+			<Container
+				px={0}
+				mx={0}
+				py="16px 24px"
+				width="25%"
+				className={styles.dashboardSidebar}
+			>
 				<Link to="/" className={styles.logoBlock}>
 					<img src={logo} alt="logo" height={32} width={32} />
 					<div>
@@ -60,8 +65,8 @@ export const Dashboard = () => {
 					</NavLink>
 				</div>
 			</Container>
-			<Container px="0" py="0" mx="0" className={styles.dashboardContent}>
-				<Container px="16px 0" mx="0" className={styles.dashboardHeader}>
+			<Container px={0} py={0} mx={0} width="100%" className={styles.dashboardContent}>
+				<Container px="16px 0" mx={0} className={styles.dashboardHeader}>
 					<div className={styles.dashboardHeaderTitle}>
 						<Title text="Панель управления" tAlign="center" />
 					</div>
@@ -79,7 +84,12 @@ export const Dashboard = () => {
 						</div>
 					</div>
 				</Container>
-				<Container px="32px" py="32px" className={styles.dashboardContentBody}>
+				<Container
+					px={32}
+					py={32}
+					overflow="auto"
+					className={styles.dashboardContentBody}
+				>
 					<Outlet />
 				</Container>
 			</Container>

@@ -24,6 +24,10 @@ export const ProductGroupList = ({ title, category }) => {
 		}
 	}, [dispatch, entry, category?.id]);
 
+	const hasMore =
+		products.filter(product => product.category.id === category?.id)?.length >
+		PRODUCTS_PER_MAIN_PAGE;
+
 	return (
 		<div
 			className={styles.productGroup}
@@ -39,7 +43,7 @@ export const ProductGroupList = ({ title, category }) => {
 							.filter(product => product.category.id === category?.id)
 							.slice(0, PRODUCTS_PER_MAIN_PAGE)
 							.map(product => <ProductCard key={product.id} {...product} />)}
-				{!loading && (
+				{!loading && hasMore && (
 					<Link
 						to={`/categories/${category?.slug}`}
 						className={styles.productGroupItemCardLink}

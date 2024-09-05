@@ -11,6 +11,8 @@ export const Pagination = ({ currentPage, setCurrentPage, lastPage }) => {
 		<div className={styles.paginationContainer}>
 			<div className={styles.paginationBlock}>
 				<Button
+					px={'6px 8px'}
+					py={6}
 					className={styles.paginationArrow}
 					onClick={() => setCurrentPage(currentPage - 1)}
 					disabled={currentPage === 1}
@@ -29,6 +31,8 @@ export const Pagination = ({ currentPage, setCurrentPage, lastPage }) => {
 						</div>
 					))}
 				<Button
+					px={'8px 6px'}
+					py={6}
 					className={styles.paginationArrow}
 					onClick={() => setCurrentPage(currentPage + 1)}
 					disabled={currentPage === lastPage}

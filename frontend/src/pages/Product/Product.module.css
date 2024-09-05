@@ -37,20 +37,26 @@
 		transform: rotate(0deg) scale(1);
 	}
 	25% {
-		transform: rotate(30deg) scale(1.1);
+		transform: rotate(10deg) scale(1.05);
 	}
 	50% {
 		transform: rotate(0deg) scale(1);
 	}
 	75% {
-		transform: rotate(-30deg) scale(1.2);
+		transform: rotate(-10deg) scale(1.05);
 	}
 	100% {
 		transform: rotate(0deg) scale(1);
 	}
 }
 
-.productTitle,
+.productTitle {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 32px;
+}
+
 .productControls {
 	display: flex;
 	align-items: center;

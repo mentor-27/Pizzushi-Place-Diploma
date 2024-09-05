@@ -5,7 +5,7 @@ import styles from './Select.module.css';
 
 const cls = classNames.bind(styles);
 
-export const Select = ({ value, onChange, options, label, disabled }) => {
+export const Select = ({ current, onChange, options, label, disabled }) => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	return (
@@ -17,20 +17,20 @@ export const Select = ({ value, onChange, options, label, disabled }) => {
 			onBlur={() => setIsOpen(false)}
 		>
 			{label && <label className={cls('selectLabel')}>{label}</label>}
-			<span className={cls('value', { disabled })}>{value.name}</span>
+			<span className={cls('value', { disabled })}>{current.title}</span>
 			{!disabled && (
 				<>
 					<div className={cls('caret', { flipped: isOpen })}></div>
 					<ul className={cls('options', { show: isOpen })}>
 						{options.map(option => (
 							<li
-								key={option.roleId}
-								className={cls('option', { selected: option.roleId === value.roleId })}
+								key={option.value}
+								className={cls('option', { selected: option.value === current.value })}
 								onClick={() => {
 									onChange(option);
 								}}
 							>
-								{option.name}
+								{option.title}
 							</li>
 						))}
 					</ul>
