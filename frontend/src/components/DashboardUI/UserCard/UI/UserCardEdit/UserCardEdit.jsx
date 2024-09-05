@@ -85,7 +85,6 @@ export const UserCardEdit = ({ close, ...userData }) => {
 			<form onSubmit={handleSubmit(onSubmit)} className={styles.userCardEditForm}>
 				<div className={styles.userCardEditInputsBlock}>
 					<Input
-						className={styles.userCardEditInput}
 						label="Имя"
 						err={errors.name?.message}
 						type="text"
@@ -93,7 +92,6 @@ export const UserCardEdit = ({ close, ...userData }) => {
 						disabled={disabled}
 					/>
 					<Input
-						className={styles.userCardEditInput}
 						label="Фамилия"
 						err={errors.surname?.message}
 						type="text"
@@ -103,7 +101,6 @@ export const UserCardEdit = ({ close, ...userData }) => {
 				</div>
 				<div className={styles.userCardEditInputsBlock}>
 					<Input
-						className={styles.userCardEditInput}
 						label="Email"
 						err={errors.email?.message}
 						type="text"
@@ -112,7 +109,6 @@ export const UserCardEdit = ({ close, ...userData }) => {
 						disabled={disabled}
 					/>
 					<Input
-						className={styles.userCardEditInput}
 						label="Номер телефона"
 						err={errors.phone?.message}
 						type="tel"
@@ -122,7 +118,6 @@ export const UserCardEdit = ({ close, ...userData }) => {
 				</div>
 				<div className={styles.userCardEditInputsBlock}>
 					<Input
-						className={styles.userCardEditInput}
 						label="Логин"
 						err={errors.login?.message}
 						type="text"
@@ -130,7 +125,6 @@ export const UserCardEdit = ({ close, ...userData }) => {
 						disabled={disabled}
 					/>
 					<Input
-						className={styles.userCardEditInput}
 						label="Аватар"
 						err={errors.avatar?.message}
 						type="url"

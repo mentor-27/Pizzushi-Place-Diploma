@@ -18,3 +18,6 @@ export * from './deleteUserAsync';
 export * from './editCategoryAsync';
 export * from './deleteCategoryAsync';
 export * from './addCategoryAsync';
+export * from './editProductAsync';
+export * from './addProductAsync';
+export * from './deleteProductAsync';

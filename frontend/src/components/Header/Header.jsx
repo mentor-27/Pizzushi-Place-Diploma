@@ -34,7 +34,13 @@ export const Header = () => {
 
 	return (
 		<header className={styles.headerBlock}>
-			<Container className={styles.headerContainer} px="64px" py="32px" roundedTop>
+			<Container
+				className={styles.headerContainer}
+				px="64px"
+				py="32px"
+				roundedTop
+				overflow="visible"
+			>
 				<Link to="/" className={styles.logoBlock}>
 					<img src={logo} alt="logo" height={32} width={32} />
 					<div>

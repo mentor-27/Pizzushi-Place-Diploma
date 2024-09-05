@@ -21,6 +21,28 @@ export const productsReducer = (state = initialProductsState, action) => {
 				...state,
 				loading: payload,
 			};
+		case ACTION_TYPE.EDIT_PRODUCT: {
+			const idx = state.products.findIndex(product => product.id === payload.id);
+			return {
+				...state,
+				products: state.products.with(idx, payload),
+				loading: false,
+			};
+		}
+		case ACTION_TYPE.ADD_PRODUCT: {
+			return {
+				...state,
+				products: [...state.products, payload],
+				loading: false,
+			};
+		}
+		case ACTION_TYPE.DELETE_PRODUCT: {
+			return {
+				...state,
+				products: state.products.filter(product => product.id !== payload),
+				loading: false,
+			};
+		}
 		default:
 			return state;
 	}

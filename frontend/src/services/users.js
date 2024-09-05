@@ -12,10 +12,10 @@ export const getUsers = async () => {
 	return (await axiosInstance.get('/users')).data.data;
 };
 
-export const editUser = async (id, data) => {
+export const edit = async (id, data) => {
 	return (await axiosInstance.put(`/users/${id}`, data)).data;
 };
 
-export const deleteUser = async id => {
+export const remove = async id => {
 	return (await axiosInstance.delete(`/users/${id}`)).data;
 };

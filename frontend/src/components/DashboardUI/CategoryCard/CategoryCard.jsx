@@ -4,7 +4,7 @@ import { Pencil } from 'lucide-react';
 
 import { Modal } from '../../Modal/Modal';
 import { Button, Container, Title } from '../../UI';
-import { CategoryCardManage } from './UI/CategoryCardEdit/CategoryCardManage';
+import { CategoryCardManage } from './UI';
 import { selectProducts } from '../../../redux/selector';
 import styles from './CategoryCard.module.css';
 

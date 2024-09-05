@@ -77,14 +77,12 @@ export const CategoryCardManage = ({ close, newCategory, ...category }) => {
 			<form onSubmit={handleSubmit(onSubmit)} className={styles.categoryCardEditForm}>
 				<div className={styles.categoryCardEditInputsBlock}>
 					<Input
-						className={styles.categoryCardEditInput}
 						label="Название"
 						err={errors.name?.message}
 						type="text"
 						{...register('name')}
 					/>
 					<Input
-						className={styles.categoryCardEditInput}
 						label="Транслитерация"
 						err={errors.slug?.message}
 						type="text"

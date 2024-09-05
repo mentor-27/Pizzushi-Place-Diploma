@@ -9,14 +9,16 @@ function getCategory(categoryId) {
 	return Category.findOne({ _id: categoryId });
 }
 
-function addCategory(name) {
-	if (!name) {
+function addCategory(data) {
+	if (!data?.name) {
 		throw new Error('Category name is empty');
 	}
 
-	const slug = sl(name);
+	if (!data?.slug) {
+		data.slug = sl(data.name);
+	}
 
-	return Category.create({ name, slug });
+	return Category.create(data);
 }
 
 function editCategory(categoryId, data) {

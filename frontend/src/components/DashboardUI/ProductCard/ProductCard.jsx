@@ -3,7 +3,7 @@ import { Pencil } from 'lucide-react';
 
 import { Button, Container, Title } from '../../UI';
 import { Modal } from '../../Modal/Modal';
-import { ProductCardManage } from './UI/ProductCardManage/ProductCardManage';
+import { ProductCardManage } from './UI';
 import styles from './ProductCard.module.css';
 
 export const ProductCard = product => {
@@ -35,7 +35,12 @@ export const ProductCard = product => {
 					<span className={styles.serviceSign}>Популярность:</span>
 					<Title size="xs" lh={1.4} text={popularity} tAlign="end" />
 				</div>
-				<Button px={12} py={12} onClick={() => setIsEditing(true)}>
+				<Button
+					px={12}
+					py={12}
+					onClick={() => setIsEditing(true)}
+					className={styles.editButton}
+				>
 					<Pencil size={20} />
 				</Button>
 				<Modal open={isEditing} close={() => setIsEditing(false)}>

@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 export const editCategoryAsync = (id, categoryData, close) => async dispatch => {
 	dispatch({ type: ACTION_TYPE.SET_CATEGORIES_LOADING, payload: true });
 	try {
-		const { data, error } = await Api.categories.editCategory(id, categoryData);
+		const { data, error } = await Api.categories.edit(id, categoryData);
 		if (error) {
 			toast.error(error);
 			dispatch({ type: ACTION_TYPE.SET_CATEGORIES_LOADING, payload: false });

@@ -12,14 +12,14 @@ export const get = async () => {
 	}
 };
 
-export const editCategory = async (id, data) => {
+export const edit = async (id, data) => {
 	return (await axiosInstance.patch(`/categories/${id}`, data)).data;
 };
 
-export const addCategory = async data => {
+export const add = async data => {
 	return (await axiosInstance.post('/categories', data)).data;
 };
 
-export const deleteCategory = async id => {
+export const remove = async id => {
 	return (await axiosInstance.delete(`/categories/${id}`)).data;
 };

@@ -4,7 +4,7 @@ import { CircleUserRound, Pencil } from 'lucide-react';
 
 import { Modal } from '../../../components';
 import { Button, Container, Title } from '../../UI';
-import { UserCardEdit } from './UI/UserCardEdit/UserCardEdit';
+import { UserCardEdit } from './UI';
 import { selectRoleId, selectRoles } from '../../../redux/selector';
 import styles from './UserCard.module.css';
 

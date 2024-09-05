@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 export const deleteCategoryAsync = (id, close) => async dispatch => {
 	dispatch({ type: ACTION_TYPE.SET_CATEGORIES_LOADING, payload: true });
 	try {
-		const { data, error } = await Api.categories.deleteCategory(id);
+		const { data, error } = await Api.categories.remove(id);
 		if (error) {
 			toast.error(error);
 			dispatch({ type: ACTION_TYPE.SET_CATEGORIES_LOADING, payload: false });

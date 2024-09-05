@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 export const addCategoryAsync = (categoryData, close) => async dispatch => {
 	dispatch({ type: ACTION_TYPE.SET_CATEGORIES_LOADING, payload: true });
 	try {
-		const { data, error } = await Api.categories.addCategory(categoryData);
+		const { data, error } = await Api.categories.add(categoryData);
 		if (error) {
 			toast.error(error);
 			dispatch({ type: ACTION_TYPE.SET_CATEGORIES_LOADING, payload: false });

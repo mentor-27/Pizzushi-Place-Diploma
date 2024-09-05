@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 export const deleteUserAsync = (id, close) => async dispatch => {
 	dispatch({ type: ACTION_TYPE.SET_USERS_LOADING, payload: true });
 	try {
-		const { data, error } = await Api.users.deleteUser(id);
+		const { data, error } = await Api.users.remove(id);
 		if (error) {
 			toast.error(error);
 			dispatch({ type: ACTION_TYPE.SET_USERS_LOADING, payload: false });

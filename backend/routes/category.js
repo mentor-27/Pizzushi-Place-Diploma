@@ -39,7 +39,7 @@ router.post(
 	authorized([ROLES.ADMIN, ROLES.MODERATOR]),
 	async (req, res) => {
 		try {
-			const category = await addCategory(req.body.name);
+			const category = await addCategory(req.body);
 
 			res.json({ data: mapCategory(category), error: null });
 		} catch (e) {

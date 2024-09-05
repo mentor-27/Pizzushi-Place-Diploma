@@ -28,6 +28,18 @@ export const getPaginated = async (sortBy, sortOrder) => {
 	).data;
 };
 
+export const edit = async (id, data) => {
+	return (await axiosInstance.patch(`/products/${id}`, data)).data;
+};
+
+export const add = async data => {
+	return (await axiosInstance.post('/products', data)).data;
+};
+
+export const remove = async id => {
+	return (await axiosInstance.delete(`/products/${id}`)).data;
+};
+
 // export const getById = async id => {
 // 	return (await axiosInstance.get(`/products/${id}`)).data;
 // };

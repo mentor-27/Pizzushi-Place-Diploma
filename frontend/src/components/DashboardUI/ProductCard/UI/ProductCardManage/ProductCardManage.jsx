@@ -1,28 +1,29 @@
 import { Controller, useForm } from 'react-hook-form';
-import { /* useDispatch, */ useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { LoaderCircle, Trash2, X } from 'lucide-react';
 import * as yup from 'yup';
 
 import { Button, Container, Input, Select, Title } from '../../../../UI';
 import { selectCategories, selectProducts } from '../../../../../redux/selector';
-import {} from // addProductAsync,
-// deleteProductAsync,
-// editProductAsync,
-'../../../../../redux/actions';
 import { mapProductCategory } from '../../../../../helpers';
+import {
+	addProductAsync,
+	deleteProductAsync,
+	editProductAsync,
+} from '../../../../../redux/actions';
 import styles from './ProductCardManage.module.css';
 
 const editSchema = yup.object().shape({
 	name: yup.string().required('Введите название'),
 	description: yup.string().optional(),
-	category: yup.string().required('Выберите категорию'),
+	category: yup.object().required('Выберите категорию'),
 	imageUrl: yup.string().required('Введите URL изображения'),
 	price: yup.number().required('Введите цену'),
 });
 
 export const ProductCardManage = ({ close, newProduct, ...product }) => {
-	// const dispatch = useDispatch();
+	const dispatch = useDispatch();
 	const { categories } = useSelector(selectCategories);
 	const { loading } = useSelector(selectProducts);
 
@@ -51,17 +52,18 @@ export const ProductCardManage = ({ close, newProduct, ...product }) => {
 	};
 
 	const onSubmit = data => {
-		console.log('clicked');
-		console.log(data);
 		if (newProduct) {
-			// dispatch(addProductAsync(data, close));
+			const mappedData = { ...data, categoryId: data.category.value };
+			delete mappedData.category;
+			dispatch(addProductAsync(mappedData, close));
 		} else {
-			// dispatch(editProductAsync(product.id, data, close));
+			const mappedData = { ...data, category: data.category.value };
+			dispatch(editProductAsync(product.id, mappedData, close));
 		}
 	};
 
 	const deleteProduct = () => {
-		// dispatch(deleteProductAsync(product.id, close));
+		dispatch(deleteProductAsync(product.id, close));
 	};
 
 	return (
@@ -138,10 +140,10 @@ export const ProductCardManage = ({ close, newProduct, ...product }) => {
 				<Button
 					type="submit"
 					className={styles.productCardEditSubmitButton}
-					// disabled={loading}
+					disabled={loading}
 				>
 					{loading && <LoaderCircle className={styles.loader} />}
-					Сохранить
+					{newProduct ? 'Добавить' : 'Сохранить'}
 				</Button>
 			</form>
 		</Container>

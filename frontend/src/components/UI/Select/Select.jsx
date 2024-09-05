@@ -5,6 +5,16 @@ import styles from './Select.module.css';
 
 const cls = classNames.bind(styles);
 
+/**
+ * A reusable Select component that renders a dropdown list of options.
+ *
+ * @param {object} current - The currently selected option.
+ * @param {function} onChange - A callback function to handle changes to the selected option.
+ * @param {array} options - An array of option objects to be rendered in the dropdown list.
+ * @param {string} label - An optional label to be displayed above the select component.
+ * @param {boolean} disabled - A flag to indicate whether the select component is disabled.
+ * @return {JSX.Element} The rendered Select component.
+ */
 export const Select = ({ current, onChange, options, label, disabled }) => {
 	const [isOpen, setIsOpen] = useState(false);
 
