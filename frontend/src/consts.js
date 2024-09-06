@@ -9,3 +9,4 @@ export const SORT_TYPES = [
 	{ title: 'цене', slug: 'price' },
 	{ title: 'названию', slug: 'name' },
 ];
+export const ORDER_STATUSES = ['в обработке', 'выполнен', 'отменен'];

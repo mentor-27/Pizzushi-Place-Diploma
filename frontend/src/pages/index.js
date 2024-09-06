@@ -9,4 +9,5 @@ export * from './Dashboard/Dashboard';
 export * from './DUsers/DUsers';
 export * from './DCategories/DCategories';
 export * from './DProducts/DProducts';
+export * from './DOrders/DOrders';
 export * from './404/404';

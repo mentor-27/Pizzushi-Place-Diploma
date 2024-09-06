@@ -3,20 +3,7 @@ import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Toaster } from 'react-hot-toast';
 
-import {
-	Authentication,
-	Registration,
-	Categories,
-	Category,
-	Checkout,
-	Dashboard,
-	Main,
-	NotFound,
-	Product,
-	DUsers,
-	DCategories,
-	DProducts,
-} from './pages';
+import * as pages from './pages';
 import { Container, Footer, Header } from './components';
 import { Drawer } from './components';
 import { Scroller } from './components/UI';
@@ -61,27 +48,28 @@ export const App = () => {
 						</>
 					}
 				>
-					<Route index element={<Main />} />
-					<Route path="/product/:id" element={<Product />} />
-					<Route path="/categories" element={<Categories />} />
-					<Route path="/categories/:slug" element={<Category />} />
-					<Route path="/checkout" element={<Checkout />} />
+					<Route index element={<pages.Main />} />
+					<Route path="/product/:id" element={<pages.Product />} />
+					<Route path="/categories" element={<pages.Categories />} />
+					<Route path="/categories/:slug" element={<pages.Category />} />
+					<Route path="/checkout" element={<pages.Checkout />} />
 					<Route
 						path="/login"
-						element={user?.id ? <Navigate to="/" /> : <Authentication />}
+						element={user?.id ? <Navigate to="/" /> : <pages.Authentication />}
 					/>
 					<Route
 						path="/registration"
-						element={user?.id ? <Navigate to="/" /> : <Registration />}
+						element={user?.id ? <Navigate to="/" /> : <pages.Registration />}
 					/>
-					<Route path="/404" element={<NotFound />} />
+					<Route path="/404" element={<pages.NotFound />} />
 					<Route path="*" element={<Navigate to="/404" />} />
 				</Route>
-				<Route path="/dashboard" element={<Dashboard />}>
-					<Route path="users" element={<DUsers />} />
-					<Route path="categories" element={<DCategories />} />
-					<Route path="products" element={<DProducts />} />
-					<Route path="*" element={<NotFound />} />
+				<Route path="/dashboard" element={<pages.Dashboard />}>
+					<Route path="users" element={<pages.DUsers />} />
+					<Route path="categories" element={<pages.DCategories />} />
+					<Route path="products" element={<pages.DProducts />} />
+					<Route path="orders" element={<pages.DOrders />} />
+					<Route path="*" element={<pages.NotFound />} />
 				</Route>
 			</Routes>
 			<Scroller />

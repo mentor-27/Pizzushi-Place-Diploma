@@ -7,7 +7,7 @@ import { ACTION_TYPE } from './actionTypes';
 export const loginAsync = (authData, navigate) => async dispatch => {
 	dispatch({ type: ACTION_TYPE.SET_APP_LOADING, payload: true });
 	try {
-		const { data, cart, roles, users, error } = await Api.auth.login(authData);
+		const { data, cart, roles, users, orders, error } = await Api.auth.login(authData);
 
 		if (error) {
 			localStorage.clear();
@@ -17,9 +17,11 @@ export const loginAsync = (authData, navigate) => async dispatch => {
 			return toast.error(error);
 		}
 
+		const isAuth = ROLES_AUTH_NUMBERS.includes(data.roleId);
+
 		localStorage.setItem('accessToken', data.accessToken);
 		localStorage.setItem('roleId', data.roleId);
-		localStorage.setItem('isAuth', ROLES_AUTH_NUMBERS.includes(data.roleId));
+		localStorage.setItem('isAuth', isAuth);
 
 		dispatch({
 			type: ACTION_TYPE.SET_USER,
@@ -31,9 +33,13 @@ export const loginAsync = (authData, navigate) => async dispatch => {
 			dispatch({ type: ACTION_TYPE.SET_CART, payload: cart });
 		}
 
-		if (roles && users) {
+		if (isAuth && roles && users) {
 			dispatch({ type: ACTION_TYPE.SET_ROLES, payload: roles });
 			dispatch({ type: ACTION_TYPE.SET_USERS, payload: users });
+		}
+
+		if (orders) {
+			dispatch({ type: ACTION_TYPE.SET_ORDERS, payload: orders });
 		}
 
 		navigate(-1);

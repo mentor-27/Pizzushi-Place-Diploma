@@ -11,6 +11,7 @@ const {
 } = require('../helpers/token');
 const { mergeCarts, getCart } = require('./cart');
 const ROLES = require('../constants/roles');
+const { getOrders } = require('./order');
 
 async function register(email, password, guestId = '') {
 	if (!email) {
@@ -22,14 +23,12 @@ async function register(email, password, guestId = '') {
 	}
 
 	const passwordHash = await bcrypt.hash(password, 10);
-
 	const user = await User.create({ email, password: passwordHash });
 
 	const tokens = generateToken({ id: user.id });
 	await saveToken(user.id, tokens.refreshToken);
 
 	await mergeCarts(tokens.refreshToken, guestId);
-
 	const cart = await getCart(tokens.refreshToken);
 
 	return { user, ...tokens, cart };
@@ -45,13 +44,11 @@ async function login(authId, password, guestId = '') {
 	}
 
 	const user = await User.findOne({ $or: [{ login: authId }, { email: authId }] });
-
 	if (!user) {
 		throw new Error('User not found');
 	}
 
 	const correctPassword = await bcrypt.compare(password, user.password);
-
 	if (!correctPassword) {
 		throw new Error('Wrong password');
 	}
@@ -60,16 +57,16 @@ async function login(authId, password, guestId = '') {
 	await saveToken(user._id, tokens.refreshToken);
 
 	await mergeCarts(tokens.refreshToken, guestId);
-
 	const cart = await getCart(tokens.refreshToken);
 
-	let roles, users;
+	let roles, users, orders;
 	if ([0, 1].includes(user.roleId)) {
 		roles = getRoles();
 		users = await getUsers();
+		orders = await getOrders();
 	}
 
-	return { user, ...tokens, cart, roles, users };
+	return { user, ...tokens, cart, roles, users, orders };
 }
 
 async function refresh(refreshToken) {
@@ -79,7 +76,6 @@ async function refresh(refreshToken) {
 
 	const userData = validateRefreshToken(refreshToken);
 	const dbToken = findToken(refreshToken);
-
 	if (!userData || !dbToken) {
 		throw new Error('Unauthorized');
 	}

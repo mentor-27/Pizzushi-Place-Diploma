@@ -1,11 +1,11 @@
 import { axiosInstance } from './instance';
 
 export const getMe = async () => {
-	return (await axiosInstance.get('/users/me'))?.data?.data;
+	return (await axiosInstance.get('/users/me')).data?.data;
 };
 
 export const getRoles = async () => {
-	return (await axiosInstance.get('/users/roles')).data.data;
+	return (await axiosInstance.get('/users/roles')).data?.data;
 };
 
 export const getUsers = async () => {

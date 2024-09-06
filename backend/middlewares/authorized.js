@@ -1,5 +1,5 @@
 module.exports = function (roles) {
-	return (err, req, res, next) => {
+	return (req, res, next) => {
 		if (!roles.includes(req.user?.roleId)) {
 			res.status(403).json({ error: 'Access denied' });
 

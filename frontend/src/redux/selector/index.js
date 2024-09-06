@@ -11,3 +11,4 @@ export * from './selectSortOrder';
 export * from './selectScroller';
 export * from './selectCurrentUser';
 export * from './selectAppLoading';
+export * from './selectOrders';

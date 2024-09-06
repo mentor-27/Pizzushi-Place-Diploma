@@ -63,6 +63,12 @@ export const Dashboard = () => {
 					>
 						Товары
 					</NavLink>
+					<NavLink
+						to="orders"
+						className={({ isActive }) => cls('dashboardMenuItem', { active: isActive })}
+					>
+						Заказы
+					</NavLink>
 				</div>
 			</Container>
 			<Container px={0} py={0} mx={0} width="100%" className={styles.dashboardContent}>

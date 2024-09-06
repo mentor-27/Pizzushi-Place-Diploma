@@ -1,0 +1,182 @@
+.orderCardContainer {
+	display: flex;
+	flex-direction: column;
+	background-color: var(--light0);
+	border-radius: 8px;
+}
+
+.orderCardHeader {
+	display: flex;
+	justify-content: space-between;
+	gap: 16px;
+}
+
+.orderCardTitle {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.orderCardDate {
+	color: var(--light50);
+}
+
+.orderCardExpander {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.orderCardStatus {
+	display: inline-flex;
+	align-items: center;
+	padding: 8px 16px;
+	border-radius: 16px;
+	background-color: #997c0b;
+	color: #f1c40f;
+
+	&.completed {
+		background-color: #1b8348;
+		color: #2fcb71;
+	}
+
+	&.canceled {
+		background-color: #922b21;
+		color: #e74c3c;
+	}
+}
+
+.orderCardExpanderButton {
+	background-color: transparent;
+	border: none;
+	color: var(--light100);
+
+	&:hover {
+		background-color: transparent;
+		border: none;
+	}
+
+	& .icon {
+		transition: 0.2s;
+	}
+
+	& .flipped {
+		transform: rotate(180deg);
+	}
+}
+
+.orderCardDetails {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	transition: 0.2s;
+}
+
+.orderCardDetailsSection {
+	display: flex;
+	align-items: flex-start;
+	gap: 16px;
+}
+
+.orderCardDetailsColumn {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: 16px;
+	border-radius: 16px;
+	background-color: var(--dark100);
+
+	&:last-of-type {
+		max-height: 300px;
+		overflow-y: auto;
+
+		&::-webkit-scrollbar {
+			width: 12px;
+			background-color: transparent;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			border: solid 2px var(--dark100);
+			border-radius: 0 12px 12px 0;
+			background-color: var(--light0);
+		}
+
+		&::-webkit-scrollbar-thumb:hover {
+			background-color: var(--light25);
+		}
+	}
+}
+
+.serviceSign {
+	color: var(--light50);
+}
+
+.orderCardUser {
+	display: flex;
+	align-items: baseline;
+	gap: 16px;
+}
+
+.orderCardRecipientInfo {
+	display: flex;
+	flex-direction: column;
+	margin-left: 16px;
+
+	& .name,
+	.phone,
+	.address {
+		display: inline-flex;
+		align-items: baseline;
+		gap: 16px;
+		margin-top: 8px;
+	}
+
+	& .comment {
+		display: inline-flex;
+		align-items: flex-start;
+		gap: 16px;
+		margin-top: 8px;
+	}
+}
+
+.orderCardProducts {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.orderCardProduct {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 8px;
+	padding-right: 16px;
+	gap: 16px;
+	width: 100%;
+	border-radius: 8px;
+	background-color: var(--dark50);
+
+	& .imageBlock {
+		width: 48px;
+		height: 48px;
+
+		& .image {
+			width: 100%;
+			margin: 3% 0 0 3%;
+		}
+	}
+}
+
+.orderCardTotal {
+	align-self: flex-end;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 16px;
+	margin-top: 16px;
+	padding: 8px 16px;
+	background-color: var(--dark100);
+	border-radius: 8px;
+	width: fit-content;
+}
