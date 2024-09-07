@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { register, login, logout, refresh } = require('../controllers/user');
+const { register, login, logout, refresh } = require('../controllers/User');
 const mapUser = require('../helpers/mapUser');
 const mapOrder = require('../helpers/mapOrder');
 const authenticated = require('../middlewares/authenticated');

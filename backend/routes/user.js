@@ -6,7 +6,7 @@ const {
 	editUser,
 	removeUser,
 	getRoles,
-} = require('../controllers/user');
+} = require('../controllers/User');
 const mapUser = require('../helpers/mapUser');
 const authenticated = require('../middlewares/authenticated');
 const authorized = require('../middlewares/authorized');

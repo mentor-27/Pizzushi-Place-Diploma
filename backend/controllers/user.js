@@ -9,9 +9,9 @@ const {
 	removeToken,
 	findToken,
 } = require('../helpers/token');
-const { mergeCarts, getCart } = require('./cart');
+const { mergeCarts, getCart } = require('./Cart');
 const ROLES = require('../constants/roles');
-const { getOrders } = require('./order');
+const { getOrders } = require('./Order');
 
 async function register(email, password, guestId = '') {
 	if (!email) {
