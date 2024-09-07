@@ -1,7 +1,7 @@
-export const SITE_URL = 'http://localhost:3000';
-export const API_URL = 'http://localhost:3001/api';
-// export const SITE_URL = 'http://91.186.198.154';
-// export const API_URL = 'http://91.186.198.154/api';
+// export const SITE_URL = 'http://localhost:3000';
+// export const API_URL = 'http://localhost:3001/api';
+export const SITE_URL = 'http://91.186.198.154';
+export const API_URL = 'http://91.186.198.154/api';
 export const CATEGORIES_PER_PAGE = 4;
 export const PRODUCTS_PER_MAIN_PAGE = 7;
 export const PRODUCTS_PER_CATEGORY_PAGE = 8;
