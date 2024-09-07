@@ -38,10 +38,6 @@ const OrderSchema = Schema(
 			email: String,
 			phone: {
 				type: String,
-				validate: {
-					validator: validator.isMobilePhone,
-					message: 'Invalid phone number',
-				},
 				required: true,
 			},
 			address: {

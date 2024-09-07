@@ -10,6 +10,7 @@ export const removeCartItemAsync = id => async dispatch => {
 		if (error) {
 			return toast.error(error);
 		}
+		console.log('removeCartItemAsync', data);
 		dispatch({ type: ACTION_TYPE.SET_CART, payload: data });
 	} catch (e) {
 		dispatch({ type: ACTION_TYPE.SET_CART_LOADING, payload: false });

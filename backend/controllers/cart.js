@@ -7,9 +7,10 @@ const { validateRefreshToken } = require('../helpers/token');
 async function getCart(refreshToken, guestId = '') {
 	const userId = refreshToken ? validateRefreshToken(refreshToken)?.id : null;
 
-	const cart = await Cart.findOne({
-		$or: [{ user: userId }, { guestId }],
-	}).populate('products.item', 'name description categoryId imageUrl price popularity');
+	const cart = await Cart.findOne(userId ? { user: userId } : { guestId }).populate(
+		'products.item',
+		'name description categoryId imageUrl price popularity',
+	);
 
 	return cart || {};
 }
@@ -95,7 +96,7 @@ async function mergeCarts(refreshToken, guestId) {
 async function removeProductFromCart(refreshToken, guestId, productId) {
 	const userId = refreshToken ? validateRefreshToken(refreshToken).id : null;
 
-	let cart = await Cart.findOne({ $or: [{ user: userId }, { guestId }] });
+	let cart = await Cart.findOne(userId ? { user: userId } : { guestId });
 
 	if (!cart) {
 		throw new Error('Cart not found');
