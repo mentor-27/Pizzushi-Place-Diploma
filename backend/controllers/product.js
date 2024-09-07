@@ -1,4 +1,4 @@
-const Product = require('../models/product');
+const Product = require('../models/Product');
 
 async function getItems(sortBy = 'popularity', sortOrder = -1) {
 	const products = await Product.find().sort({ [sortBy]: Number(sortOrder) });

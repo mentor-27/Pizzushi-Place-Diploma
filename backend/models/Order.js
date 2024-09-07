@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const Counter = require('./counter');
+const Counter = require('./Counter');
 const validator = require('validator');
 
 const OrderSchema = Schema(

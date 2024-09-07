@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
-const User = require('../models/user');
-const Token = require('../models/token');
+const User = require('../models/User');
+const Token = require('../models/Token');
 const {
 	generateToken,
 	validateAccessToken,
@@ -9,9 +9,9 @@ const {
 	removeToken,
 	findToken,
 } = require('../helpers/token');
-const { mergeCarts, getCart } = require('./Cart');
+const { mergeCarts, getCart } = require('./cart');
 const ROLES = require('../constants/roles');
-const { getOrders } = require('./Order');
+const { getOrders } = require('./order');
 
 async function register(email, password, guestId = '') {
 	if (!email) {

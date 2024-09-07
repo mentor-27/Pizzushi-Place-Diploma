@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { getOrders, removeOrder } = require('../controllers/Order');
+const { getOrders, removeOrder } = require('../controllers/order');
 const mapOrder = require('../helpers/mapOrder');
 const authenticated = require('../middlewares/authenticated');
 const authorized = require('../middlewares/authorized');

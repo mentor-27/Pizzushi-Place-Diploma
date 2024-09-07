@@ -8,7 +8,7 @@ const {
 	editAll,
 	editGroup,
 	// getItemsByQuery,
-} = require('../controllers/Product');
+} = require('../controllers/product');
 const mapProduct = require('../helpers/mapProduct');
 const authenticated = require('../middlewares/authenticated');
 const authorized = require('../middlewares/authorized');

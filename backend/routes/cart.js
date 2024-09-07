@@ -5,7 +5,7 @@ const {
 	removeProductFromCart,
 	clearCart,
 	cartCheckout,
-} = require('../controllers/Cart');
+} = require('../controllers/cart');
 
 const router = Router({ mergeParams: true });
 

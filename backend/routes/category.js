@@ -5,7 +5,7 @@ const {
 	addCategory,
 	editCategory,
 	removeCategory,
-} = require('../controllers/Category');
+} = require('../controllers/category');
 const mapCategory = require('../helpers/mapCategory');
 const authenticated = require('../middlewares/authenticated');
 const authorized = require('../middlewares/authorized');
