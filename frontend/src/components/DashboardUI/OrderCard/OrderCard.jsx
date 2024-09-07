@@ -1,20 +1,26 @@
 import { useRef, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ChevronDown } from 'lucide-react';
 import classNames from 'classnames/bind';
 
 import { selectProducts, selectUsers } from '../../../redux/selector';
 import { Button, Container, Title } from '../../UI';
 import { ORDER_STATUSES } from '../../../consts';
+import { deleteOrderAsync } from '../../../redux/actions';
 import styles from './OrderCard.module.css';
 
 const cls = classNames.bind(styles);
 
 export const OrderCard = order => {
+	const dispatch = useDispatch();
 	const [isExpanded, setIsExpanded] = useState();
 	const ref = useRef(null);
 	const { products } = useSelector(selectProducts);
 	const { users, roles } = useSelector(selectUsers);
+
+	const removeOrder = () => {
+		dispatch(deleteOrderAsync(order.id));
+	};
 
 	const thisOrderUser = order.user ? users.find(({ id }) => id === order.user) : 'Гость';
 	const thisOrderUserRole = roles.find(
@@ -120,9 +126,20 @@ export const OrderCard = order => {
 						</div>
 					</div>
 				</div>
-				<div className={styles.orderCardTotal}>
-					<Title fw={400} text="Итого:" />
-					<Title text={`${order.cart.totalPrice} ₽`} />
+				<div className={styles.orderCardBottom}>
+					<Button
+						px={20}
+						py={10}
+						outlined
+						className={styles.deleteButton}
+						onClick={removeOrder}
+					>
+						Удалить
+					</Button>
+					<div className={styles.orderCardTotal}>
+						<Title fw={400} text="Итого:" />
+						<Title text={`${order.cart.totalPrice} ₽`} />
+					</div>
 				</div>
 			</div>
 		</Container>

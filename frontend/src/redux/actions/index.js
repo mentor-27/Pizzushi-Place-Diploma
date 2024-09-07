@@ -22,3 +22,4 @@ export * from './editProductAsync';
 export * from './addProductAsync';
 export * from './deleteProductAsync';
 export * from './getOrdersAsync';
+export * from './deleteOrderAsync';

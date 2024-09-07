@@ -4,6 +4,24 @@
 	justify-content: space-between;
 	gap: 16px;
 	margin-bottom: 16px;
+
+	& .dProductsControlsButtons {
+		display: flex;
+		gap: 16px;
+	}
+}
+
+.loading {
+	animation: loading 1s infinite linear;
+}
+
+@keyframes loading {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
 
 .dProductsBlock {

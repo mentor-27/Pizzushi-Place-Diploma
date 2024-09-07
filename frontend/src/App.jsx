@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Toaster } from 'react-hot-toast';
 
 import * as pages from './pages';
+import { AuthRequired } from './hoc/AuthRequired';
 import { Container, Footer, Header } from './components';
 import { Drawer } from './components';
 import { Scroller } from './components/UI';
@@ -62,9 +63,17 @@ export const App = () => {
 						element={user?.id ? <Navigate to="/" /> : <pages.Registration />}
 					/>
 					<Route path="/404" element={<pages.NotFound />} />
+					<Route path="/403" element={<pages.Forbidden />} />
 					<Route path="*" element={<Navigate to="/404" />} />
 				</Route>
-				<Route path="/dashboard" element={<pages.Dashboard />}>
+				<Route
+					path="/dashboard"
+					element={
+						<AuthRequired>
+							<pages.Dashboard />
+						</AuthRequired>
+					}
+				>
 					<Route path="users" element={<pages.DUsers />} />
 					<Route path="categories" element={<pages.DCategories />} />
 					<Route path="products" element={<pages.DProducts />} />

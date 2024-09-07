@@ -10,6 +10,7 @@ const initialCurrentUserState = {
 	phone: null,
 	accessToken: localStorage.getItem('accessToken') || null,
 	roleId: null,
+	isAuth: false,
 	...(localStorage.getItem('accessToken') && (await Api.users.getMe())),
 };
 
@@ -29,7 +30,10 @@ export const currentUserReducer = (state = initialCurrentUserState, action) => {
 				phone: null,
 				accessToken: null,
 				roleId: null,
+				isAuth: false,
 			};
+		case ACTION_TYPE.SET_USER_AUTH:
+			return { ...state, isAuth: payload };
 		default:
 			return state;
 	}

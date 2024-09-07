@@ -1,13 +1,26 @@
 import { axiosInstance } from './instance';
+import toast from 'react-hot-toast';
 
 export const login = async data => {
-	return (await axiosInstance.post('/login', data)).data;
+	try {
+		return (await axiosInstance.post('/login', data))?.data;
+	} catch (e) {
+		toast.error(`Что-то пошло не так: ${e}`);
+	}
 };
 
 export const register = async data => {
-	return (await axiosInstance.post('/register', data)).data;
+	try {
+		return (await axiosInstance.post('/register', data))?.data;
+	} catch (e) {
+		toast.error(`Что-то пошло не так: ${e}`);
+	}
 };
 
 export const logout = async () => {
-	return (await axiosInstance.post('/logout')).data;
+	try {
+		return (await axiosInstance.post('/logout'))?.data;
+	} catch (e) {
+		toast.error(`Что-то пошло не так: ${e}`);
+	}
 };

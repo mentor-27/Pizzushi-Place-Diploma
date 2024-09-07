@@ -11,3 +11,4 @@ export * from './DCategories/DCategories';
 export * from './DProducts/DProducts';
 export * from './DOrders/DOrders';
 export * from './404/404';
+export * from './403/403';

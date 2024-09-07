@@ -1,4 +1,5 @@
-export const API_URL = 'http://localhost:3001';
+export const SITE_URL = 'http://localhost:3001';
+export const API_URL = 'http://localhost:3001/api';
 export const CATEGORIES_PER_PAGE = 4;
 export const PRODUCTS_PER_MAIN_PAGE = 7;
 export const PRODUCTS_PER_CATEGORY_PAGE = 8;

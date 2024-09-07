@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { RefreshCcw } from 'lucide-react';
+import { LoaderCircle, RefreshCw } from 'lucide-react';
 import classNames from 'classnames/bind';
 
 import { OrderCard } from '../../components/DashboardUI';
@@ -22,13 +22,13 @@ export const DOrders = () => {
 		<>
 			<div className={styles.dOrdersControls}>
 				<Title text="Список заказов" my="0 16px" />
-				<Button onClick={refreshOrders} disabled={loading}>
+				<Button px={20} py={10} onClick={refreshOrders} disabled={loading}>
 					Обновить
-					<RefreshCcw className={cls({ loading })} />
+					<RefreshCw className={cls({ loading })} />
 				</Button>
 			</div>
 			{loading ? (
-				<Title text={'Загрузка...'} />
+				<LoaderCircle size={64} className={cls({ loading })} />
 			) : (
 				orders.map(order => <OrderCard key={order.id} {...order} />)
 			)}

@@ -2,8 +2,8 @@ import { axiosInstance } from './instance';
 
 export const get = async () => {
 	try {
-		const resp = (await axiosInstance.get('/cart')).data;
-		if (resp.error) {
+		const resp = (await axiosInstance.get('/cart'))?.data;
+		if (resp?.error) {
 			throw new Error(resp.error);
 		}
 		return resp.data;

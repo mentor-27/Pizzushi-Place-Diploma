@@ -14,7 +14,7 @@ export const get = async () => {
 		if (resp.error) {
 			throw new Error(resp.error);
 		}
-		return resp.data;
+		return resp;
 	} catch (e) {
 		console.log(e);
 	}

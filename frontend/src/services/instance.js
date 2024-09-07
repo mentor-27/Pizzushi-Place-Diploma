@@ -17,14 +17,17 @@ axiosInstance.interceptors.response.use(
 	config => config,
 	async error => {
 		const originalRequest = error.config;
-		if (error.response.status === 401 && error.config && !error.config._retry) {
+		if (error.response?.status === 401 && error.config && !error.config?._retry) {
 			originalRequest._retry = true;
 			try {
-				const { data } = await axios.get(`${API_URL}/refresh`, { withCredentials: true });
-				localStorage.setItem('accessToken', data.data.accessToken);
+				const resp = (await axios.get(`${API_URL}/refresh`, { withCredentials: true }))
+					?.data;
+				localStorage.setItem('accessToken', resp.data.accessToken);
 				return axiosInstance.request(originalRequest);
 			} catch (e) {
-				console.log('Unauthorized');
+				localStorage.clear();
+				window.location.href = '/login';
+				toast.error('Session time expired');
 			}
 		}
 		toast.error(error.response.data.error);

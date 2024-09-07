@@ -36,6 +36,7 @@ export const loginAsync = (authData, navigate) => async dispatch => {
 		if (isAuth && roles && users) {
 			dispatch({ type: ACTION_TYPE.SET_ROLES, payload: roles });
 			dispatch({ type: ACTION_TYPE.SET_USERS, payload: users });
+			dispatch({ type: ACTION_TYPE.SET_USER_AUTH, payload: isAuth });
 		}
 
 		if (orders) {

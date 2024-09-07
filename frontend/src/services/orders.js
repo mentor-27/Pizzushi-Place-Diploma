@@ -13,5 +13,9 @@ export const get = async () => {
 };
 
 export const remove = async id => {
-	return (await axiosInstance.delete(`/orders/${id}`)).data;
+	try {
+		return (await axiosInstance.delete(`/orders/${id}`)).data;
+	} catch (e) {
+		console.log(e);
+	}
 };

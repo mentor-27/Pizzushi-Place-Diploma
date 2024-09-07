@@ -168,13 +168,28 @@
 	}
 }
 
-.orderCardTotal {
-	align-self: flex-end;
+.orderCardBottom {
 	display: flex;
 	align-items: center;
-	justify-content: flex-end;
-	gap: 16px;
+	justify-content: space-between;
 	margin-top: 16px;
+
+	& .deleteButton {
+		color: var(--accent25);
+		border-color: var(--accent25);
+
+		&:hover {
+			border-color: var(--accent75);
+			background-color: var(--accent75);
+			color: var(--dark0);
+		}
+	}
+}
+
+.orderCardTotal {
+	display: flex;
+	align-items: center;
+	gap: 16px;
 	padding: 8px 16px;
 	background-color: var(--dark100);
 	border-radius: 8px;

@@ -3,7 +3,7 @@ import { ACTION_TYPE } from '../actions';
 
 const initialProductsState = {
 	products: [],
-	...(await Api.products.get()),
+	...(await Api.products.get())?.data,
 	loading: false,
 };
 
