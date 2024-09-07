@@ -1,7 +1,7 @@
-const Product = require('../models/Product');
-const Cart = require('../models/Cart');
-const Order = require('../models/Order');
-const User = require('../models/User');
+const Product = require('../models/product');
+const Cart = require('../models/cart');
+const Order = require('../models/order');
+const User = require('../models/user');
 const { validateRefreshToken } = require('../helpers/token');
 
 async function getCart(refreshToken, guestId = '') {

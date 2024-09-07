@@ -10,15 +10,16 @@ const router = require('./routes');
 
 const app = express();
 
-const corsConfig = {
-	origin: 'http://localhost:3000',
-	credentials: true,
-};
+// for dev mode
+// const corsConfig = {
+// 	origin: 'http://localhost:3000',
+// 	credentials: true,
+// };
 
 app.use(express.static(path.resolve('..', 'frontend', 'build')));
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors(corsConfig));
+app.use(cors(/* corsConfig */));
 
 app.all('*', async (req, res, next) => {
 	try {

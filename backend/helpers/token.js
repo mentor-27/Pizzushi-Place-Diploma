@@ -1,6 +1,6 @@
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
-const Token = require('../models/Token');
+const Token = require('../models/token');
 
 const accessSign = process.env.JWT_ACCESS_SECRET;
 const refreshSign = process.env.JWT_REFRESH_SECRET;

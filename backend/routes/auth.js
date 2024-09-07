@@ -40,6 +40,7 @@ router.post('/login', async (req, res) => {
 				httpOnly: true,
 				maxAge: 30 * 24 * 60 * 60 * 1000,
 				// secure: true
+				// sameSite: 'strict',
 			})
 			.json({
 				data: { ...mapUser(user), accessToken },
