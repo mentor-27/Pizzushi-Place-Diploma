@@ -29,8 +29,10 @@ export const DOrders = () => {
 			</div>
 			{loading ? (
 				<LoaderCircle size={64} className={cls({ loading })} />
-			) : (
+			) : orders.length ? (
 				orders.map(order => <OrderCard key={order.id} {...order} />)
+			) : (
+				<Title text="Заказов пока нет" />
 			)}
 		</>
 	);

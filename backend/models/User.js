@@ -4,18 +4,15 @@ const ROLES = require('../constants/roles');
 
 const UserSchema = Schema(
 	{
-		login: {
-			type: String,
-			unique: true,
-		},
+		login: String,
 		email: {
 			type: String,
-			required: true,
-			unique: true,
 			validate: {
 				validator: validator.isEmail,
 				message: 'Invalid email',
 			},
+			required: true,
+			unique: true,
 		},
 		name: String,
 		surname: String,

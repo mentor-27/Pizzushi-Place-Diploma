@@ -3,7 +3,6 @@ import { axiosInstance } from './instance';
 export const get = async () => {
 	try {
 		const resp = (await axiosInstance.get('/cart'))?.data;
-		console.log('Api.cart.get', resp);
 		if (resp?.error) {
 			throw new Error(resp.error);
 		}

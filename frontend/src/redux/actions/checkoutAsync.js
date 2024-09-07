@@ -1,5 +1,6 @@
 import { Api } from '../../services/apiClient';
 import { ACTION_TYPE } from './actionTypes';
+import { clearCartAsync } from './clearCartAsync';
 import toast from 'react-hot-toast';
 
 export const checkoutAsync = (orderData, reset, navigate) => async dispatch => {

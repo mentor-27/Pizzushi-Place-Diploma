@@ -130,6 +130,11 @@ async function editUser(userId, data) {
 		throw new Error('User id is empty');
 	}
 
+	const isExist = await User.findOne({ login: data.login });
+	if (isExist && isExist._id.toString() !== userId && data.login) {
+		throw new Error('User with this login already exists');
+	}
+
 	const user = await User.findOneAndUpdate({ _id: userId }, data, {
 		new: true,
 		runValidators: true,

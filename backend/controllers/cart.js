@@ -161,7 +161,7 @@ async function cartCheckout(refreshToken, guestId, data) {
 		await User.findOneAndUpdate({ _id: userId }, { $push: { orders: newOrder._id } });
 	}
 
-	await Cart.deleteOne({ $or: [{ user: userId }, { guestId }] });
+	await Cart.deleteOne({ _id: cart._id });
 
 	return newOrder;
 }
