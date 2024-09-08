@@ -18,7 +18,14 @@ export const Dashboard = () => {
 	const roleName = roles.find(({ roleId }) => roleId === currentUser.roleId)?.name;
 
 	return (
-		<Block px={0} width="100%" overflow="hidden" className={styles.dashboardContainer}>
+		<Block
+			px={0}
+			width="100%"
+			overflow="hidden"
+			roundedTop
+			roundedBottom
+			className={styles.dashboardContainer}
+		>
 			<Block px={0} mx={0} py="16px 24px" width="25%" className={styles.dashboardSidebar}>
 				<Link to="/" className={styles.logoBlock}>
 					<img src={logo} alt="logo" height={32} width={32} />

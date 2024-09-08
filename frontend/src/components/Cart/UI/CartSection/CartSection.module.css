@@ -20,6 +20,7 @@
 .sectionContent {
 	max-height: 450px;
 	padding-right: 12px;
+	overflow-y: auto;
 
 	&::-webkit-scrollbar {
 		width: 12px;

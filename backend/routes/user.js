@@ -69,15 +69,20 @@ router.get(
 	},
 );
 
-router.put('/:id', authenticated, authorized([ROLES.ADMIN]), async (req, res) => {
-	try {
-		const user = await editUser(req.params.id, req.body);
+router.put(
+	'/:id',
+	authenticated,
+	authorized([ROLES.ADMIN, ROLES.MODERATOR]),
+	async (req, res) => {
+		try {
+			const user = await editUser(req.params.id, req.body);
 
-		res.json({ data: mapUser(user), error: null });
-	} catch (e) {
-		res.json({ error: e.message });
-	}
-});
+			res.json({ data: mapUser(user), error: null });
+		} catch (e) {
+			res.json({ error: e.message });
+		}
+	},
+);
 
 router.delete('/:id', authenticated, authorized([ROLES.ADMIN]), async (req, res) => {
 	try {
