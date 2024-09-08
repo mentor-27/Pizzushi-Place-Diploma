@@ -4,7 +4,7 @@ import { Search, LogOut, LogIn, MonitorCog } from 'lucide-react';
 import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames/bind';
 
-import { Container } from '../UI/Container/Container';
+import { Block } from '../UI/Block/Block';
 import { Button, Divider, Input, Title } from '../UI';
 import { selectToken, selectProducts, selectCurrentUser } from '../../redux/selector';
 import { logoutAsync } from '../../redux/actions';
@@ -34,7 +34,7 @@ export const Header = () => {
 
 	return (
 		<header className={styles.headerBlock}>
-			<Container
+			<Block
 				className={styles.headerContainer}
 				px="64px"
 				py="32px"
@@ -121,7 +121,7 @@ export const Header = () => {
 					)}
 					<CartButton />
 				</div>
-			</Container>
+			</Block>
 		</header>
 	);
 };

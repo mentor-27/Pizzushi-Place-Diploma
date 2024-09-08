@@ -63,35 +63,35 @@ router.post(
 	},
 );
 
-router.patch(
-	'/editgroup',
-	authenticated,
-	authorized([ROLES.ADMIN, ROLES.MODERATOR]),
-	async (req, res) => {
-		try {
-			const result = await editGroup(req.body.searchParam, req.body.updateData);
+// router.patch(
+// 	'/editgroup',
+// 	authenticated,
+// 	authorized([ROLES.ADMIN, ROLES.MODERATOR]),
+// 	async (req, res) => {
+// 		try {
+// 			const result = await editGroup(req.body.searchParam, req.body.updateData);
 
-			res.json({ data: result, error: null });
-		} catch (e) {
-			res.json({ error: e.message });
-		}
-	},
-);
+// 			res.json({ data: result, error: null });
+// 		} catch (e) {
+// 			res.json({ error: e.message });
+// 		}
+// 	},
+// );
 
-router.patch(
-	'/editall',
-	authenticated,
-	authorized([ROLES.ADMIN, ROLES.MODERATOR]),
-	async (req, res) => {
-		try {
-			const result = await editAll(req.body);
+// router.patch(
+// 	'/editall',
+// 	authenticated,
+// 	authorized([ROLES.ADMIN, ROLES.MODERATOR]),
+// 	async (req, res) => {
+// 		try {
+// 			const result = await editAll(req.body);
 
-			res.json({ data: result, error: null });
-		} catch (e) {
-			res.json({ error: e.message });
-		}
-	},
-);
+// 			res.json({ data: result, error: null });
+// 		} catch (e) {
+// 			res.json({ error: e.message });
+// 		}
+// 	},
+// );
 
 router.patch(
 	'/:id',

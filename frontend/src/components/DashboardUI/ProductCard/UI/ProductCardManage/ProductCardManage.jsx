@@ -4,7 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { LoaderCircle, Trash2, X } from 'lucide-react';
 import * as yup from 'yup';
 
-import { Button, Container, Input, Select, Title } from '../../../../UI';
+import { Button, Block, Input, Select, Title } from '../../../../UI';
 import { selectCategories, selectProducts } from '../../../../../redux/selector';
 import { mapProductCategory } from '../../../../../helpers';
 import {
@@ -67,7 +67,7 @@ export const ProductCardManage = ({ close, newProduct, ...product }) => {
 	};
 
 	return (
-		<Container
+		<Block
 			className={styles.productCardEdit}
 			py={32}
 			px={32}
@@ -146,6 +146,6 @@ export const ProductCardManage = ({ close, newProduct, ...product }) => {
 					{newProduct ? 'Добавить' : 'Сохранить'}
 				</Button>
 			</form>
-		</Container>
+		</Block>
 	);
 };

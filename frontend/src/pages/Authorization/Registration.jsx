@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
-import { Container } from '../../components';
+import { Block } from '../../components';
 import { Button, Divider, Input, Title } from '../../components/UI';
 import { registerAsync } from '../../redux/actions';
 import { selectAppLoading } from '../../redux/selector';
@@ -45,7 +45,7 @@ export function Registration() {
 	};
 
 	return (
-		<Container py="60px">
+		<Block py="60px">
 			<form className={styles.authBlock} onSubmit={handleSubmit(onSubmit)}>
 				<Title size="2xl" text="Регистрация" />
 				<Divider my="0 8px" color="var(--accent75)" />
@@ -81,6 +81,6 @@ export function Registration() {
 			<Link to="/login" className={styles.regLink}>
 				Вход
 			</Link>
-		</Container>
+		</Block>
 	);
 }

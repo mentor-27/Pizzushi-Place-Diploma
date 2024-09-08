@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
-import { Container } from '../UI';
+import { Block } from '../UI';
 import { CartAddress, CartItems, CartPerson, CartTotal } from './UI';
 import { selectCart, selectCurrentUser } from '../../redux/selector';
 import { checkoutAsync } from '../../redux/actions';
@@ -57,7 +57,7 @@ export const Cart = () => {
 	const disabled = cart.products.length === 0;
 
 	return (
-		<Container px="0" py="32px">
+		<Block px="0" py="32px">
 			<form onSubmit={handleSubmit(onSubmit)} className={styles.container}>
 				<div className={styles.dataBlock}>
 					<CartItems cart={cart} disabled={disabled} />
@@ -68,6 +68,6 @@ export const Cart = () => {
 					<CartTotal total={cart.totalPrice} disabled={disabled} />
 				</div>
 			</form>
-		</Container>
+		</Block>
 	);
 };

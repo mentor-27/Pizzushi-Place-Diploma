@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { LoaderCircle } from 'lucide-react';
 import * as yup from 'yup';
 
-import { Container } from '../../components';
+import { Block } from '../../components';
 import { Button, Divider, Input, Title } from '../../components/UI';
 import { loginAsync } from '../../redux/actions';
 import { selectAppLoading } from '../../redux/selector';
@@ -40,7 +40,7 @@ export function Authentication() {
 	};
 
 	return (
-		<Container py="60px">
+		<Block py="60px">
 			<form className={styles.authBlock} onSubmit={handleSubmit(onSubmit)}>
 				<Title size="2xl" text="Авторизация" />
 				<Divider my="0 8px" color="var(--accent75)" />
@@ -68,6 +68,6 @@ export function Authentication() {
 			<Link to="/registration" className={styles.regLink}>
 				Регистрация
 			</Link>
-		</Container>
+		</Block>
 	);
 }

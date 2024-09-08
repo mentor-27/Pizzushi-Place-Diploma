@@ -4,7 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { LoaderCircle, Trash2, X } from 'lucide-react';
 import * as yup from 'yup';
 
-import { Button, Container, Input, Select, Title } from '../../../../UI';
+import { Button, Block, Input, Select, Title } from '../../../../UI';
 import { selectRoleId, selectRoles, selectUsers } from '../../../../../redux/selector';
 import { deleteUserAsync, editUserAsync } from '../../../../../redux/actions';
 import { mapUserRole } from '../../../../../helpers';
@@ -63,7 +63,7 @@ export const UserCardEdit = ({ close, ...userData }) => {
 	const disabled = roleId === 1 && userData.roleId === 0;
 
 	return (
-		<Container
+		<Block
 			className={styles.userCardEdit}
 			py={32}
 			px={32}
@@ -169,6 +169,6 @@ export const UserCardEdit = ({ close, ...userData }) => {
 					Сохранить
 				</Button>
 			</form>
-		</Container>
+		</Block>
 	);
 };

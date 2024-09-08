@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 
-import { Container, ProductGroupList, TopBar } from '../../components';
+import { Block } from '../../components/UI';
+import { ProductGroupList, TopBar } from '../../components';
 import { Title } from '../../components/UI';
 import { selectCategories } from '../../redux/selector';
 import { CATEGORIES_PER_PAGE } from '../../consts';
@@ -11,27 +12,25 @@ export const Main = () => {
 
 	return (
 		<>
-			<Container px={64} py="40px 0" width="100%">
+			<Block px={64} py="40px 0" width="100%">
 				<Title size="xl" text="Все товары" />
-			</Container>
+			</Block>
 			<TopBar />
-			<Container my="36px 0">
-				<div className={styles.mainBlock}>
-					{loading ? (
-						<ProductGroupList title="Загрузка..." />
-					) : (
-						categories
-							?.slice(0, CATEGORIES_PER_PAGE)
-							.map(category => (
-								<ProductGroupList
-									key={category.id}
-									title={category.name}
-									category={category}
-								/>
-							))
-					)}
-				</div>
-			</Container>
+			<Block my="36px 0">
+				{loading ? (
+					<ProductGroupList title="Загрузка..." />
+				) : (
+					categories
+						?.slice(0, CATEGORIES_PER_PAGE)
+						.map(category => (
+							<ProductGroupList
+								key={category.id}
+								title={category.name}
+								category={category}
+							/>
+						))
+				)}
+			</Block>
 		</>
 	);
 };

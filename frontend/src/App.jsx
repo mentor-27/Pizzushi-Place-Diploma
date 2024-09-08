@@ -5,7 +5,8 @@ import { Toaster } from 'react-hot-toast';
 
 import * as pages from './pages';
 import { AuthRequired } from './hoc/AuthRequired';
-import { Container, Footer, Header } from './components';
+import { Footer, Header } from './components';
+import { Block } from './components/UI';
 import { Drawer } from './components';
 import { Scroller } from './components/UI';
 import { setScroller } from './redux/actions';
@@ -28,7 +29,7 @@ export const App = () => {
 	};
 
 	return (
-		<Container
+		<Block
 			className={styles.app}
 			roundedTop
 			roundedBottom
@@ -37,6 +38,7 @@ export const App = () => {
 			mx={16}
 			my={16}
 			width="calc(100% - 32px)"
+			overflow="visible"
 		>
 			<Routes>
 				<Route
@@ -83,6 +85,6 @@ export const App = () => {
 			</Routes>
 			<Scroller />
 			<Toaster toastOptions={{ className: styles.toaster, position: 'bottom-center' }} />
-		</Container>
+		</Block>
 	);
 };

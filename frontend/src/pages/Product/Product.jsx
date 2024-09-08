@@ -1,7 +1,7 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector, useStore } from 'react-redux';
 
-import { Container, ItemCounter } from '../../components';
+import { Block, ItemCounter } from '../../components';
 import { BackArrow, Button, Title } from '../../components/UI';
 import { ProductImageLoader, ProductDescriptionLoader } from './UI';
 import { addCartItemAsync } from '../../redux/actions';
@@ -30,7 +30,7 @@ export const Product = () => {
 	if (!product) return <Navigate to="/404" />;
 
 	return (
-		<Container className={styles.productContainer} px="64px" py="40px">
+		<Block className={styles.productContainer} px="64px" py="40px">
 			<BackArrow />
 			<div className={styles.productBlock}>
 				{loading ? (
@@ -73,6 +73,6 @@ export const Product = () => {
 					)}
 				</div>
 			</div>
-		</Container>
+		</Block>
 	);
 };

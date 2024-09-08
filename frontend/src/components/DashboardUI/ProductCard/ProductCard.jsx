@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Pencil } from 'lucide-react';
 
-import { Button, Container, Title } from '../../UI';
+import { Button, Block, Title } from '../../UI';
 import { Modal } from '../../Modal/Modal';
 import { ProductCardManage } from './UI';
 import styles from './ProductCard.module.css';
@@ -11,7 +11,7 @@ export const ProductCard = product => {
 	const [isEditing, setIsEditing] = useState(false);
 
 	return (
-		<Container px={16} py={16} mx={0} className={styles.productCardContainer}>
+		<Block px={16} py={16} mx={0} className={styles.productCardContainer}>
 			<div className={styles.productCardImgBlock}>
 				<img src={imageUrl} alt={name} />
 			</div>
@@ -51,6 +51,6 @@ export const ProductCard = product => {
 					/>
 				</Modal>
 			</div>
-		</Container>
+		</Block>
 	);
 };

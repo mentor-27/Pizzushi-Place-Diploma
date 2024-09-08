@@ -1,6 +1,6 @@
 export * from './Header/Header';
 export * from './Footer/Footer';
-export * from './UI/Container/Container';
+export * from './UI/Block/Block';
 export * from './TopBar/TopBar';
 export * from './Filters/Filters';
 export * from './ProductCard/ProductCard';

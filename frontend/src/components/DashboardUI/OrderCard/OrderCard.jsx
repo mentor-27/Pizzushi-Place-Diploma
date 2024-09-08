@@ -4,7 +4,7 @@ import { ChevronDown } from 'lucide-react';
 import classNames from 'classnames/bind';
 
 import { selectProducts, selectUsers } from '../../../redux/selector';
-import { Button, Container, Title } from '../../UI';
+import { Button, Block, Title } from '../../UI';
 import { ORDER_STATUSES } from '../../../consts';
 import { deleteOrderAsync } from '../../../redux/actions';
 import styles from './OrderCard.module.css';
@@ -33,7 +33,7 @@ export const OrderCard = order => {
 	}));
 
 	return (
-		<Container px={16} py={16} my="0 16px" className={styles.orderCardContainer}>
+		<Block px={16} py={16} my="0 16px" className={styles.orderCardContainer}>
 			<div className={styles.orderCardHeader}>
 				<div className={styles.orderCardTitle}>
 					<Title text={`Заказ #${order.orderNumber}`} />
@@ -142,6 +142,6 @@ export const OrderCard = order => {
 					</div>
 				</div>
 			</div>
-		</Container>
+		</Block>
 	);
 };

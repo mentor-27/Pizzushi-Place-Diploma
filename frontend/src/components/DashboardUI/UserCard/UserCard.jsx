@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { CircleUserRound, Pencil } from 'lucide-react';
 
 import { Modal } from '../../../components';
-import { Button, Container, Title } from '../../UI';
+import { Button, Block, Title } from '../../UI';
 import { UserCardEdit } from './UI';
 import { selectRoleId, selectRoles } from '../../../redux/selector';
 import styles from './UserCard.module.css';
@@ -20,7 +20,7 @@ export const UserCard = user => {
 		user.email;
 
 	return (
-		<Container px={12} py={12} mx={0} className={styles.userCardContainer}>
+		<Block px={12} py={12} mx={0} className={styles.userCardContainer}>
 			<div className={styles.userCardPersonalInfo}>
 				<div className={styles.userCardImgBlock}>
 					{user.avatar ? (
@@ -45,6 +45,6 @@ export const UserCard = user => {
 			<Modal open={isEditing} close={() => setIsEditing(false)}>
 				<UserCardEdit {...user} close={() => setIsEditing(false)} />
 			</Modal>
-		</Container>
+		</Block>
 	);
 };

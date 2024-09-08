@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useMatch } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import { Container, ProductCard } from '../../components';
+import { Block, ProductCard } from '../../components';
 import { ProductCardLoader } from '../../components/ProductCard/UI';
 import { BackArrow, Divider, Title } from '../../components/UI';
 import { Pagination } from '../../components/';
@@ -28,7 +28,7 @@ export const Category = () => {
 		categories.find(({ slug }) => slug === categorySlug)?.name || 'Загрузка...';
 
 	return (
-		<Container py="40px">
+		<Block py="40px">
 			<div className={styles.titleBlock}>
 				<BackArrow />
 				<Title size="xl" text={name} />
@@ -50,6 +50,6 @@ export const Category = () => {
 					/>
 				</>
 			)}
-		</Container>
+		</Block>
 	);
 };

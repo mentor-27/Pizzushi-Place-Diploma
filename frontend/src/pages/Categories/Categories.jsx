@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { BackArrow, Title } from '../../components/UI';
-import { CategoryCard, Container } from '../../components';
+import { CategoryCard, Block } from '../../components';
 import { selectCategories, selectProducts } from '../../redux/selector';
 import styles from './Categories.module.css';
 
@@ -25,7 +25,7 @@ export const Categories = () => {
 	const mappedCategories = categories.filter(({ slug }) => !emptySlug.includes(slug));
 
 	return (
-		<Container py="40px">
+		<Block py="40px">
 			<div className={styles.titleBlock}>
 				<BackArrow />
 				<Title size="xl" text="Все категории" />
@@ -41,6 +41,6 @@ export const Categories = () => {
 					</Link>
 				))}
 			</div>
-		</Container>
+		</Block>
 	);
 };

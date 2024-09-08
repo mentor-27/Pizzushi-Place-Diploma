@@ -1,4 +1,4 @@
-export * from './Container/Container';
+export * from './Block/Block';
 export * from './Button/Button';
 export * from './Input/Input';
 export * from './Title/Title';

@@ -4,7 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { LoaderCircle, Trash2, X } from 'lucide-react';
 import * as yup from 'yup';
 
-import { Button, Container, Input, Title } from '../../../../UI';
+import { Button, Block, Input, Title } from '../../../../UI';
 import { selectCategories } from '../../../../../redux/selector';
 import {
 	addCategoryAsync,
@@ -54,7 +54,7 @@ export const CategoryCardManage = ({ close, newCategory, ...category }) => {
 	};
 
 	return (
-		<Container
+		<Block
 			className={styles.categoryCardEdit}
 			py={32}
 			px={32}
@@ -112,6 +112,6 @@ export const CategoryCardManage = ({ close, newCategory, ...category }) => {
 					{newCategory ? 'Создать' : 'Сохранить'}
 				</Button>
 			</form>
-		</Container>
+		</Block>
 	);
 };

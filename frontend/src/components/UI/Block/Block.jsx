@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 
-import styles from './Container.module.css';
+import styles from './Block.module.css';
 
 /**
  * A reusable container component that wraps its children in a div element.
@@ -16,7 +16,7 @@ import styles from './Container.module.css';
  * @param {boolean} roundedBottom - Whether to apply a rounded bottom corner to the container (default: false).
  * @param {boolean} overflow - Whether to hide the overflow of the container (default: false).
  */
-export const Container = ({
+export const Block = ({
 	className,
 	children,
 	px = 64,
