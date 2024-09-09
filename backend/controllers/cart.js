@@ -115,16 +115,16 @@ async function removeProductFromCart(refreshToken, guestId, productId) {
 
 async function clearCart(refreshToken, guestId) {
 	const userId = refreshToken ? validateRefreshToken(refreshToken).id : null;
-	const cart = await Cart.findOne({ $or: [{ user: userId }, { guestId }] });
+	const cart = await Cart.findOne(userId ? { user: userId } : { guestId });
 
 	if (!cart) {
 		throw new Error('Cart not found');
 	}
 
-	return Cart.updateOne(
-		{ $or: [{ user: userId }, { guestId }] },
-		{ products: [], totalPrice: 0 },
-	);
+	return Cart.updateOne(userId ? { user: userId } : { guestId }, {
+		products: [],
+		totalPrice: 0,
+	});
 }
 
 async function cartCheckout(refreshToken, guestId, data) {

@@ -70,7 +70,7 @@ router.delete('/:productId', async (req, res) => {
 
 router.delete('/', async (req, res) => {
 	try {
-		const data = await clearCart();
+		const data = await clearCart(req.cookies.refreshToken, req.cookies.guestId);
 
 		res.json({ data, error: null });
 	} catch (e) {
