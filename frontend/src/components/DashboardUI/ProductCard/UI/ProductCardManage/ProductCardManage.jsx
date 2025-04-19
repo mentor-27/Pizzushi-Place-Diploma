@@ -18,7 +18,7 @@ const editSchema = yup.object().shape({
 	name: yup.string().required('Введите название'),
 	description: yup.string().optional(),
 	category: yup.object().required('Выберите категорию'),
-	imageUrl: yup.string().required('Введите URL изображения'),
+	image: yup.string().required('Введите URL изображения'),
 	price: yup.number().required('Введите цену'),
 });
 
@@ -40,7 +40,7 @@ export const ProductCardManage = ({ close, newProduct, ...product }) => {
 			name: newProduct ? '' : product.name,
 			description: newProduct ? '' : product.description,
 			category: newProduct ? '' : mapProductCategory(product.category),
-			imageUrl: newProduct ? '' : product.imageUrl,
+			image: newProduct ? '' : product.imageUrl,
 			price: newProduct ? '' : product.price,
 		},
 		resolver: yupResolver(editSchema),
@@ -111,10 +111,10 @@ export const ProductCardManage = ({ close, newProduct, ...product }) => {
 						)}
 					/>
 					<Input
-						label="Ссылка на изображение"
+						label="Изображение товара"
 						err={errors.imageUrl?.message}
-						type="url"
-						{...register('imageUrl')}
+						type="file"
+						{...register('image')}
 						required
 					/>
 				</div>
